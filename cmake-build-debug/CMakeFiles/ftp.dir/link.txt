@@ -1,1 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/c++   -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/ftp.dir/src/client.c.o CMakeFiles/ftp.dir/src/server.c.o CMakeFiles/ftp.dir/twochar.cpp.o  -o ftp 
