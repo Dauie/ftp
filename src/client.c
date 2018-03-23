@@ -69,6 +69,29 @@ static void verify_request(struct sockaddr_in *server_address, char *address, ch
 	server_address->sin_port = htons(prt);
 };
 
+void	client_shell(int client_socket)
+{
+	char *buffer;
+
+    buffer = NULL;
+	while (1)
+	{
+		write(1, "(^-^)> ", 7);
+		if (gnl(0, &buffer) < 0)
+            break;
+		if (ft_strcmp(buffer, "quit") == 0)
+            break;
+        send(client_socket, buffer, ft_strlen((const char *)&buffer), 0);
+        if (recv(client_socket, buffer, 1024, 0) < 0)
+            ft_printf("[-]Error receiving data from server (-.-)\n");
+        else
+            ft_printf("%s\n", buffer);
+	}
+    printf("[-]Disconnected from server\n");
+    free(buffer);
+    close(client_socket);
+}
+
 int		main(int ac, char **av)
 {
 	struct sockaddr_in server_address;
@@ -84,14 +107,15 @@ int		main(int ac, char **av)
 	verify_request(&server_address, av[1], av[2]);
 	if (!(client_socket = socket(AF_INET, SOCK_STREAM, 0)))
 	{
-		printf("[-]Error establishing socket\n");
+		printf("[-]Error establishing socket (-.-)\n");
 		exit(1);
 	}
 	printf("[+]Client socket created\n");
 	if (!(connect(client_socket, (struct sockaddr*)&server_address, sizeof(server_address))))
 	{
-		printf("[-]Error connecting to %s on port %s\n", av[1], av[2]);
+		printf("[-]Error connecting to %s on port %s (-.-)\n", av[1], av[2]);
 		exit(1);
 	}
 	printf("[+]Successfully connected to %s on port %s\n", av[1], av[2]);
+	client_shell(client_socket);
 }

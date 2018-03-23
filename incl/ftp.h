@@ -13,9 +13,10 @@
 #include "../libft/incl/str.h"
 #include "../libft/incl/mem.h"
 #include "../libft/incl/cnvrsn.h"
+#include "../libft/incl/gnl.h"
 
 
-# define CMD_PORT 21
+# define CMD_PORT 5441
 # define DATA_PORT 20
 
 
