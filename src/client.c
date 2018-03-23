@@ -81,7 +81,7 @@ void	client_shell(int client_socket)
             break;
 		if (ft_strcmp(buffer, "quit") == 0)
             break;
-        send(client_socket, buffer, ft_strlen((const char *)&buffer), 0);
+        send(client_socket, buffer, ft_strlen(buffer), 0);
         if (recv(client_socket, buffer, 1024, 0) < 0)
             ft_printf("[-]Error receiving data from server (-.-)\n");
         else

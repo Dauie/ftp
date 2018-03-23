@@ -34,7 +34,7 @@ int     main(void)
     if (listen(server_socket, 10) == 0)
         printf("[+]Awaiting request...\n");
     else
-        printf("[-]Error in binding\n");
+        printf("[-]Error in binding port %d may be in use\n", CMD_PORT);
     while (1)
     {
         new_socket = accept(server_socket, (struct sockaddr*)&new_address, &addr_size);
@@ -43,17 +43,21 @@ int     main(void)
         printf("[+]Connection accepted from %s:%d", inet_ntoa(new_address.sin_addr), ntohs(new_address.sin_port));
         if ((child_pid = fork()) == 0)
         {
-            recv(new_socket, buffer, 1024, 0);
-            if (ft_strcmp((const char *)&buffer, "quit" ))
+            close(server_socket);
+            while (1)
             {
-                printf("Host from %s:%d has disconnected\n", inet_ntoa(new_address.sin_addr), ntohs(new_address.sin_port));
-                break;
-            }
-            else
-            {
-                printf("%s", buffer);
-                send(new_socket, buffer, strlen((const char*)&buffer), 0);
-                ft_bzero(&buffer, 1024);
+                recv(new_socket, buffer, 1024, 0);
+                if (ft_strcmp((const char *)&buffer, "quit" ))
+                {
+                    printf("Host from %s:%d has disconnected\n", inet_ntoa(new_address.sin_addr), ntohs(new_address.sin_port));
+                    break;
+                }
+                else
+                {
+                    printf("%s", buffer);
+                    send(new_socket, buffer, strlen(buffer), 0);
+                    ft_bzero(&buffer, 1024);
+                }
             }
         }
     }
