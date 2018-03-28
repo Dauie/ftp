@@ -139,8 +139,8 @@ int main(int ac, char **av)
 					{
 						printf("%s", buff);
 						send(csockets[i], buff, strlen(buff), 0);
-						ft_bzero(&buff, 1024);
 					}
+					ft_bzero(&buff, 1024);
 				}
 			}
 		}

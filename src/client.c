@@ -23,11 +23,11 @@ static void	client_shell(int client_socket)
 		if (ft_strcmp(buffer, "quit") == 0)
 			break;
 		if (recv(client_socket, buffer, 1024, 0) < 0)
-			ft_printf("[-]Error receiving data from server (-.-)\n");
+			printf("[-]Error receiving data from server (-.-)\n");
 		if (buffer[0] == '\n' || buffer[0] == '\r')
 			write(1, "\n", 1);
 		else
-			ft_printf("%s\n", buffer);
+			printf("%s\n", buffer);
 		free(buffer);
 	}
 	printf("[-]Disconnected from server\n");
