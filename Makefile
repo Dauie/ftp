@@ -1,30 +1,34 @@
 
-SVR_NAME = server
-
-CLI_NAME = client 
-
 CC = gcc
 
+CCFLAGS = -Wall -Werror -Wextra -g -fsanitize=address -O0
 
-CCFLAGS = -Wall -Werror -Wextra -g -fsanitize=address -O0 -shared
+SVR_SRC =  src/server.c
 
-SRC = src/allocator.c src/malloc.c src/free.c src/realloc.c src/calloc.c src/struct_init.c src/find_block.c \
-        src/show_alloc_mem.c src/optimize.c src/utility.c
+CLI_SRC = src/client.c
 
 OBJ = *.o
 
 RM = -rm -fr
 
-$(NAME):
+all:
 		$(MAKE) -C ./libft/ re
-		$(CC) $(CCFLAGS) $(SRC) ./libft/libftprintf.a -o $(NAME)
-		ln -s $(NAME) libft_malloc.so
+		$(CC) $(CCFLAGS) $(CLI_SRC) ./libft/libftprintf.a -o client
+		$(CC) $(CCFLAGS) $(SVR_SRC) ./libft/libftprintf.a -o server
 
+
+client:
+		$(CC) $(CCFLAGS) $(CLI_SRC) ./libft/libftprintf.a -o client
+
+server:
+		$(CC) $(CCFLAGS) $(SVR_SRC) ./libft/libftprintf.a -o server
 clean:
 		$(RM) $(OBJ)
 
 fclean: clean
-		$(RM) $(NAME)
-		$(RM) libft_malloc.so
+		$(RM) server
+		$(RM) client
+		$(RM) server.dSYM
+		$(RM) client.dSYM
 
-re: fclean $(NAME)
+re: fclean all

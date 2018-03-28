@@ -10,14 +10,27 @@
 #include <signal.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <sys/time.h>
 #include "../libft/incl/str.h"
 #include "../libft/incl/mem.h"
 #include "../libft/incl/cnvrsn.h"
 #include "../libft/incl/gnl.h"
 
 
-# define CMD_PORT 5441
+# define CMD_PORT 4222
 # define DATA_PORT 20
-
+# define MAX_CLIENTS 42
 
 #endif
+
+/*
+ *
+ * FD_SET structure description
+
+typedef struct 		fd_set
+{
+ 	u_int  fd_count;
+ 	SOCKET fd_array[FD_SETSIZE]; (FD_SETSIZE == 1024)
+} 					fd_set;
+
+ **/
