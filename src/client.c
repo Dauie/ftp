@@ -53,7 +53,7 @@ static int create_client(char *addr, int port)
 	sin.sin_addr.s_addr = inet_addr(addr);
 	if (connect(sock, (const struct sockaddr *)&sin, sizeof(sin)) == -1)
 	{
-		printf("[-]Error connecting to %s:%d\n", addr, port);
+		printf("[-]Error connecting to %s:%d ...(-.-)\n", addr, port);
 		exit(2);
 	}
 	printf("[+]Successfully connected to %s:%d\n", addr, port);

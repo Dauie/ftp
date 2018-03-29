@@ -47,7 +47,7 @@ int     create_server(int port)
  * */
 void	init_csockets(int *array, size_t length)
 {
-	while (length > 0)
+	while (length-- > 0)
 		array[length] = 0;
 }
 
@@ -80,72 +80,83 @@ void	add_active_sd(int *sockets, int sd, int length)
 	}
 }
 
-int main(int ac, char **av)
+
+static void     close_client_connection(t_session *session, int i)
+{
+    printf("[+]Host has disconnected from socket %d\n", session->csockets[i]);
+    close(session->csockets[i]);
+    session->csockets[i] = 0;
+}
+
+static void     act_accordingly(t_session *session, int i)
 {
 
-    int port;
+    if (ft_strcmp((const char *)&session->buff, "quit" ) == 0)
+        close_client_connection(session, i);
+    else if (ft_strncmp((const char *)&session->buff, "ls", 2) == 0)
+    {
+        ftp_ls();
+    }
+    else
+    {
+        send(session->csockets[i], session->buff, strlen(session->buff), 0);
+        ft_bzero(&session->buff, 1024);
+    }
+}
 
-    int sock;
-    int cs;
-	int max_sd;
-	int csockets[MAX_CLIENTS];
-    unsigned int cslen;
-    struct sockaddr_in  csin;
-    ssize_t ret;
-	fd_set readfds;
-    char buff[1024];
+static void    manage_incoming_data(t_session *session)
+{
+    int i = -1;
+    while (++i < MAX_CLIENTS)
+    {
+        if (FD_ISSET(session->csockets[i], &session->readfds))
+        {
+            if (!(read(session->csockets[i], session->buff, 1023)))
+                continue;
+            act_accordingly(session, i);
+        }
+    }
+}
+
+static void    run_session(t_session *session)
+{
+    while (TRUE)
+    {
+        ft_bzero(&session->buff, 1024);
+        FD_ZERO(&session->readfds);
+        FD_SET(session->sock, &session->readfds);
+        session->max_sd = session->sock;
+        add_child_sockets(&session->max_sd, MAX_CLIENTS, (int*)&session->csockets, &session->readfds);
+        if ((select( session->max_sd + 1 , &session->readfds , NULL , NULL , NULL)) < 0 && (h_errno != EINTR))
+            printf("[-]Error with select()\n");
+        if (FD_ISSET(session->sock, &session->readfds))
+        {
+            if (!(session->cs = accept(session->sock, (struct sockaddr*)&session->csin, &session->cslen)))
+            {
+                printf("[-]Error accepting connection.");
+                break;
+            }
+            add_active_sd((int*)&session->csockets, session->cs, MAX_CLIENTS);
+            printf("[+]New connection accepted from %s:%d on sd %d\n",
+                   inet_ntoa(session->csin.sin_addr), ntohs(session->csin.sin_port), session->cs);
+        }
+        else
+            manage_incoming_data(session);
+    }
+}
+
+int main(int ac, char **av)
+{
+    t_session session;
 
     if (ac != 2)
         usage(av[0]);
-    port = atoi(av[1]);
-    sock = create_server(port);
-	cslen = sizeof(csin);
-    while (TRUE)
-    {
-		FD_ZERO(&readfds);
-		FD_SET(sock, &readfds);
-		max_sd = sock;
-		add_child_sockets(&max_sd, MAX_CLIENTS, (int*)&csockets, &readfds);
-		if ((select( max_sd + 1 , &readfds , NULL , NULL , NULL)) < 0 && (h_errno != EINTR))
-			printf("[-]Error with select()\n");
-
-		if (FD_ISSET(sock, &readfds))
-		{
-			if (!(cs = accept(sock, (struct sockaddr*)&csin, (socklen_t*)&cslen)))
-			{
-				printf("[-]Error accepting connection.");
-				break;
-			}
-			add_active_sd((int*)&csockets, cs, MAX_CLIENTS);
-			printf("[+]New connection accepted from %s:%d on sd %d\n", inet_ntoa(csin.sin_addr), ntohs(csin.sin_port), cs);
-		}
-		else
-		{
-			int i = -1;
-			while (++i < MAX_CLIENTS)
-			{
-				if (FD_ISSET(csockets[i], &readfds))
-				{
-					if (!(ret = read(csockets[i], buff, 1023)))
-						continue;
-					buff[ret] = '\0';
-					if (ft_strcmp((const char *)&buff, "quit" ) == 0)
-					{
-						printf("[+]Host has disconnected from socket %d\n", csockets[i]);
-						close(csockets[i]);
-						csockets[i] = 0;
-					}
-					else
-					{
-						printf("%s", buff);
-						send(csockets[i], buff, strlen(buff), 0);
-					}
-					ft_bzero(&buff, 1024);
-				}
-			}
-		}
-    }
-	close(cs); // need to close all sockets.
-    close(sock); //close master socket.
+    session.port = atoi(av[1]);
+    session.sock = create_server(session.port);
+    session.cslen = sizeof(session.csin);
+    init_csockets((int*)&session.csockets, MAX_CLIENTS);
+    run_session(&session);
+	close(session.cs);
+    close(session.sock);
     return(0);
 }

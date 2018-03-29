@@ -21,6 +21,19 @@
 # define DATA_PORT 20
 # define MAX_CLIENTS 42
 
+typedef struct          s_session
+{
+    int                 port;
+    int                 sock;
+    int                 cs;
+    int                 max_sd;
+    int                 csockets[MAX_CLIENTS];
+    unsigned int        cslen;
+    struct sockaddr_in  csin;
+    fd_set readfds;
+    char buff[1024];
+}                           t_session;
+
 #endif
 
 /*
