@@ -95,7 +95,7 @@ static void     act_accordingly(t_session *session, int i)
         close_client_connection(session, i);
     else if (ft_strncmp((const char *)&session->buff, "ls", 2) == 0)
     {
-        ftp_ls();
+       ;
     }
     else
     {
