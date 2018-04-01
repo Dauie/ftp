@@ -108,10 +108,10 @@ static int		redirect_output_tosock(t_session *session, int i)
 	return (EXIT_SUCCESS);
 }
 
-static int 		ftp_cd(t_session *session, int i)
-{
-
-}
+//static int 		ftp_cd(t_session *session, int i)
+//{
+//
+//}
 
 static int		ftp_ls(t_session * session, int i)
 {
@@ -146,6 +146,11 @@ static int		ftp_ls(t_session * session, int i)
 	return (EXIT_SUCCESS);
 }
 
+int             ftp_cd(t_session *session, int i)
+{
+
+}
+
 static void     act_accordingly(t_session *session, int i)
 {
 
@@ -153,9 +158,11 @@ static void     act_accordingly(t_session *session, int i)
 	{
 		close_client_connection(session, i);
 	}
-	else if (ft_strncmp((const char *)&session->buff, "ls", 2) == 0)
+    else if (ft_strncmp((const char *)&session->buff, "ls", 2) == 0)
 		ftp_ls(session, i);
-	send(session->csockets[i], session->buff, strlen(session->buff), 0);
+    else if (ft_strncmp((const char *)&session->buff, "cd", 2) == 0)
+        ftp_cd(session, i);
+    send(session->csockets[i], session->buff, strlen(session->buff), 0);
 	ft_bzero(&session->buff, 1024);
 }
 

@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = "/Users/dauie/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4127.32/CLion.app/Contents/bin/cmake/bin/cmake"
+CMAKE_COMMAND = /home/dauie/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = "/Users/dauie/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/173.4127.32/CLion.app/Contents/bin/cmake/bin/cmake" -E remove -f
+RM = /home/dauie/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/dauie/code/ftp
+CMAKE_SOURCE_DIR = /home/dauie/code/ftp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/dauie/code/ftp/cmake-build-debug
+CMAKE_BINARY_DIR = /home/dauie/code/ftp/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/ftp.dir/depend.make
@@ -66,6 +66,6 @@ CMakeFiles/ftp.dir/clean:
 .PHONY : CMakeFiles/ftp.dir/clean
 
 CMakeFiles/ftp.dir/depend:
-	cd /Users/dauie/code/ftp/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/dauie/code/ftp /Users/dauie/code/ftp /Users/dauie/code/ftp/cmake-build-debug /Users/dauie/code/ftp/cmake-build-debug /Users/dauie/code/ftp/cmake-build-debug/CMakeFiles/ftp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/dauie/code/ftp/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dauie/code/ftp /home/dauie/code/ftp /home/dauie/code/ftp/cmake-build-debug /home/dauie/code/ftp/cmake-build-debug /home/dauie/code/ftp/cmake-build-debug/CMakeFiles/ftp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ftp.dir/depend
 

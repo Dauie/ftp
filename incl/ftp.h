@@ -1,21 +1,24 @@
 #ifndef FTP_H
 #define FTP_H
 
-#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <errno.h>
 #include <fcntl.h>
 #include <netdb.h>
-#include <sys/types.h>
-#include <arpa/inet.h>
-#include <sys/mman.h>
 #include <signal.h>
-#include <stdio.h>
 #include <stdbool.h>
+#include <stdio.h>
+#include <sys/mman.h>
+#include <sys/resource.h>
+#include <sys/socket.h>
 #include <sys/time.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
 #include "../libft/incl/str.h"
 #include "../libft/incl/mem.h"
 #include "../libft/incl/cnvrsn.h"
 #include "../libft/incl/gnl.h"
-
 
 # define CMD_PORT 4222
 # define DATA_PORT 20
@@ -28,12 +31,10 @@ typedef struct          s_session
     int                 port;
     int                 sock;
     int                 cs;
-    int                 max_sd;
-    int                 csockets[MAX_CLIENTS];
     unsigned int        cslen;
     struct sockaddr_in  csin;
-    fd_set 				readfds;
     char 				buff[1024];
+    char                **env;
 }                       t_session;
 
 #endif
