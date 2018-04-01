@@ -4,7 +4,7 @@
 void    usage(char *str)
 {
     printf("Useage: %s <port>\n", str);
-    exit(-1);
+    exit(EXIT_FAIL);
 }
 
 int     create_server(int port)
@@ -17,11 +17,11 @@ int     create_server(int port)
     sock = 0;
     proto = getprotobyname("tcp");
     if (proto == 0)
-        return (-1);
+        return (EXIT_FAIL);
     if ((sock = socket(PF_INET, SOCK_STREAM, proto->p_proto)) == -1)
 	{
 		printf("[-]Error creating socket\n");
-		exit(-1);
+		exit(EXIT_FAIL);
 	}
     sin.sin_family = AF_INET;
 	sin.sin_port = htons(port);
@@ -33,7 +33,7 @@ int     create_server(int port)
     if (bind(sock, (const struct sockaddr *)&sin, sizeof(sin)) < 0)
     {
         printf("[-]Error binding socket %d\n", sock);
-        exit(-1);
+        exit(EXIT_FAIL);
     }
     if (listen(sock, 4) == 0)
         printf("[+]Awaiting request...\n");
@@ -88,20 +88,75 @@ static void     close_client_connection(t_session *session, int i)
     session->csockets[i] = 0;
 }
 
+static int		redirect_output_tosock(t_session *session, int i)
+{
+	if (dup2(session->csockets[i], STDERR_FILENO) < 0)
+	{
+		printf("[-]Error redirecting STDERR to socket descriptor %d\n", session->csockets[i]);
+		return (EXIT_FAIL);
+	}
+//	if (dup2(session->csockets[i], STDIN_FILENO) < 0)
+//	{
+//		printf("[-]Error redirecting STDIN to socket descriptor %d\n", session->csockets[i]);
+//		return (EXIT_FAIL);
+//	}
+	if (dup2(session->csockets[i], STDOUT_FILENO) < 0)
+	{
+		printf("[-]Error redirecting STDOUT to socket descriptor %d\n", session->csockets[i]);
+		return (EXIT_FAIL);
+	}
+	return (EXIT_SUCCESS);
+}
+
+static int 		ftp_cd(t_session *session, int i)
+{
+
+}
+
+static int		ftp_ls(t_session * session, int i)
+{
+	pid_t			pid;
+	int 			wait_status;
+	char			**argv;
+	struct rusage 	rusage;
+
+	argv = NULL;
+	if ((pid = fork()) == -1)
+	{
+		printf("[-]Error forking process\n");
+		return (EXIT_FAIL);
+	}
+	if (pid == 0)
+	{
+		if (redirect_output_tosock(session, i) == EXIT_FAIL)
+		{
+			ft_strcpy(session->buff, "[-]A server error has occurred when redirecting output for communication");
+			return (EXIT_FAIL);
+		}
+		if (!(argv = ft_strsplit(session->buff, ' ')))
+			return (EXIT_FAIL);
+		execv("/bin/ls", &argv[1]);
+		ft_tbldel(argv, ft_tbllen(argv));
+	}
+	if (wait4(pid, &wait_status, 0, &rusage ) == -1)
+	{
+		printf("[-]Error waiting on child process to complete");
+		return(EXIT_FAIL);
+	}
+	return (EXIT_SUCCESS);
+}
+
 static void     act_accordingly(t_session *session, int i)
 {
 
     if (ft_strcmp((const char *)&session->buff, "quit" ) == 0)
-        close_client_connection(session, i);
-    else if (ft_strncmp((const char *)&session->buff, "ls", 2) == 0)
-    {
-       ;
-    }
-    else
-    {
-        send(session->csockets[i], session->buff, strlen(session->buff), 0);
-        ft_bzero(&session->buff, 1024);
-    }
+	{
+		close_client_connection(session, i);
+	}
+	else if (ft_strncmp((const char *)&session->buff, "ls", 2) == 0)
+		ftp_ls(session, i);
+	send(session->csockets[i], session->buff, strlen(session->buff), 0);
+	ft_bzero(&session->buff, 1024);
 }
 
 static void    manage_incoming_data(t_session *session)

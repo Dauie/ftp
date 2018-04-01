@@ -20,6 +20,8 @@
 # define CMD_PORT 4222
 # define DATA_PORT 20
 # define MAX_CLIENTS 42
+# define EXIT_FAIL -1
+# define EXIT_SUCCESS 0
 
 typedef struct          s_session
 {
@@ -30,9 +32,9 @@ typedef struct          s_session
     int                 csockets[MAX_CLIENTS];
     unsigned int        cslen;
     struct sockaddr_in  csin;
-    fd_set readfds;
-    char buff[1024];
-}                           t_session;
+    fd_set 				readfds;
+    char 				buff[1024];
+}                       t_session;
 
 #endif
 

@@ -12,6 +12,7 @@ static void usage(char *str)
 static void	client_shell(int client_socket)
 {
 	char *buffer;
+	char recvbuff[2048];
 
 	buffer = NULL;
 	while (1)
@@ -22,13 +23,15 @@ static void	client_shell(int client_socket)
 		send(client_socket, buffer, ft_strlen(buffer), 0);
 		if (ft_strcmp(buffer, "quit") == 0)
 			break;
-		if (recv(client_socket, buffer, 1024, 0) < 0)
+		if (recv(client_socket, recvbuff, 2047, 0) < 0)
 			printf("[-]Error receiving data from server (-.-)\n");
-		if (buffer[0] == '\n' || buffer[0] == '\r')
-			write(1, "\n", 1);
 		else
-			printf("%s\n", buffer);
+		{
+			recvbuff[2047] = '\0';
+			printf("%s\n", recvbuff);
+		}
 		free(buffer);
+		ft_bzero(recvbuff, 2047);
 	}
 	printf("[-]Disconnected from server\n");
 }
