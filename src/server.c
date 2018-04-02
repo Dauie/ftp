@@ -28,21 +28,35 @@ static int		redirect_output_tosock(t_session *session)
 
 static int		ftp_ls(t_session * session)
 {
+	pid_t			pid;
+	int 			wait_status;
+	char			**argv;
+	struct rusage 	rusage;
 
-    char			**argv;
-
-    argv = NULL;
-
-    if (redirect_output_tosock(session) == EXIT_FAIL)
-    {
-        ft_strcpy(session->buff, "[-]A server error has occurred when redirecting output for communication");
-        return (EXIT_FAIL);
-    }
-    if (!(argv = ft_strsplit(session->buff, ' ')))
-        return (EXIT_FAIL);
-    execv("/bin/ls", &argv[1]);
-    ft_tbldel(argv, ft_tbllen(argv));
-    return (EXIT_SUCCESS);
+	argv = NULL;
+	if ((pid = fork()) == -1)
+	{
+		printf("[-]Error forking process\n");
+		return (EXIT_FAIL);
+	}
+	if (pid == 0)
+	{
+		if (redirect_output_tosock(session) == EXIT_FAIL)
+		{
+			ft_strcpy(session->buff, "[-]A server error has occurred when redirecting output for communication");
+			return (EXIT_FAIL);
+		}
+		if (!(argv = ft_strsplit(session->buff, ' ')))
+			return (EXIT_FAIL);
+		execv("/bin/ls", argv);
+		ft_tbldel(argv, ft_tbllen(argv));
+	}
+	if (wait4(pid, &wait_status, 0, &rusage ) == -1)
+	{
+		printf("[-]Error waiting on child process to complete");
+		return(EXIT_FAIL);
+	}
+	return (EXIT_SUCCESS);
 }
 
 //int             ftp_cd(t_session *session, int i)
@@ -52,14 +66,7 @@ static int		ftp_ls(t_session * session)
 
 static void     act_accordingly(t_session *session)
 {
-
-    if (ft_strcmp((const char *)&session->buff, "quit" ) == 0)
-    {
-        printf("[+]Host has disconnected from socket %d\n", session->cs);
-        close(session->cs);
-        exit(EXIT_SUCCESS);
-    }
-    else if (ft_strncmp((const char *)&session->buff, "ls", 2) == 0)
+    if (ft_strncmp((const char *)&session->buff, "ls", 2) == 0)
         ftp_ls(session);
 //    else if (ft_strncmp((const char *)&session->buff, "cd", 2) == 0)
 //        ftp_cd(session);
@@ -76,7 +83,14 @@ static void     manage_client_session(t_session *session)
             printf("[-]Error reading from socket\n");
             continue;
         }
-        act_accordingly(session);
+		if (ft_strcmp((const char *)&session->buff, "quit" ) == 0)
+		{
+			printf("[+]Host has disconnected from socket %d\n", session->cs);
+			close(session->cs);
+			exit(EXIT_SUCCESS);
+		}
+		else
+        	act_accordingly(session);
     }
 }
 
@@ -100,11 +114,7 @@ static void    session_manager(t_session *session)
             continue;
         }
         if (ret == 0)
-        {
-            session->pid = getpid();
-            printf("%d forked()", session->pid);
             manage_client_session(session);
-        }
     }
 }
 
