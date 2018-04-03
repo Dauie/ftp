@@ -16,7 +16,7 @@ static void	client_shell(int client_socket)
 	ssize_t	ret;
 
 	buffer = NULL;
-	ret = 0;
+	ret = 1;
 	while (TRUE)
 	{
 		write(1, "(^-^)> ", 7);
@@ -28,11 +28,11 @@ static void	client_shell(int client_socket)
 		while (TRUE)
 		{
 			if ((ret = recv(client_socket, recvbuff, BUFFSZ, MSG_DONTWAIT)) == -1)
-				continue;
+				break;
 			else if (ret > 0)
 			{
 				recvbuff[BUFFSZ - 1] = '\0';
-				printf("%s\n", recvbuff);
+				printf("%s", recvbuff);
                 continue;
 			}
 			else if (ret == 0)
@@ -50,8 +50,7 @@ static int create_client(char *addr, int port)
 	struct protoent		*proto;
 	struct sockaddr_in	sin;
 
-	proto = getprotobyname("tcp");
-	if (proto == 0)
+	if ((proto = getprotobyname("tcp")) == 0)
 		return(-1);
 	if (!(sock = socket(PF_INET, SOCK_STREAM, proto->p_proto)))
 	{
