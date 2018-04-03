@@ -23,21 +23,20 @@ static void	client_shell(int client_socket)
 		if (gnl(0, &buffer) < 0)
 			break;
 		send(client_socket, buffer, ft_strlen(buffer), 0);
-		if (ft_strcmp(buffer, "quit") == 0)
+		if (ft_strncmp(buffer, "quit", 4) == 0)
 			break;
 		while (TRUE)
 		{
-			if ((ret = recv(client_socket, recvbuff, BUFFSZ, 0)) < 0)
-			{
-				printf("[-]Error receiving data from server (-.-)\n");
-				break;
-			}
+			if ((ret = recv(client_socket, recvbuff, BUFFSZ, MSG_DONTWAIT)) == -1)
+				continue;
 			else if (ret > 0)
 			{
 				recvbuff[BUFFSZ - 1] = '\0';
 				printf("%s\n", recvbuff);
-			} else
-				break;
+                continue;
+			}
+			else if (ret == 0)
+                break;
 		}
 		ft_bzero(recvbuff, BUFFSZ);
 		free(buffer);
