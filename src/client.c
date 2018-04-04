@@ -31,12 +31,17 @@ static void	client_shell(int client_socket)
 				break;
 			else if (ret > 0)
 			{
-				recvbuff[BUFFSZ - 1] = '\0';
+				if (ft_strncmp(recvbuff, "\r\r\rEOT\r\r\r", 9))
+					break;
+				recvbuff[ret] = '\0';
 				printf("%s", recvbuff);
                 continue;
 			}
 			else if (ret == 0)
-                break;
+			{
+				printf("[-]Server has disconnected from client.\n");
+				exit(EXIT_SUCCESS);
+			}
 		}
 		ft_bzero(recvbuff, BUFFSZ);
 		free(buffer);

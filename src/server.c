@@ -33,26 +33,27 @@ static int		ftp_ls(t_session * session)
 	if ((pid = fork()) == -1)
 	{
 		printf("[-]Error forking process\n");
+		send(session->cs, "\r\r\rEOT\r\r\r", 10, 0);
 		return (EXIT_FAIL);
 	}
 	else if (pid == 0)
 	{
 		if (!(argv = ft_strsplit(session->buff, ' ')))
 			return (EXIT_FAIL);
-		if (redirect_output_tosock(session) == EXIT_FAIL)
-		{
-			ft_strcpy(session->buff, "[-]A server error has occurred when redirecting output for communication");
+		if ((redirect_output_tosock(session)) == EXIT_FAIL)
 			return (EXIT_FAIL);
-		}
 		execv("/bin/ls", argv);
 		ft_tbldel(argv, ft_tbllen(argv));
 	}
-	if (wait4(pid, &wait_status, 0, &rusage ) == -1)
+	else if (pid > 0)
 	{
-		printf("[-]Error waiting on child process to complete");
-		return(EXIT_FAIL);
+		if (wait4(pid, &wait_status, 0, &rusage ) == -1)
+		{
+			printf("[-]Error waiting on child process to complete");
+			return(EXIT_FAIL);
+		}
+		send(session->cs, "\r\r\rEOT\r\r\r", 10, 0);
 	}
-	send(session->cs, session->buff, strlen(session->buff), 0);
 	return (EXIT_SUCCESS);
 }
 
@@ -63,14 +64,14 @@ static int		ftp_ls(t_session * session)
 
 static void     act_accordingly(t_session *session)
 {
-//    int ret;
-//
-//    ret = 0;
+    int ret;
+
+    ret = 0;
     if (ft_strncmp((const char *)&session->buff, "ls", 2) == 0)
-        ftp_ls(session);
+        ret = ftp_ls(session);
     //other things like cd... etc..
-//    if (ret == EXIT_FAIL)
-//        send(session->cs, session->buff, strlen(session->buff), 0);
+    if (ret == EXIT_FAIL)
+        send(session->cs, session->buff, strlen(session->buff), 0);
 }
 
 static void     manage_client_session(t_session *session)
@@ -87,7 +88,11 @@ static void     manage_client_session(t_session *session)
             continue;
         }
 		else if (ret == 0)
-			continue;
+		{
+			printf("[-]Server disconnected from session.\n");
+			close(session->cs);
+			exit(EXIT_SUCCESS);
+		}
 		else if (ft_strcmp((const char *)&session->buff, "quit" ) == 0)
 		{
 			printf("[+]Host has disconnected from socket %d\n", session->cs);
@@ -102,8 +107,6 @@ static void     manage_client_session(t_session *session)
 static void    session_manager(t_session *session)
 {
 	pid_t			pid;
-	int 			wait_status;
-	struct rusage 	rusage;
 
     while (TRUE)
     {
@@ -122,19 +125,14 @@ static void    session_manager(t_session *session)
         }
         else if (pid > 0)
         {
-            close(session->cs);
-            continue;
+			close(session->cs);
+			signal(SIGCHLD,SIG_IGN);
         }
         else if (pid == 0)
         {
             close(session->sock);
             manage_client_session(session);
         }
-		if (wait4(pid, &wait_status, 0, &rusage ) == -1)
-		{
-			printf("[-]Error waiting on child process to complete");
-			return;
-		}
     }
 }
 
