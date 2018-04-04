@@ -52,6 +52,7 @@ static int		ftp_ls(t_session * session)
 			printf("[-]Error waiting on child process to complete");
 			return(EXIT_FAIL);
 		}
+		sleep(1);
 		send(session->cs, "\r\r\rEOT\r\r\r", 10, 0);
 	}
 	return (EXIT_SUCCESS);
@@ -89,7 +90,7 @@ static void     manage_client_session(t_session *session)
         }
 		else if (ret == 0)
 		{
-			printf("[-]Server disconnected from session.\n");
+			printf("[-]Server disconnected from session on sd %d.\n", session->cs);
 			close(session->cs);
 			exit(EXIT_SUCCESS);
 		}

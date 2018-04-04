@@ -25,15 +25,16 @@ static void	client_shell(int client_socket)
 		send(client_socket, buffer, ft_strlen(buffer), 0);
 		if (ft_strncmp(buffer, "quit", 4) == 0)
 			break;
+		sleep(1);
 		while (TRUE)
 		{
 			if ((ret = recv(client_socket, recvbuff, BUFFSZ, MSG_DONTWAIT)) == -1)
-				break;
+				continue;
 			else if (ret > 0)
 			{
-				if (ft_strncmp(recvbuff, "\r\r\rEOT\r\r\r", 9))
+				if (ft_strncmp(recvbuff, "\r\r\rEOT\r\r\r", 9) == 0)
 					break;
-				recvbuff[ret] = '\0';
+				recvbuff[ret - 1] = '\0';
 				printf("%s", recvbuff);
                 continue;
 			}
