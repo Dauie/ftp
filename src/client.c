@@ -32,11 +32,11 @@ static void	client_shell(int client_socket)
 				continue;
 			else if (ret > 0)
 			{
-				if (ft_strncmp(recvbuff, "\r\r\rEOT\r\r\r", 9) == 0)
-					break;
 				recvbuff[ret - 1] = '\0';
+				if (ft_strncmp(recvbuff, "\r\r\rEOT\r\r\r", 9) != 0)
 				printf("%s", recvbuff);
-                continue;
+				else
+					break;
 			}
 			else if (ret == 0)
 			{

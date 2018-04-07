@@ -20,7 +20,7 @@
 #include "../libft/incl/cnvrsn.h"
 #include "../libft/incl/gnl.h"
 
-# define BUFFSZ 1024
+# define BUFFSZ 512
 # define CMD_PORT 4222
 # define DATA_PORT 20
 # define MAX_CLIENTS 42
@@ -37,6 +37,7 @@ typedef struct          s_session
     struct sockaddr_in  csin;
     char 				buff[1024];
     char                **env;
+	char 				**argv;
 }                       t_session;
 
 #endif

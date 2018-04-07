@@ -23,13 +23,29 @@ static int		redirect_output_tosock(t_session *session)
 
 static int		ftp_ls(t_session * session)
 {
+
+	if (!(session->argv = ft_strsplit(session->buff, ' ')))
+		return (EXIT_FAIL);
+	if ((redirect_output_tosock(session)) == EXIT_FAIL)
+		return (EXIT_FAIL);
+	execv("/bin/ls", session->argv);
+	return (EXIT_SUCCESS);
+}
+
+static int		ftp_env(t_session *session)
+{
+	if ((redirect_output_tosock(session)) == EXIT_FAIL)
+		return (EXIT_FAIL);
+	ft_puttbl(session->env);
+	return (EXIT_SUCCESS);
+}
+
+static int			execute_client_cmd(t_session *session, int(fn(t_session *)))
+{
 	pid_t			pid;
 	struct rusage 	rusage;
 	int 			wait_status;
-	char			**argv;
 
-
-	argv = NULL;
 	if ((pid = fork()) == -1)
 	{
 		printf("[-]Error forking process\n");
@@ -37,14 +53,7 @@ static int		ftp_ls(t_session * session)
 		return (EXIT_FAIL);
 	}
 	else if (pid == 0)
-	{
-		if (!(argv = ft_strsplit(session->buff, ' ')))
-			return (EXIT_FAIL);
-		if ((redirect_output_tosock(session)) == EXIT_FAIL)
-			return (EXIT_FAIL);
-		execv("/bin/ls", argv);
-		ft_tbldel(argv, ft_tbllen(argv));
-	}
+		fn(session);
 	else if (pid > 0)
 	{
 		if (wait4(pid, &wait_status, 0, &rusage ) == -1)
@@ -53,6 +62,8 @@ static int		ftp_ls(t_session * session)
 			return(EXIT_FAIL);
 		}
 		sleep(1);
+		if (session->argv)
+			ft_tbldel(session->argv, ft_tbllen(session->argv));
 		send(session->cs, "\r\r\rEOT\r\r\r", 10, 0);
 	}
 	return (EXIT_SUCCESS);
@@ -68,11 +79,13 @@ static void     act_accordingly(t_session *session)
     int ret;
 
     ret = 0;
-    if (ft_strncmp((const char *)&session->buff, "ls", 2) == 0)
-        ret = ftp_ls(session);
+	if (ft_strncmp((const char *)&session->buff, "ls", 2) == 0)
+		ret = execute_client_cmd(session, ftp_ls);
+	else if (ft_strncmp((const char *)&session->buff, "env", 3) == 0)
+		ret = execute_client_cmd(session, ftp_env);
     //other things like cd... etc..
     if (ret == EXIT_FAIL)
-        send(session->cs, session->buff, strlen(session->buff), 0);
+        send(session->cs, "\r\r\rEOT\r\r\r", 10, 0);
 }
 
 static void     manage_client_session(t_session *session)
@@ -137,6 +150,17 @@ static void    session_manager(t_session *session)
     }
 }
 
+static void init_session(t_session * session)
+{
+	session->port = 0;
+	session->sock = 0;
+	session->cs = 0;
+	session->pid = 0;
+	session->cslen = 0;
+	session->env = NULL;
+	session->argv = NULL;
+}
+
 int     create_server(int port)
 {
     int sock;
@@ -175,9 +199,13 @@ int     create_server(int port)
 int main(int ac, char **av)
 {
     t_session session;
+	extern char **environ;
 
     if (ac != 2)
         usage(av[0]);
+	init_session(&session);
+	if (!(session.env = ft_tbldup(environ, ft_tbllen(environ))))
+		return (EXIT_FAIL);
     session.port = atoi(av[1]);
     session.sock = create_server(session.port);
     session.cslen = sizeof(session.csin);
