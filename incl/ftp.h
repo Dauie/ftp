@@ -32,6 +32,7 @@ typedef struct          s_session
     int                 port;
     int                 sock;
     int                 cs;
+	int 				fd;
 	pid_t				pid;
     unsigned int        cslen;
     struct sockaddr_in  csin;
@@ -39,6 +40,8 @@ typedef struct          s_session
     char                **env;
 	char 				**argv;
 }                       t_session;
+
+int			ftp_sendfile(int fd, int sock, off_t *offset, off_t len);
 
 #endif
 

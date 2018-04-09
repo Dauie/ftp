@@ -13,6 +13,8 @@ static void	client_shell(int client_socket)
 {
 	char	*buffer;
 	char	recvbuff[BUFFSZ];
+	char 	*sized_response;
+	size_t 	size;
 	ssize_t	ret;
 
 	buffer = NULL;
@@ -25,24 +27,26 @@ static void	client_shell(int client_socket)
 		send(client_socket, buffer, ft_strlen(buffer), 0);
 		if (ft_strncmp(buffer, "quit", 4) == 0)
 			break;
-		sleep(1);
-		while (TRUE)
+		ft_bzero(recvbuff, BUFFSZ);
+		send(client_socket, "\r\r\rRDY\r\r\r", 10, 0);
+		recv(client_socket, recvbuff, 10, MSG_WAITALL);
+		printf("%s\n", recvbuff);
+		size = (size_t)ft_atoi(recvbuff);
+		sized_response = ft_memalloc(size);
+		if ((ret = recv(client_socket, sized_response, size, MSG_WAITALL)) == -1)
+			continue;
+		else if (ret > 0)
 		{
-			if ((ret = recv(client_socket, recvbuff, BUFFSZ, MSG_DONTWAIT)) == -1)
-				continue;
-			else if (ret > 0)
-			{
-				recvbuff[ret - 1] = '\0';
-				if (ft_strncmp(recvbuff, "\r\r\rEOT\r\r\r", 9) != 0)
+			recvbuff[ret - 1] = '\0';
+			if (ft_strncmp(recvbuff, "\r\r\rEOT\r\r\r", 9) != 0)
 				printf("%s", recvbuff);
-				else
-					break;
-			}
-			else if (ret == 0)
-			{
-				printf("[-]Server has disconnected from client.\n");
-				exit(EXIT_SUCCESS);
-			}
+			else
+				break;
+		}
+		else if (ret == 0)
+		{
+			printf("[-]Server has disconnected from client.\n");
+			exit(EXIT_SUCCESS);
 		}
 		ft_bzero(recvbuff, BUFFSZ);
 		free(buffer);
@@ -89,3 +93,5 @@ int	main(int ac, char **av)
 	close(sock);
 	return(0);
 }
+
+

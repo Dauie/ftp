@@ -6,19 +6,75 @@ void    usage(char *str)
     exit(EXIT_FAIL);
 }
 
-static int		redirect_output_tosock(t_session *session)
+static int		redirect_output_fd(int fd)
 {
-    if (dup2(session->cs, STDERR_FILENO) < 0)
+    if (dup2(fd, STDERR_FILENO) < 0)
     {
-        printf("[-]Error redirecting STDERR to socket descriptor %d\n", session->cs);
+        printf("[-]Error redirecting STDERR to file descriptor %d\n", fd);
         return (EXIT_FAIL);
     }
-    if (dup2(session->cs, STDOUT_FILENO) < 0)
+    if (dup2(fd, STDOUT_FILENO) < 0)
     {
-        printf("[-]Error redirecting STDOUT to socket descriptor %d\n", session->cs);
+        printf("[-]Error redirecting STDOUT to file descriptor %d\n", fd);
         return (EXIT_FAIL);
     }
     return (EXIT_SUCCESS);
+}
+
+static char* make_zero_string(size_t len)
+{
+	char	*ret;
+
+	if (!(ret = ft_strnew(len)))
+		return (NULL);
+	while (len--)
+		ret[len] = '0';
+	return(ret);
+}
+
+char		*make_length_string(off_t size)
+{
+	char 	*zeros;
+	char 	*tmp;
+	char 	*ret;
+
+	ret = NULL;
+	if (!(ret = ft_itoabse(size, 10)))
+		return (NULL);
+	tmp = ret;
+	if (ft_strlen(ret) < 9)
+	{
+		if (!(zeros = make_zero_string(10 - ft_strlen(ret))))
+			return (NULL);
+		ret = ft_strcat(zeros, ret);
+		free(tmp);
+		free(zeros);
+	}
+	return (ret);
+}
+
+static int 		server_response(t_session *session) {
+	off_t size;
+	off_t off;
+	char *len_str;
+
+	off = 0;
+	if ((size = lseek(session->fd, 0, SEEK_END)) == -1)
+		return (EXIT_FAIL);
+	len_str = make_length_string(size);
+	printf("%s\n", len_str);
+	send(session->cs, len_str, ft_strlen(len_str), 0);
+	recv(session->cs, session->buff, 10, MSG_WAITALL);
+	if (ft_strncmp(session->buff, len_str, ft_strlen(len_str)) == 0)
+	{
+		while ((ftp_sendfile(session->cs, session->fd, &off, size)) != -1)
+			;
+	}
+//	if ((ret = recv(session->cs, session->buff, 1023, 0)) == -1)
+//	{
+//		printf("\n[-]Error reading from socket\n");
+//		continue;
+//	}
 }
 
 static int		ftp_ls(t_session * session)
@@ -26,7 +82,7 @@ static int		ftp_ls(t_session * session)
 
 	if (!(session->argv = ft_strsplit(session->buff, ' ')))
 		return (EXIT_FAIL);
-	if ((redirect_output_tosock(session)) == EXIT_FAIL)
+	if ((redirect_output_fd(session->fd)) == EXIT_FAIL)
 		return (EXIT_FAIL);
 	execv("/bin/ls", session->argv);
 	return (EXIT_SUCCESS);
@@ -34,9 +90,31 @@ static int		ftp_ls(t_session * session)
 
 static int		ftp_env(t_session *session)
 {
-	if ((redirect_output_tosock(session)) == EXIT_FAIL)
+	if ((redirect_output_fd(session->fd)) == EXIT_FAIL)
 		return (EXIT_FAIL);
-	ft_puttbl(session->env);
+	//do the stuff.
+	return (EXIT_SUCCESS);
+}
+
+static int 			create_temp_file(t_session *session)
+{
+	char			*tempfile;
+	char 			*tmp;
+
+	tempfile = ft_itoa(session->cs);
+	tmp = tempfile;
+	if (!(tempfile = ft_strcat("/tmp/", tmp)))
+		return (EXIT_FAIL);
+	free(tmp);
+	tmp = tempfile;
+	if (!(tempfile = ft_strcat(tempfile, "sock.tmp")))
+		return (EXIT_FAIL);
+	free(tmp);
+	if ((session->fd = open(tempfile, O_RDWR|O_CREAT)) == -1)
+	{
+		printf("[-]Error creating temp file.\n");
+		return (EXIT_FAIL);
+	}
 	return (EXIT_SUCCESS);
 }
 
@@ -46,6 +124,8 @@ static int			execute_client_cmd(t_session *session, int(fn(t_session *)))
 	struct rusage 	rusage;
 	int 			wait_status;
 
+	if ((create_temp_file(session)) == EXIT_FAIL)
+		return (EXIT_FAIL);
 	if ((pid = fork()) == -1)
 	{
 		printf("[-]Error forking process\n");
@@ -58,10 +138,9 @@ static int			execute_client_cmd(t_session *session, int(fn(t_session *)))
 	{
 		if (wait4(pid, &wait_status, 0, &rusage ) == -1)
 		{
-			printf("[-]Error waiting on child process to complete");
+			printf("[-]Error waiting on child process to complete\n");
 			return(EXIT_FAIL);
 		}
-		sleep(1);
 		if (session->argv)
 			ft_tbldel(session->argv, ft_tbllen(session->argv));
 		send(session->cs, "\r\r\rEOT\r\r\r", 10, 0);
