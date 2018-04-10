@@ -3,9 +3,9 @@ CC = gcc
 
 CCFLAGS = -Wall -Werror -Wextra -g -fsanitize=address -O0
 
-SVR_SRC =  src/server.c
+SVR_SRC =  src/server.c src/sendfile.c src/create_temp_file.c src/init_session.c
 
-CLI_SRC = src/client.c
+CLI_SRC = src/client.c src/recvfile.c src/create_temp_file.c src/init_session.c
 
 OBJ = *.o
 

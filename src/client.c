@@ -9,47 +9,31 @@ static void usage(char *str)
 	exit(-1);
 }
 
-static void	client_shell(int client_socket)
+static void	client_shell(t_session *session)
 {
-	char	*buffer;
-	char	recvbuff[BUFFSZ];
-	char 	*sized_response;
-	size_t 	size;
-	ssize_t	ret;
 
-	buffer = NULL;
+	ssize_t	ret;
+	char	*user_input;
+
 	ret = 1;
+	session->fd = create_temp_file(session);
 	while (TRUE)
 	{
 		write(1, "(^-^)> ", 7);
-		if (gnl(0, &buffer) < 0)
+		if (gnl(0, &user_input) < 0)
 			break;
-		send(client_socket, buffer, ft_strlen(buffer), 0);
-		if (ft_strncmp(buffer, "quit", 4) == 0)
+		ft_strcpy(session->buff, user_input);
+		free(user_input);
+		send(session->sock, session->buff, BUFFSZ, 0);
+		if (ft_strncmp(session->buff, "quit", 4) == 0)
 			break;
-		ft_bzero(recvbuff, BUFFSZ);
-		send(client_socket, "\r\r\rRDY\r\r\r", 10, 0);
-		recv(client_socket, recvbuff, 10, MSG_WAITALL);
-		printf("%s\n", recvbuff);
-		size = (size_t)ft_atoi(recvbuff);
-		sized_response = ft_memalloc(size);
-		if ((ret = recv(client_socket, sized_response, size, MSG_WAITALL)) == -1)
-			continue;
-		else if (ret > 0)
-		{
-			recvbuff[ret - 1] = '\0';
-			if (ft_strncmp(recvbuff, "\r\r\rEOT\r\r\r", 9) != 0)
-				printf("%s", recvbuff);
-			else
-				break;
-		}
-		else if (ret == 0)
-		{
-			printf("[-]Server has disconnected from client.\n");
-			exit(EXIT_SUCCESS);
-		}
-		ft_bzero(recvbuff, BUFFSZ);
-		free(buffer);
+		ft_bzero(session->buff, BUFFSZ);
+		recv(session->sock, session->buff, BUFFSZ, MSG_WAITALL);
+		printf("%s\n", session->buff);
+		session->size = (size_t)ft_atoi(session->buff);
+		while ((ftp_recvfile(session->fd, session->sock, &session->off)))
+			;
+		ft_bzero(session->buff, BUFFSZ);
 	}
 	printf("[-]Disconnected from server\n");
 }
@@ -82,15 +66,15 @@ static int create_client(char *addr, int port)
 
 int	main(int ac, char **av)
 {
-	int					port;
-	int 				sock;
+	t_session session;
 
+	init_session(&session);
 	if (ac != 3)
 		usage(av[0]);
-	port = atoi(av[2]);
-	sock = create_client(av[1], port);
-	client_shell(sock);
-	close(sock);
+	session.port = atoi(av[2]);
+	session.sock = create_client(av[1], session.port);
+	client_shell(&session);
+	close(session.sock);
 	return(0);
 }
 

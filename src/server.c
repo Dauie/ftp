@@ -70,11 +70,7 @@ static int 		server_response(t_session *session) {
 		while ((ftp_sendfile(session->cs, session->fd, &off, size)) != -1)
 			;
 	}
-//	if ((ret = recv(session->cs, session->buff, 1023, 0)) == -1)
-//	{
-//		printf("\n[-]Error reading from socket\n");
-//		continue;
-//	}
+	return(EXIT_SUCCESS);
 }
 
 static int		ftp_ls(t_session * session)
@@ -96,27 +92,7 @@ static int		ftp_env(t_session *session)
 	return (EXIT_SUCCESS);
 }
 
-static int 			create_temp_file(t_session *session)
-{
-	char			*tempfile;
-	char 			*tmp;
 
-	tempfile = ft_itoa(session->cs);
-	tmp = tempfile;
-	if (!(tempfile = ft_strcat("/tmp/", tmp)))
-		return (EXIT_FAIL);
-	free(tmp);
-	tmp = tempfile;
-	if (!(tempfile = ft_strcat(tempfile, "sock.tmp")))
-		return (EXIT_FAIL);
-	free(tmp);
-	if ((session->fd = open(tempfile, O_RDWR|O_CREAT)) == -1)
-	{
-		printf("[-]Error creating temp file.\n");
-		return (EXIT_FAIL);
-	}
-	return (EXIT_SUCCESS);
-}
 
 static int			execute_client_cmd(t_session *session, int(fn(t_session *)))
 {
@@ -199,8 +175,6 @@ static void     manage_client_session(t_session *session)
 
 static void    session_manager(t_session *session)
 {
-	pid_t			pid;
-
     while (TRUE)
     {
         if (!(session->cs = accept(session->sock, (struct sockaddr*)&session->csin, &session->cslen)))
@@ -210,18 +184,18 @@ static void    session_manager(t_session *session)
         }
         printf("[+]New connection accepted from %s:%d on sd %d\n",
                inet_ntoa(session->csin.sin_addr), ntohs(session->csin.sin_port), session->cs);
-        if ((pid = fork()) == -1)
+        if ((session->pid = fork()) == -1)
         {
             close(session->cs);
             printf("[-]Error forking process for new connection\n");
             continue;
         }
-        else if (pid > 0)
+        else if (session->pid > 0)
         {
 			close(session->cs);
 			signal(SIGCHLD,SIG_IGN);
         }
-        else if (pid == 0)
+        else if (session->pid == 0)
         {
             close(session->sock);
             manage_client_session(session);
@@ -229,16 +203,7 @@ static void    session_manager(t_session *session)
     }
 }
 
-static void init_session(t_session * session)
-{
-	session->port = 0;
-	session->sock = 0;
-	session->cs = 0;
-	session->pid = 0;
-	session->cslen = 0;
-	session->env = NULL;
-	session->argv = NULL;
-}
+
 
 int     create_server(int port)
 {
