@@ -33,9 +33,9 @@ typedef struct          s_session
     int                 sock;
     int                 cs;
 	int 				fd;
-	pid_t				pid;
+	pid_t 				pid;
 	off_t 				off;
-	size_t 				size;
+	off_t 				size;
     unsigned int        cslen;
     struct sockaddr_in  csin;
     char 				buff[BUFFSZ];
@@ -47,7 +47,7 @@ int			ftp_sendfile(int fd, int sock, off_t *offset, off_t len);
 int 		ftp_recvfile(int fd, int sock, off_t *offset);
 int 		create_temp_file(t_session *session);
 void 		init_session(t_session * session);
-void 		init_session(t_session * session);
+int			prep_send(t_session *session);
 
 #endif
 

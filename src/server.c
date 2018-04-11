@@ -42,45 +42,65 @@ char		*make_length_string(off_t size)
 	if (!(ret = ft_itoabse(size, 10)))
 		return (NULL);
 	tmp = ret;
-	if (ft_strlen(ret) < 9)
+	if (ft_strlen(ret) < 10)
 	{
 		if (!(zeros = make_zero_string(10 - ft_strlen(ret))))
 			return (NULL);
-		ret = ft_strcat(zeros, ret);
+		if (!(ret = ft_strconcat(zeros, ret)))
+			return (NULL);
 		free(tmp);
 		free(zeros);
 	}
 	return (ret);
 }
 
-static int 		server_response(t_session *session) {
-	off_t size;
-	off_t off;
-	char *len_str;
+static int 		server_response(t_session *session)
+{
+	char 		*len_str;
+	int 		ret;
 
-	off = 0;
-	if ((size = lseek(session->fd, 0, SEEK_END)) == -1)
+	ret = 1;
+	if ((prep_send(session)) ==  EXIT_FAIL)
 		return (EXIT_FAIL);
-	len_str = make_length_string(size);
-	printf("%s\n", len_str);
-	send(session->cs, len_str, ft_strlen(len_str), 0);
+	if (!(len_str = make_length_string(session->size)))
+		return (EXIT_FAIL);
+	send(session->cs, len_str, 10, 0);
 	recv(session->cs, session->buff, 10, MSG_WAITALL);
 	if (ft_strncmp(session->buff, len_str, ft_strlen(len_str)) == 0)
 	{
-		while ((ftp_sendfile(session->cs, session->fd, &off, size)) != -1)
-			;
+		while (ret)
+			ret = ftp_sendfile(session->cs, session->fd, &session->off, session->size);
 	}
 	return(EXIT_SUCCESS);
 }
 
 static int		ftp_ls(t_session * session)
 {
+	pid_t			pid;
+	struct rusage 	rusage;
+	int 			wait_status;
 
+	pid = 0;
 	if (!(session->argv = ft_strsplit(session->buff, ' ')))
 		return (EXIT_FAIL);
 	if ((redirect_output_fd(session->fd)) == EXIT_FAIL)
 		return (EXIT_FAIL);
-	execv("/bin/ls", session->argv);
+	if ((pid = fork()) == -1)
+	{
+		printf("[-]Error forking process to execute ls\n");
+		return (EXIT_FAIL);
+	}
+	else if (pid > 0)
+		execv("/bin/ls", session->argv);
+	else if (pid == 0)
+	{
+		if (wait4(pid, &wait_status, 0, &rusage ) == -1)
+		{
+			printf("[-]Error waiting on child process to complete\n");
+			return(EXIT_FAIL);
+		}
+		server_response(session);
+	}
 	return (EXIT_SUCCESS);
 }
 
@@ -88,11 +108,10 @@ static int		ftp_env(t_session *session)
 {
 	if ((redirect_output_fd(session->fd)) == EXIT_FAIL)
 		return (EXIT_FAIL);
-	//do the stuff.
+	ft_puttbl(session->env);
+	server_response(session);
 	return (EXIT_SUCCESS);
 }
-
-
 
 static int			execute_client_cmd(t_session *session, int(fn(t_session *)))
 {
@@ -105,7 +124,6 @@ static int			execute_client_cmd(t_session *session, int(fn(t_session *)))
 	if ((pid = fork()) == -1)
 	{
 		printf("[-]Error forking process\n");
-		send(session->cs, "\r\r\rEOT\r\r\r", 10, 0);
 		return (EXIT_FAIL);
 	}
 	else if (pid == 0)
@@ -119,28 +137,16 @@ static int			execute_client_cmd(t_session *session, int(fn(t_session *)))
 		}
 		if (session->argv)
 			ft_tbldel(session->argv, ft_tbllen(session->argv));
-		send(session->cs, "\r\r\rEOT\r\r\r", 10, 0);
 	}
 	return (EXIT_SUCCESS);
 }
 
-//int             ftp_cd(t_session *session, int i)
-//{
-//
-//}
-
 static void     act_accordingly(t_session *session)
 {
-    int ret;
-
-    ret = 0;
 	if (ft_strncmp((const char *)&session->buff, "ls", 2) == 0)
-		ret = execute_client_cmd(session, ftp_ls);
+		execute_client_cmd(session, ftp_ls);
 	else if (ft_strncmp((const char *)&session->buff, "env", 3) == 0)
-		ret = execute_client_cmd(session, ftp_env);
-    //other things like cd... etc..
-    if (ret == EXIT_FAIL)
-        send(session->cs, "\r\r\rEOT\r\r\r", 10, 0);
+		execute_client_cmd(session, ftp_env);
 }
 
 static void     manage_client_session(t_session *session)
@@ -203,8 +209,6 @@ static void    session_manager(t_session *session)
     }
 }
 
-
-
 int     create_server(int port)
 {
     int sock;
@@ -233,7 +237,7 @@ int     create_server(int port)
         printf("[-]Error binding socket %d\n", sock);
         exit(EXIT_FAIL);
     }
-    if (listen(sock, 4) == 0)
+    if ((listen(sock, 4)) == 0)
         printf("[+]Awaiting request...\n");
     else
         printf("[-]Error in binding port %d may be in use\n", CMD_PORT);

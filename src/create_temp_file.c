@@ -5,13 +5,14 @@ int 			create_temp_file(t_session *session)
 	char			*tempfile;
 	char 			*tmp;
 
-	tempfile = ft_itoa(session->cs);
+	if (!(tempfile = ft_itoa(session->cs)))
+		return (EXIT_FAIL);
 	tmp = tempfile;
-	if (!(tempfile = ft_strcat("/tmp/", tmp)))
+	if (!(tempfile = ft_strconcat("/tmp/", tmp)))
 		return (EXIT_FAIL);
 	free(tmp);
 	tmp = tempfile;
-	if (!(tempfile = ft_strcat(tempfile, "sock.tmp")))
+	if (!(tempfile = ft_strconcat(tempfile, "sock.tmp")))
 		return (EXIT_FAIL);
 	free(tmp);
 	if ((session->fd = open(tempfile, O_RDWR|O_CREAT)) == -1)
@@ -19,5 +20,6 @@ int 			create_temp_file(t_session *session)
 		printf("[-]Error creating temp file.\n");
 		return (EXIT_FAIL);
 	}
+	free(tempfile);
 	return (EXIT_SUCCESS);
 }

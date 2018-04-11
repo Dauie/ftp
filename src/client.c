@@ -9,13 +9,26 @@ static void usage(char *str)
 	exit(-1);
 }
 
+void		print_file(int fd)
+{
+	int ret;
+	char *line;
+
+	ret = 0;
+	while ((ret = gnl(fd, &line)) > 0)
+	{
+		printf("%s", line);
+		free(line);
+	}
+}
+
 static void	client_shell(t_session *session)
 {
 
 	ssize_t	ret;
 	char	*user_input;
 
-	ret = 1;
+	ret = TRUE;
 	session->fd = create_temp_file(session);
 	while (TRUE)
 	{
@@ -30,9 +43,10 @@ static void	client_shell(t_session *session)
 		ft_bzero(session->buff, BUFFSZ);
 		recv(session->sock, session->buff, BUFFSZ, MSG_WAITALL);
 		printf("%s\n", session->buff);
-		session->size = (size_t)ft_atoi(session->buff);
-		while ((ftp_recvfile(session->fd, session->sock, &session->off)))
-			;
+		session->size = ft_atoi(session->buff);
+		while (ret > 0)
+			ret = ftp_recvfile(session->fd, session->sock, &session->off);
+		print_file(session->fd);
 		ft_bzero(session->buff, BUFFSZ);
 	}
 	printf("[-]Disconnected from server\n");
