@@ -32,18 +32,27 @@ static void	client_shell(t_session *session)
 	session->fd = create_temp_file(session);
 	while (TRUE)
 	{
+		// Get command from user
 		write(1, "(^-^)> ", 7);
 		if (gnl(0, &user_input) < 0)
 			break;
 		ft_strcpy(session->buff, user_input);
 		free(user_input);
+		// Send command to server
 		send(session->sock, session->buff, BUFFSZ, 0);
+		// Close client if prompted to
 		if (ft_strncmp(session->buff, "quit", 4) == 0)
 			break;
 		ft_bzero(session->buff, BUFFSZ);
-		recv(session->sock, session->buff, BUFFSZ, MSG_WAITALL);
+		// Wait for size of response being sent
+		recv(session->sock, session->buff, 10, MSG_WAITALL);
 		printf("%s\n", session->buff);
+		// need to do error checking to check OS for sufficient space.
+		// Send size back to server, verifying space if avail.
+		send(session->sock, session->buff, 10, 0);
+		// Save size of entire response
 		session->size = ft_atoi(session->buff);
+		// Recv file/response
 		while (ret > 0)
 			ret = ftp_recvfile(session->fd, session->sock, &session->off);
 		print_file(session->fd);

@@ -21,6 +21,7 @@
 #include "../libft/incl/gnl.h"
 
 # define BUFFSZ 512
+# define HDRSZ 10
 # define CMD_PORT 4222
 # define DATA_PORT 20
 # define MAX_CLIENTS 42
@@ -48,6 +49,7 @@ int 		ftp_recvfile(int fd, int sock, off_t *offset);
 int 		create_temp_file(t_session *session);
 void 		init_session(t_session * session);
 int			prep_send(t_session *session);
+int			add_header(off_t size, char *buff);
 
 #endif
 

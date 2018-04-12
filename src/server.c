@@ -32,13 +32,12 @@ static char* make_zero_string(size_t len)
 	return(ret);
 }
 
-char		*make_length_string(off_t size)
+int			add_header(off_t size, char *buff)
 {
 	char 	*zeros;
 	char 	*tmp;
 	char 	*ret;
 
-	ret = NULL;
 	if (!(ret = ft_itoabse(size, 10)))
 		return (NULL);
 	tmp = ret;
@@ -51,23 +50,33 @@ char		*make_length_string(off_t size)
 		free(tmp);
 		free(zeros);
 	}
-	return (ret);
+	ft_strcpy(buff, ret);
+	free(ret);
+	return (EXIT_SUCCESS);
 }
 
 static int 		server_response(t_session *session)
 {
-	char 		*len_str;
+	char 		len_str[10];
 	int 		ret;
 
 	ret = 1;
+	// Get file size
 	if ((prep_send(session)) ==  EXIT_FAIL)
 		return (EXIT_FAIL);
-	if (!(len_str = make_length_string(session->size)))
+	// Prepare string representing full file size
+	if ((add_header(session->size, session->buff)) == EXIT_FAIL)
 		return (EXIT_FAIL);
-	send(session->cs, len_str, 10, 0);
+	// Send client the size of the file
+	send(session->cs, session->buff, 10, 0);
+	ft_strncpy(len_str, session->buff, 10);
+	ft_bzero(session->buff , BUFFSZ);
+	// The client will reply with file length when prepared to receive.
 	recv(session->cs, session->buff, 10, MSG_WAITALL);
-	if (ft_strncmp(session->buff, len_str, ft_strlen(len_str)) == 0)
+	// Verify the client has sufficient has space for file.
+	if (ft_strncmp(session->buff, len_str, 10) == 0)
 	{
+		// send response/file
 		while (ret)
 			ret = ftp_sendfile(session->cs, session->fd, &session->off, session->size);
 	}
@@ -157,7 +166,7 @@ static void     manage_client_session(t_session *session)
     while (TRUE)
     {
 		ft_bzero(session->buff, BUFFSZ);
-		if ((ret = recv(session->cs, session->buff, 1023, 0)) == -1)
+		if ((ret = recv(session->cs, session->buff, BUFFSZ, 0)) == -1)
         {
             printf("\n[-]Error reading from socket\n");
             continue;

@@ -18,19 +18,21 @@ int			ftp_sendfile(int fd, int sock, off_t *offset, off_t len)
 	size_t 	send_size;
 	int 	ret;
 
-	ret = 0;
 	ft_bzero(&buff, BUFFSZ);
+	// Check how many bytes still need to be sent
 	send_size = len - *offset > BUFFSZ ? len - *offset : BUFFSZ;
-	if ((ret = read(fd, &buff, send_size)) == -1)
+	add_header(send_size, &buff);
+	if ((ret = read(fd, &buff + HDRSZ, send_size - HDRSZ)) == -1)
 	{
 		printf("[-]Error reading from temp send file\n");
 		return(EXIT_FAIL);
 	}
-	offset += ret;
+	*offset += ret - HDRSZ;
 	if ((ret = send(sock, buff, BUFFSZ, 0)) == -1)
 	{
 		printf("[-]Error sending data to client on socket %d\n", sock);
 		return(EXIT_FAIL);
 	}
-	return (ret);
+	// figure out how to manage returns here properly to stop the transmission
+	return (EXIT_SUCCESS);
 }
