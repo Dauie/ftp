@@ -45,7 +45,7 @@ typedef struct          s_session
 }                       t_session;
 
 int			ftp_sendfile(int fd, int sock, off_t *offset, off_t len);
-int 		ftp_recvfile(int fd, int sock, off_t *offset);
+int 		ftp_recvfile(int fd, int sock, off_t *offset, off_t len);
 int 		create_temp_file(t_session *session);
 void 		init_session(t_session * session);
 int			prep_send(t_session *session);

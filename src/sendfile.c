@@ -21,7 +21,7 @@ int			ftp_sendfile(int fd, int sock, off_t *offset, off_t len)
 	ft_bzero(&buff, BUFFSZ);
 	// Check how many bytes still need to be sent
 	send_size = len - *offset > BUFFSZ ? len - *offset : BUFFSZ;
-	add_header(send_size, &buff);
+	add_header(send_size, buff);
 	if ((ret = read(fd, &buff + HDRSZ, send_size - HDRSZ)) == -1)
 	{
 		printf("[-]Error reading from temp send file\n");

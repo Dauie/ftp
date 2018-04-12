@@ -21,39 +21,9 @@ static int		redirect_output_fd(int fd)
     return (EXIT_SUCCESS);
 }
 
-static char* make_zero_string(size_t len)
-{
-	char	*ret;
 
-	if (!(ret = ft_strnew(len)))
-		return (NULL);
-	while (len--)
-		ret[len] = '0';
-	return(ret);
-}
 
-int			add_header(off_t size, char *buff)
-{
-	char 	*zeros;
-	char 	*tmp;
-	char 	*ret;
 
-	if (!(ret = ft_itoabse(size, 10)))
-		return (NULL);
-	tmp = ret;
-	if (ft_strlen(ret) < 10)
-	{
-		if (!(zeros = make_zero_string(10 - ft_strlen(ret))))
-			return (NULL);
-		if (!(ret = ft_strconcat(zeros, ret)))
-			return (NULL);
-		free(tmp);
-		free(zeros);
-	}
-	ft_strcpy(buff, ret);
-	free(ret);
-	return (EXIT_SUCCESS);
-}
 
 static int 		server_response(t_session *session)
 {

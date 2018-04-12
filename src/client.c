@@ -54,7 +54,7 @@ static void	client_shell(t_session *session)
 		session->size = ft_atoi(session->buff);
 		// Recv file/response
 		while (ret > 0)
-			ret = ftp_recvfile(session->fd, session->sock, &session->off);
+			ret = ftp_recvfile(session->fd, session->sock, &session->off, session->size);
 		print_file(session->fd);
 		ft_bzero(session->buff, BUFFSZ);
 	}
