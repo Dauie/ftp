@@ -21,13 +21,8 @@ static int		redirect_output_fd(int fd)
     return (EXIT_SUCCESS);
 }
 
-
-
-
-
 static int 		server_response(t_session *session)
 {
-	char 		len_str[10];
 	int 		ret;
 
 	ret = 1;
@@ -39,17 +34,12 @@ static int 		server_response(t_session *session)
 		return (EXIT_FAIL);
 	// Send client the size of the file
 	send(session->cs, session->buff, 10, 0);
-	ft_strncpy(len_str, session->buff, 10);
 	ft_bzero(session->buff , BUFFSZ);
 	// The client will reply with file length when prepared to receive.
-	recv(session->cs, session->buff, 10, MSG_WAITALL);
+	recv(session->cs, session->buff, 2, MSG_WAITALL);
 	// Verify the client has sufficient has space for file.
-	if (ft_strncmp(session->buff, len_str, 10) == 0)
-	{
-		// send response/file
-		while (ret)
-			ret = ftp_sendfile(session->cs, session->fd, &session->off, session->size);
-	}
+	if (ft_strncmp(session->buff, "OK", 2) == 0)
+		ftp_sendfile(session);
 	return(EXIT_SUCCESS);
 }
 
@@ -122,7 +112,13 @@ static int			execute_client_cmd(t_session *session, int(fn(t_session *)))
 
 static void     act_accordingly(t_session *session)
 {
-	if (ft_strncmp((const char *)&session->buff, "ls", 2) == 0)
+	if (ft_strcmp((const char *)&session->buff, "quit" ) == 0)
+	{
+		printf("[+]Host has disconnected from socket %d\n", session->cs);
+		close(session->cs);
+		exit(EXIT_SUCCESS);
+	}
+	else if (ft_strncmp((const char *)&session->buff, "ls", 2) == 0)
 		execute_client_cmd(session, ftp_ls);
 	else if (ft_strncmp((const char *)&session->buff, "env", 3) == 0)
 		execute_client_cmd(session, ftp_env);
@@ -144,12 +140,6 @@ static void     manage_client_session(t_session *session)
 		else if (ret == 0)
 		{
 			printf("[-]Server disconnected from session on sd %d.\n", session->cs);
-			close(session->cs);
-			exit(EXIT_SUCCESS);
-		}
-		else if (ft_strcmp((const char *)&session->buff, "quit" ) == 0)
-		{
-			printf("[+]Host has disconnected from socket %d\n", session->cs);
 			close(session->cs);
 			exit(EXIT_SUCCESS);
 		}
