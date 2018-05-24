@@ -1,36 +1,49 @@
 #include "../incl/ftp.h"
 
-
-
-// You need to peed the stream, find out how many bytes are being send, read that
-// many bytes, write them to the temp file, and send a confirmation of how many bytes were sent.
-static int		peek_header(int sock)
+int 		send_ok(t_session *session)
 {
-	sock = 2;
-	return(sock);
+	char buff[BUFFSZ];
+
+	ft_strcpy(buff, "OK");
+	// Send OK message to server, verifying space if avail.
+	if (send(session->sock, buff, BUFFSZ, MSG_WAITALL) == -1)
+		return (EXIT_FAIL);
+	ft_printf("sent OK msg\n");
+	return (EXIT_SUCCESS);
 }
 
-
-int 	ftp_recvfile(int fd, int sock, off_t *offset, off_t size)
+int			prep_recv(t_session *session)
 {
-	size_t 	read_size;
+	session->off =  0;
+	session->size = 0;
+	ft_bzero(session->buff, BUFFSZ);
+	// Wait for size of response being sent
+	recv(session->sock, session->buff, BUFFSZ, MSG_WAITALL);
+	ft_printf("Got file size%s\n", session->buff);
+	// need to do error checking to check OS for sufficient space.
+	send_ok(session);
+	session->size = ft_atoi(session->buff);
+	ft_printf("%i", (int)session->size);
+	return (EXIT_SUCCESS);
+}
+
+int 	ftp_recvfile(t_session *session)
+{
 	char 	buff[BUFFSZ];
-	int 	ret;
+	ssize_t ret;
 
-	read_size = peek_header(sock);
-	if ((ret = recv(sock, buff, read_size, MSG_WAITALL)) ==  -1)
-		return (EXIT_FAIL);
-	*offset += ret;
-	if ((write(fd, &buff + 10, ret)) == -1)
+	ret = 0;
+	prep_recv(session);
+	while (session->off < session->size)
 	{
-		printf("[-]Issue writing to recv temp file on fd %d\n", fd);
-		return (EXIT_FAIL);
+		if ((ret = recv(session->sock, buff, BUFFSZ, MSG_WAITALL)) == -1)
+		{
+			printf("[-]Error receiving data from \n");
+			return (EXIT_FAIL);
+		}
+		write(session->fd, session->buff, BUFFSZ);
+		session->off += ret;
 	}
-	add_header(read_size, buff);
-	if ((ret = send(sock, buff, 10, 0)) == -1)
-	{
-		printf("[-]Error sending data to client on socket %d\n", sock);
-		return(EXIT_FAIL);
-	}
-	return (size - *offset);
+	return (EXIT_SUCCESS);
 }
+

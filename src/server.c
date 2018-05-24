@@ -21,28 +21,6 @@ static int		redirect_output_fd(int fd)
     return (EXIT_SUCCESS);
 }
 
-static int 		server_response(t_session *session)
-{
-	int 		ret;
-
-	ret = 1;
-	// Get file size
-	if ((prep_send(session)) ==  EXIT_FAIL)
-		return (EXIT_FAIL);
-	// Prepare string representing full file size
-	if ((add_header(session->size, session->buff)) == EXIT_FAIL)
-		return (EXIT_FAIL);
-	// Send client the size of the file
-	send(session->cs, session->buff, 10, 0);
-	ft_bzero(session->buff , BUFFSZ);
-	// The client will reply with file length when prepared to receive.
-	recv(session->cs, session->buff, 2, MSG_WAITALL);
-	// Verify the client has sufficient has space for file.
-	if (ft_strncmp(session->buff, "OK", 2) == 0)
-		ftp_sendfile(session);
-	return(EXIT_SUCCESS);
-}
-
 static int		ftp_ls(t_session * session)
 {
 	pid_t			pid;
@@ -68,7 +46,6 @@ static int		ftp_ls(t_session * session)
 			printf("[-]Error waiting on child process to complete\n");
 			return(EXIT_FAIL);
 		}
-		server_response(session);
 	}
 	return (EXIT_SUCCESS);
 }
@@ -78,7 +55,6 @@ static int		ftp_env(t_session *session)
 	if ((redirect_output_fd(session->fd)) == EXIT_FAIL)
 		return (EXIT_FAIL);
 	ft_puttbl(session->env);
-	server_response(session);
 	return (EXIT_SUCCESS);
 }
 
@@ -112,6 +88,7 @@ static int			execute_client_cmd(t_session *session, int(fn(t_session *)))
 
 static void     act_accordingly(t_session *session)
 {
+	ft_printf("command recieved: %s\n", session->buff);
 	if (ft_strcmp((const char *)&session->buff, "quit" ) == 0)
 	{
 		printf("[+]Host has disconnected from socket %d\n", session->cs);
@@ -132,7 +109,7 @@ static void     manage_client_session(t_session *session)
     while (TRUE)
     {
 		ft_bzero(session->buff, BUFFSZ);
-		if ((ret = recv(session->cs, session->buff, BUFFSZ, 0)) == -1)
+		if ((ret = recv(session->cs, session->buff, BUFFSZ, MSG_WAITALL)) == -1)
         {
             printf("\n[-]Error reading from socket\n");
             continue;
@@ -178,39 +155,61 @@ static void    session_manager(t_session *session)
     }
 }
 
-int     create_server(int port)
+int		create_socket(t_session *session)
 {
-    int sock;
-    int opt = TRUE;
-    struct protoent *proto;
-    struct sockaddr_in  sin;
+	struct protoent *proto;
 
-    sock = 0;
-    proto = getprotobyname("tcp");
-    if (proto == 0)
-        return (EXIT_FAIL);
-    if ((sock = socket(PF_INET, SOCK_STREAM, proto->p_proto)) == -1)
-    {
-        printf("[-]Error creating socket\n");
-        exit(EXIT_FAIL);
-    }
-    sin.sin_family = AF_INET;
-    sin.sin_port = htons(port);
-    sin.sin_addr.s_addr = htonl(INADDR_ANY);
-    if (setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, (char *)&opt, sizeof(opt)) < 0)
-    {
-        printf("[-]Error setting options on master socket %d", sock);
-    }
-    if (bind(sock, (const struct sockaddr *)&sin, sizeof(sin)) < 0)
-    {
-        printf("[-]Error binding socket %d\n", sock);
-        exit(EXIT_FAIL);
-    }
-    if ((listen(sock, 4)) == 0)
-        printf("[+]Awaiting request...\n");
-    else
-        printf("[-]Error in binding port %d may be in use\n", CMD_PORT);
-    return (sock);
+	if ((proto = getprotobyname("tcp")) == 0)
+		return (EXIT_FAIL);
+	if ((session->sock = socket(PF_INET, SOCK_STREAM, proto->p_proto)) == -1)
+	{
+		printf("[-]Error creating socket\n");
+		return (EXIT_FAIL);
+	}
+	return (EXIT_SUCCESS);
+}
+
+int 	listen_socket(t_session *session)
+{
+	if ((listen(session->sock, 1)) == -1)
+	{
+		close(session->sock);
+		return (EXIT_FAIL);
+	}
+	return (EXIT_SUCCESS);
+}
+
+int 	bind_socket(t_session *session)
+{
+	session->sin.sin_family = AF_INET;
+	session->sin.sin_port = htons(session->port);
+	session->sin.sin_addr.s_addr = htonl(INADDR_ANY);
+	if (bind(session->sock, (const struct sockaddr *)&session->sin, sizeof(session->sin)) < 0)
+	{
+		printf("[-]Error binding socket on port %d\n", session->port);
+		return (EXIT_FAIL);
+	}
+	return (EXIT_SUCCESS);
+}
+
+int 	options_socket(t_session *session)
+{
+	session->opt = TRUE;
+	if (setsockopt(session->sock, SOL_SOCKET, SO_REUSEADDR, (char *)&session->opt, sizeof(session->opt)) < 0)
+	{
+		printf("[-]Error setting options on port %d", session->port);
+		return (EXIT_FAIL);
+	}
+	return (EXIT_SUCCESS);
+}
+
+int     create_server(t_session *session)
+{
+	create_socket(session);
+	bind_socket(session);
+	options_socket(session);
+	listen_socket(session);
+	return (EXIT_SUCCESS);
 }
 
 int main(int ac, char **av)
@@ -223,8 +222,12 @@ int main(int ac, char **av)
 	init_session(&session);
 	if (!(session.env = ft_tbldup(environ, ft_tbllen(environ))))
 		return (EXIT_FAIL);
-    session.port = atoi(av[1]);
-    session.sock = create_server(session.port);
+    session.port = ft_atoi(av[1]);
+    if ((session.sock = create_socket(session.port)) == EXIT_FAIL)
+	{
+		printf("[-]Error creating socket for port:%i\n", session.port);
+		return (EXIT_FAIL);
+	}
     session.cslen = sizeof(session.csin);
     session_manager(&session);
     close(session.sock);

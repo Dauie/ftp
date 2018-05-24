@@ -4,12 +4,13 @@ int			prep_send(t_session *session)
 {
 	session->off =  0;
 	session->size = 0;
-
 	if ((session->size = lseek(session->fd, 0, SEEK_END)) == -1)
 	{
 		printf("[-]Error retrieving size of temp file\n");
 		return(EXIT_FAIL);
 	}
+	add_header(session->size, session->buff);
+	ft_printf("size of file from lseek %i - %s\n", session->size, session->buff);
 	return (EXIT_SUCCESS);
 }
 
@@ -17,8 +18,9 @@ int			ftp_sendfile(t_session *session)
 {
 	char 	buff[BUFFSZ];
 	ssize_t ret;
-	// You are rewriting this.
+
 	ret = 0;
+	printf("got okay message\n");
 	while (session->off < session->size)
 	{
 		if ((ret = read(session->fd, buff, BUFFSZ)) == -1)
@@ -26,11 +28,12 @@ int			ftp_sendfile(t_session *session)
 			printf("[-]Error reading from temp send file\n");
 			return(EXIT_FAIL);
 		}
-		if ((send(session->sock, buff, BUFFSZ, 0)) == -1)
+		if ((send(session->sock, buff, BUFFSZ, MSG_WAITALL)) == -1)
 		{
 			printf("[-]Error sending data to client on socket %d\n", session->sock);
 			return(EXIT_FAIL);
 		}
+		printf("sent batch");
 		session->off += ret;
 	}
 	return (EXIT_SUCCESS);
