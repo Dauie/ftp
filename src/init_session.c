@@ -36,6 +36,7 @@ int			add_header(off_t size, char *buff)
 
 void init_session(t_session * session)
 {
+	session->run = 1;
 	session->port = 0;
 	session->sock = 0;
 	session->cs = 0;

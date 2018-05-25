@@ -16,20 +16,19 @@ int		redirect_output_fd(int fd)
 	return (EXIT_SUCCESS);
 }
 
-int		change_dir(t_session *session, char *dir)
+int		change_dir(t_session *session)
 {
-	if (chdir(dir) == -1)
+	if (chdir(session->buff) == -1)
 	{
 		//set error code
 		return (EXIT_FAIL);
 	}
 	//update saved env
 	//send new directory to client
-
 	return (EXIT_SUCCESS);
 }
 
-int		print_cwd(t_session *session)
+int		print_pwd(t_session *session)
 {
 	char	dir[256];
 	char 	*res;

@@ -8,14 +8,17 @@ void    usage(char *str)
 
 void	quit(t_session *session)
 {
-
+	if (ft_strcmp((const char *)&session->buff, "quit" ) == 0)
+	{
+		printf("[+]Host has disconnected from socket %d\n", session->cs);
+		close(session->cs);
+		exit(EXIT_SUCCESS);
+	}
 }
 
 
-static int		ftp_env(t_session *session)
+static int		env(t_session *session)
 {
-	if ((redirect_output_fd(session->fd)) == EXIT_FAIL)
-		return (EXIT_FAIL);
 	ft_puttbl(session->env);
 	return (EXIT_SUCCESS);
 }
@@ -26,8 +29,6 @@ static int			execute_client_cmd(t_session *session, int(fn(t_session *)))
 	struct rusage 	rusage;
 	int 			wait_status;
 
-	if ((create_temp_file(session)) == EXIT_FAIL)
-		return (EXIT_FAIL);
 	if ((pid = fork()) == -1)
 	{
 		printf("[-]Error forking process\n");
@@ -51,16 +52,11 @@ static int			execute_client_cmd(t_session *session, int(fn(t_session *)))
 static void     act_accordingly(t_session *session)
 {
 	ft_printf("command recieved: %s\n", session->buff);
-	if (ft_strcmp((const char *)&session->buff, "quit" ) == 0)
-	{
-		printf("[+]Host has disconnected from socket %d\n", session->cs);
-		close(session->cs);
-		exit(EXIT_SUCCESS);
-	}
+
 	else if (ft_strncmp((const char *)&session->buff, "ls", 2) == 0)
 		execute_client_cmd(session, list);
 	else if (ft_strncmp((const char *)&session->buff, "env", 3) == 0)
-		execute_client_cmd(session, ftp_env);
+		execute_client_cmd(session, env);
 }
 
 static void     manage_client_session(t_session *session)
@@ -68,7 +64,7 @@ static void     manage_client_session(t_session *session)
     ssize_t     ret;
 
     ret = 0;
-    while (TRUE)
+    while (session->run)
     {
 		ft_bzero(session->buff, BUFFSZ);
 		if ((ret = recv(session->cs, session->buff, BUFFSZ, 0)) == -1)
@@ -80,7 +76,7 @@ static void     manage_client_session(t_session *session)
 		{
 			printf("[-]Client disconnected from session on sd %d.\n", session->cs);
 			close(session->cs);
-			exit(EXIT_SUCCESS);
+			session->run = 0;
 		}
 		else
 			act_accordingly(session);
@@ -89,14 +85,11 @@ static void     manage_client_session(t_session *session)
 
 static void    session_manager(t_session *session)
 {
-    while (TRUE)
+    while (session->run)
     {
-        if (!(session->cs = accept(session->sock, (struct sockaddr*)&session->csin, &session->cslen)))
-        {
-            printf("[-]Error accepting connection.");
-                break;
-        }
-        printf("[+]New connection accepted from %s:%d on sd %d\n",
+		if (accept_connection(session) == EXIT_FAIL)
+			continue;
+        printf("[+]New connection %s:%d on sd %d\n",
                inet_ntoa(session->csin.sin_addr), ntohs(session->csin.sin_port), session->cs);
         if ((session->pid = fork()) == -1)
         {
@@ -106,7 +99,8 @@ static void    session_manager(t_session *session)
         else if (session->pid > 0)
         {
 			close(session->cs);
-			signal(SIGCHLD,SIG_IGN);
+			signal(SIGINT, handel_sig);
+			signal(SIGCHLD, handel_sig);
         }
         else if (session->pid == 0)
         {
@@ -116,18 +110,7 @@ static void    session_manager(t_session *session)
     }
 }
 
-int     create_server(t_session *session)
-{
-	if (create_socket(session) == EXIT_FAIL)
-		return (EXIT_FAIL);
-	if (bind_socket(session) == EXIT_FAIL)
-		return (EXIT_FAIL);
-	if (options_socket(session) == EXIT_FAIL)
-		return (EXIT_FAIL);
-	if (listen_socket(session) == EXIT_FAIL)
-		return (EXIT_FAIL);
-	return (EXIT_SUCCESS);
-}
+
 
 int main(int ac, char **av)
 {
@@ -140,9 +123,9 @@ int main(int ac, char **av)
 	if (!(session.env = ft_tbldup(environ, ft_tbllen(environ))))
 		return (EXIT_FAIL);
     session.port = ft_atoi(av[1]);
-    if (create_server(&session) == EXIT_FAIL)
+    if (create_endpoint(&session) == EXIT_FAIL)
 		return (EXIT_FAIL);
-    session.cslen = sizeof(session.csin);
+	session.cslen = sizeof(session.csin);
     session_manager(&session);
     close(session.sock);
     return(0);

@@ -14,7 +14,7 @@ int			prep_send(t_session *session)
 	return (EXIT_SUCCESS);
 }
 
-int			ftp_sendfile(t_session *session)
+int			sendfile(t_session *session)
 {
 	char 	buff[BUFFSZ];
 	ssize_t ret;

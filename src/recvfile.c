@@ -27,7 +27,7 @@ int			prep_recv(t_session *session)
 	return (EXIT_SUCCESS);
 }
 
-int 	ftp_recvfile(t_session *session)
+int 	recvfile(t_session *session)
 {
 	char 	buff[BUFFSZ];
 	ssize_t ret;
