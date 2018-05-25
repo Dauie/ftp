@@ -1,9 +1,9 @@
-cmake_minimum_required(VERSION 3.6)
+cmake_minimum_required(VERSION 3.9)
 project(ftp)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES
+add_executable(ftp
         incl/ftp.h
         libft/incl/bool.h
         libft/incl/char.h
@@ -51,7 +51,6 @@ set(SOURCE_FILES
         libft/src/primitive/cnvrsn/ft_itoa.c
         libft/src/primitive/cnvrsn/ft_itoabse.c
         libft/src/primitive/mem/ft_bzero.c
-        libft/src/primitive/mem/ft_calloc.c
         libft/src/primitive/mem/ft_memalloc.c
         libft/src/primitive/mem/ft_memccpy.c
         libft/src/primitive/mem/ft_memchr.c
@@ -60,7 +59,6 @@ set(SOURCE_FILES
         libft/src/primitive/mem/ft_memdel.c
         libft/src/primitive/mem/ft_memmove.c
         libft/src/primitive/mem/ft_memset.c
-        libft/src/primitive/mem/ft_realloc.c
         libft/src/primitive/num/ft_numlen.c
         libft/src/primitive/put/ft_putchar.c
         libft/src/primitive/put/ft_putchar_fd.c
@@ -90,6 +88,7 @@ set(SOURCE_FILES
         libft/src/primitive/str/ft_strchr.c
         libft/src/primitive/str/ft_strclr.c
         libft/src/primitive/str/ft_strcmp.c
+        libft/src/primitive/str/ft_strconcat.c
         libft/src/primitive/str/ft_strcpy.c
         libft/src/primitive/str/ft_strdel.c
         libft/src/primitive/str/ft_strdup.c
@@ -120,11 +119,9 @@ set(SOURCE_FILES
         libft/src/primitive/tbl/ft_crafttbl.c
         libft/src/primitive/tbl/ft_itbllen.c
         libft/src/primitive/tbl/ft_tbladdl.c
-        libft/src/primitive/tbl/ft_tblcnew.c
         libft/src/primitive/tbl/ft_tbldel.c
         libft/src/primitive/tbl/ft_tbldup.c
         libft/src/primitive/tbl/ft_tbllen.c
-        libft/src/primitive/tbl/ft_tblnnew.c
         libft/src/primitive/tbl/ft_tblrepline.c
         libft/src/primitive/tbl/ft_tblrmline.c
         libft/src/typedefined/lst/ft_lstadd.c
@@ -138,6 +135,10 @@ set(SOURCE_FILES
         libft/src/typedefined/lst/ft_lstnew.c
         libft/src/typedefined/lst/ft_lstnewstak.c
         src/client.c
-        src/server.c)
-
-add_executable(ftp ${SOURCE_FILES})
+        src/dir_cmd.c
+        src/ftp_cd.c
+        src/init_session.c
+        src/recvfile.c
+        src/sendfile.c
+        src/server.c
+        src/socket.c)
