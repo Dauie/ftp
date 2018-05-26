@@ -20,15 +20,18 @@
 #include "../libft/incl/cnvrsn.h"
 #include "../libft/incl/gnl.h"
 
-# define BUFFSZ 1024
-# define HDRSZ 10
-# define CMD_PORT 4222
-# define DATA_PORT 20
-# define MAX_CLIENTS 42
-# define EXIT_FAIL -1
-# define EXIT_SUCCESS 0
+# define BUFFSZ (1024)
+# define CMD_PORT (4222)
+#define EXIT_SUCCESS (0)
+#define EXIT_FAIL (-1)
+# define HDRSZ (10)
+# define MAX_CLIENTS (42)
 
-
+typedef enum 			e_ephem
+{
+	EPHEM_MIN = 49152,
+	EPHEM_MAX = 64738
+}						t_ephem;
 
 typedef struct          s_session
 {
@@ -47,6 +50,7 @@ typedef struct          s_session
     char 				buff[BUFFSZ];
     char                **env;
 	char 				**argv;
+	struct s_session	*psv;
 }                       t_session;
 
 
@@ -64,14 +68,16 @@ void 		init_session(t_session * session);
 int			list(t_session *session);
 int 		listen_socket(t_session *session);
 int 		options_socket(t_session *session);
-int 		passive(t_session *session);
+int  		passive(t_session *session);
+int 		port(t_session *session);
 int			prep_send(t_session *session);
 int 		print_pwd(t_session *session);
 int 		recvfile(t_session *session);
 int			redirect_output_fd(int fd);
 int			sendfile(t_session *session);
+int			send_client_msg(t_session *session, char *code, char *msg);
 
-char	*g_cmd_names[] = {"CWD", "HELP", "LIST", "PASV", "PWD", "RETR", "STOR", "QUIT"};
+char	*g_sprtd_cmds[] = {"CWD", "HELP", "LIST", "PASV", "PWD", "RETR", "STOR", "QUIT"};
 
 int 	(*g_cmds[])(t_session *) = { &change_dir, &help, &list, &passive, &sendfile, &recvfile };
 

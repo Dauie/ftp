@@ -2937,33 +2937,9 @@ CMakeFiles/ftp.dir/src/dir_cmd.c.o.provides: CMakeFiles/ftp.dir/src/dir_cmd.c.o.
 CMakeFiles/ftp.dir/src/dir_cmd.c.o.provides.build: CMakeFiles/ftp.dir/src/dir_cmd.c.o
 
 
-CMakeFiles/ftp.dir/src/ftp_cd.c.o: CMakeFiles/ftp.dir/flags.make
-CMakeFiles/ftp.dir/src/ftp_cd.c.o: ../src/ftp_cd.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_121) "Building C object CMakeFiles/ftp.dir/src/ftp_cd.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/src/ftp_cd.c.o   -c /Users/dauie/code/ftp/src/ftp_cd.c
-
-CMakeFiles/ftp.dir/src/ftp_cd.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ftp.dir/src/ftp_cd.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/dauie/code/ftp/src/ftp_cd.c > CMakeFiles/ftp.dir/src/ftp_cd.c.i
-
-CMakeFiles/ftp.dir/src/ftp_cd.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ftp.dir/src/ftp_cd.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/dauie/code/ftp/src/ftp_cd.c -o CMakeFiles/ftp.dir/src/ftp_cd.c.s
-
-CMakeFiles/ftp.dir/src/ftp_cd.c.o.requires:
-
-.PHONY : CMakeFiles/ftp.dir/src/ftp_cd.c.o.requires
-
-CMakeFiles/ftp.dir/src/ftp_cd.c.o.provides: CMakeFiles/ftp.dir/src/ftp_cd.c.o.requires
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/ftp_cd.c.o.provides.build
-.PHONY : CMakeFiles/ftp.dir/src/ftp_cd.c.o.provides
-
-CMakeFiles/ftp.dir/src/ftp_cd.c.o.provides.build: CMakeFiles/ftp.dir/src/ftp_cd.c.o
-
-
 CMakeFiles/ftp.dir/src/init_session.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/src/init_session.c.o: ../src/init_session.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_122) "Building C object CMakeFiles/ftp.dir/src/init_session.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_121) "Building C object CMakeFiles/ftp.dir/src/init_session.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/src/init_session.c.o   -c /Users/dauie/code/ftp/src/init_session.c
 
 CMakeFiles/ftp.dir/src/init_session.c.i: cmake_force
@@ -2987,7 +2963,7 @@ CMakeFiles/ftp.dir/src/init_session.c.o.provides.build: CMakeFiles/ftp.dir/src/i
 
 CMakeFiles/ftp.dir/src/recvfile.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/src/recvfile.c.o: ../src/recvfile.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_123) "Building C object CMakeFiles/ftp.dir/src/recvfile.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_122) "Building C object CMakeFiles/ftp.dir/src/recvfile.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/src/recvfile.c.o   -c /Users/dauie/code/ftp/src/recvfile.c
 
 CMakeFiles/ftp.dir/src/recvfile.c.i: cmake_force
@@ -3011,7 +2987,7 @@ CMakeFiles/ftp.dir/src/recvfile.c.o.provides.build: CMakeFiles/ftp.dir/src/recvf
 
 CMakeFiles/ftp.dir/src/sendfile.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/src/sendfile.c.o: ../src/sendfile.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_124) "Building C object CMakeFiles/ftp.dir/src/sendfile.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_123) "Building C object CMakeFiles/ftp.dir/src/sendfile.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/src/sendfile.c.o   -c /Users/dauie/code/ftp/src/sendfile.c
 
 CMakeFiles/ftp.dir/src/sendfile.c.i: cmake_force
@@ -3035,7 +3011,7 @@ CMakeFiles/ftp.dir/src/sendfile.c.o.provides.build: CMakeFiles/ftp.dir/src/sendf
 
 CMakeFiles/ftp.dir/src/server.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/src/server.c.o: ../src/server.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_125) "Building C object CMakeFiles/ftp.dir/src/server.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_124) "Building C object CMakeFiles/ftp.dir/src/server.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/src/server.c.o   -c /Users/dauie/code/ftp/src/server.c
 
 CMakeFiles/ftp.dir/src/server.c.i: cmake_force
@@ -3055,6 +3031,30 @@ CMakeFiles/ftp.dir/src/server.c.o.provides: CMakeFiles/ftp.dir/src/server.c.o.re
 .PHONY : CMakeFiles/ftp.dir/src/server.c.o.provides
 
 CMakeFiles/ftp.dir/src/server.c.o.provides.build: CMakeFiles/ftp.dir/src/server.c.o
+
+
+CMakeFiles/ftp.dir/src/sig.c.o: CMakeFiles/ftp.dir/flags.make
+CMakeFiles/ftp.dir/src/sig.c.o: ../src/sig.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_125) "Building C object CMakeFiles/ftp.dir/src/sig.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/src/sig.c.o   -c /Users/dauie/code/ftp/src/sig.c
+
+CMakeFiles/ftp.dir/src/sig.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ftp.dir/src/sig.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/dauie/code/ftp/src/sig.c > CMakeFiles/ftp.dir/src/sig.c.i
+
+CMakeFiles/ftp.dir/src/sig.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ftp.dir/src/sig.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/dauie/code/ftp/src/sig.c -o CMakeFiles/ftp.dir/src/sig.c.s
+
+CMakeFiles/ftp.dir/src/sig.c.o.requires:
+
+.PHONY : CMakeFiles/ftp.dir/src/sig.c.o.requires
+
+CMakeFiles/ftp.dir/src/sig.c.o.provides: CMakeFiles/ftp.dir/src/sig.c.o.requires
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/sig.c.o.provides.build
+.PHONY : CMakeFiles/ftp.dir/src/sig.c.o.provides
+
+CMakeFiles/ftp.dir/src/sig.c.o.provides.build: CMakeFiles/ftp.dir/src/sig.c.o
 
 
 CMakeFiles/ftp.dir/src/socket.c.o: CMakeFiles/ftp.dir/flags.make
@@ -3203,11 +3203,11 @@ ftp_OBJECTS = \
 "CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnewstak.c.o" \
 "CMakeFiles/ftp.dir/src/client.c.o" \
 "CMakeFiles/ftp.dir/src/dir_cmd.c.o" \
-"CMakeFiles/ftp.dir/src/ftp_cd.c.o" \
 "CMakeFiles/ftp.dir/src/init_session.c.o" \
 "CMakeFiles/ftp.dir/src/recvfile.c.o" \
 "CMakeFiles/ftp.dir/src/sendfile.c.o" \
 "CMakeFiles/ftp.dir/src/server.c.o" \
+"CMakeFiles/ftp.dir/src/sig.c.o" \
 "CMakeFiles/ftp.dir/src/socket.c.o"
 
 # External object files for target ftp
@@ -3333,11 +3333,11 @@ ftp: CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnew.c.o
 ftp: CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnewstak.c.o
 ftp: CMakeFiles/ftp.dir/src/client.c.o
 ftp: CMakeFiles/ftp.dir/src/dir_cmd.c.o
-ftp: CMakeFiles/ftp.dir/src/ftp_cd.c.o
 ftp: CMakeFiles/ftp.dir/src/init_session.c.o
 ftp: CMakeFiles/ftp.dir/src/recvfile.c.o
 ftp: CMakeFiles/ftp.dir/src/sendfile.c.o
 ftp: CMakeFiles/ftp.dir/src/server.c.o
+ftp: CMakeFiles/ftp.dir/src/sig.c.o
 ftp: CMakeFiles/ftp.dir/src/socket.c.o
 ftp: CMakeFiles/ftp.dir/build.make
 ftp: CMakeFiles/ftp.dir/link.txt
@@ -3469,11 +3469,11 @@ CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lst
 CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnewstak.c.o.requires
 CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/src/client.c.o.requires
 CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/src/dir_cmd.c.o.requires
-CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/src/ftp_cd.c.o.requires
 CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/src/init_session.c.o.requires
 CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/src/recvfile.c.o.requires
 CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/src/sendfile.c.o.requires
 CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/src/server.c.o.requires
+CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/src/sig.c.o.requires
 CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/src/socket.c.o.requires
 
 .PHONY : CMakeFiles/ftp.dir/requires

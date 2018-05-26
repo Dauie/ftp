@@ -23,40 +23,28 @@ static int		env(t_session *session)
 	return (EXIT_SUCCESS);
 }
 
-static int			execute_client_cmd(t_session *session, int(fn(t_session *)))
-{
-	pid_t			pid;
-	struct rusage 	rusage;
-	int 			wait_status;
 
-	if ((pid = fork()) == -1)
+static void     dispatch_command(t_session *session)
+{
+	int	i;
+	int len;
+
+	i = -1;
+	len = (int)ft_tbllen(g_sprtd_cmds);
+	if (!(session->argv = ft_strsplit(session->buff, ' ')))
+		return ;
+	while (++i < len)
 	{
-		printf("[-]Error forking process\n");
-		return (EXIT_FAIL);
-	}
-	else if (pid == 0)
-		fn(session);
-	else if (pid > 0)
-	{
-		if (wait4(pid, &wait_status, 0, &rusage ) == -1)
+		if (ft_strncmp(session->buff,
+			   g_sprtd_cmds[i], ft_strlen(g_sprtd_cmds[i])) == 0)
 		{
-			printf("[-]Error waiting on child process to complete\n");
-			return(EXIT_FAIL);
+			g_cmds[i](session);
+			break;
 		}
-		if (session->argv)
-			ft_tbldel(session->argv, ft_tbllen(session->argv));
 	}
-	return (EXIT_SUCCESS);
-}
-
-static void     act_accordingly(t_session *session)
-{
-	ft_printf("command recieved: %s\n", session->buff);
-
-	else if (ft_strncmp((const char *)&session->buff, "ls", 2) == 0)
-		execute_client_cmd(session, list);
-	else if (ft_strncmp((const char *)&session->buff, "env", 3) == 0)
-		execute_client_cmd(session, env);
+	if (i == len)
+		send_client_msg(session, "502", "Command not implemented");
+	ft_tbldel(session->argv, ft_tbllen(session->argv));
 }
 
 static void     manage_client_session(t_session *session)
@@ -79,7 +67,7 @@ static void     manage_client_session(t_session *session)
 			session->run = 0;
 		}
 		else
-			act_accordingly(session);
+			dispatch_command(session);
     }
 }
 
@@ -109,8 +97,6 @@ static void    session_manager(t_session *session)
         }
     }
 }
-
-
 
 int main(int ac, char **av)
 {

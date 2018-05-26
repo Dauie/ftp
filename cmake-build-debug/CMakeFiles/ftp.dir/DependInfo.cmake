@@ -124,11 +124,11 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/dauie/code/ftp/libft/src/typedefined/lst/ft_lstnewstak.c" "/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnewstak.c.o"
   "/Users/dauie/code/ftp/src/client.c" "/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles/ftp.dir/src/client.c.o"
   "/Users/dauie/code/ftp/src/dir_cmd.c" "/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles/ftp.dir/src/dir_cmd.c.o"
-  "/Users/dauie/code/ftp/src/ftp_cd.c" "/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles/ftp.dir/src/ftp_cd.c.o"
   "/Users/dauie/code/ftp/src/init_session.c" "/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles/ftp.dir/src/init_session.c.o"
   "/Users/dauie/code/ftp/src/recvfile.c" "/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles/ftp.dir/src/recvfile.c.o"
   "/Users/dauie/code/ftp/src/sendfile.c" "/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles/ftp.dir/src/sendfile.c.o"
   "/Users/dauie/code/ftp/src/server.c" "/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles/ftp.dir/src/server.c.o"
+  "/Users/dauie/code/ftp/src/sig.c" "/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles/ftp.dir/src/sig.c.o"
   "/Users/dauie/code/ftp/src/socket.c" "/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles/ftp.dir/src/socket.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")

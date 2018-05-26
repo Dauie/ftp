@@ -3363,33 +3363,6 @@ src/dir_cmd.c.s:
 	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/dir_cmd.c.s
 .PHONY : src/dir_cmd.c.s
 
-src/ftp_cd.o: src/ftp_cd.c.o
-
-.PHONY : src/ftp_cd.o
-
-# target to build an object file
-src/ftp_cd.c.o:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/ftp_cd.c.o
-.PHONY : src/ftp_cd.c.o
-
-src/ftp_cd.i: src/ftp_cd.c.i
-
-.PHONY : src/ftp_cd.i
-
-# target to preprocess a source file
-src/ftp_cd.c.i:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/ftp_cd.c.i
-.PHONY : src/ftp_cd.c.i
-
-src/ftp_cd.s: src/ftp_cd.c.s
-
-.PHONY : src/ftp_cd.s
-
-# target to generate assembly for a file
-src/ftp_cd.c.s:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/ftp_cd.c.s
-.PHONY : src/ftp_cd.c.s
-
 src/init_session.o: src/init_session.c.o
 
 .PHONY : src/init_session.o
@@ -3497,6 +3470,33 @@ src/server.s: src/server.c.s
 src/server.c.s:
 	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/server.c.s
 .PHONY : src/server.c.s
+
+src/sig.o: src/sig.c.o
+
+.PHONY : src/sig.o
+
+# target to build an object file
+src/sig.c.o:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/sig.c.o
+.PHONY : src/sig.c.o
+
+src/sig.i: src/sig.c.i
+
+.PHONY : src/sig.i
+
+# target to preprocess a source file
+src/sig.c.i:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/sig.c.i
+.PHONY : src/sig.c.i
+
+src/sig.s: src/sig.c.s
+
+.PHONY : src/sig.s
+
+# target to generate assembly for a file
+src/sig.c.s:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/sig.c.s
+.PHONY : src/sig.c.s
 
 src/socket.o: src/socket.c.o
 
@@ -3894,9 +3894,6 @@ help:
 	@echo "... src/dir_cmd.o"
 	@echo "... src/dir_cmd.i"
 	@echo "... src/dir_cmd.s"
-	@echo "... src/ftp_cd.o"
-	@echo "... src/ftp_cd.i"
-	@echo "... src/ftp_cd.s"
 	@echo "... src/init_session.o"
 	@echo "... src/init_session.i"
 	@echo "... src/init_session.s"
@@ -3909,6 +3906,9 @@ help:
 	@echo "... src/server.o"
 	@echo "... src/server.i"
 	@echo "... src/server.s"
+	@echo "... src/sig.o"
+	@echo "... src/sig.i"
+	@echo "... src/sig.s"
 	@echo "... src/socket.o"
 	@echo "... src/socket.i"
 	@echo "... src/socket.s"

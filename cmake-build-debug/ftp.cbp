@@ -478,9 +478,6 @@
 		<Unit filename="/Users/dauie/code/ftp/src/dir_cmd.c">
 			<Option target="ftp"/>
 		</Unit>
-		<Unit filename="/Users/dauie/code/ftp/src/ftp_cd.c">
-			<Option target="ftp"/>
-		</Unit>
 		<Unit filename="/Users/dauie/code/ftp/src/init_session.c">
 			<Option target="ftp"/>
 		</Unit>
@@ -491,6 +488,9 @@
 			<Option target="ftp"/>
 		</Unit>
 		<Unit filename="/Users/dauie/code/ftp/src/server.c">
+			<Option target="ftp"/>
+		</Unit>
+		<Unit filename="/Users/dauie/code/ftp/src/sig.c">
 			<Option target="ftp"/>
 		</Unit>
 		<Unit filename="/Users/dauie/code/ftp/src/socket.c">
