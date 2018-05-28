@@ -21,8 +21,6 @@
 
 
 # define BUFFSZ (1024)
-# define EXIT_SUCCESS (0)
-# define EXIT_FAIL (-1)
 # define HDRSZ (10)
 
 typedef struct          s_session

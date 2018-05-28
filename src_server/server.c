@@ -3,26 +3,19 @@
 void    usage(char *str)
 {
     printf("Useage: %s <port>\n", str);
-    exit(EXIT_FAIL);
+    exit(EXIT_FAILURE);
 }
 
-void	quit(t_session *session)
+int		quit(t_session *session)
 {
 	if (ft_strcmp((const char *)&session->buff, "quit" ) == 0)
 	{
 		printf("[+]Host has disconnected from socket %d\n", session->cs);
 		close(session->cs);
-		exit(EXIT_SUCCESS);
+		session->run = FALSE;
+		return (EXIT_SUCCESS);
 	}
 }
-
-
-static int		env(t_session *session)
-{
-	ft_puttbl(session->env);
-	return (EXIT_SUCCESS);
-}
-
 
 static void     dispatch_command(t_session *session)
 {
@@ -76,7 +69,7 @@ static void    session_manager(t_session *session)
 {
     while (session->run)
     {
-		if (accept_connection(session) == EXIT_FAIL)
+		if (accept_connection(session) == EXIT_FAILURE)
 			continue;
         printf("[+]New connection %s:%d on sd %d\n",
                inet_ntoa(session->csin.sin_addr), ntohs(session->csin.sin_port), session->cs);
@@ -108,10 +101,10 @@ int main(int ac, char **av)
         usage(av[0]);
 	init_session(&session);
 	if (!(session.env = ft_tbldup(environ, ft_tbllen(environ))))
-		return (EXIT_FAIL);
+		return (EXIT_FAILURE);
     session.port = ft_atoi(av[1]);
-    if (create_endpoint(&session) == EXIT_FAIL)
-		return (EXIT_FAIL);
+    if (create_endpoint(&session) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
 	session.cslen = sizeof(session.csin);
     session_manager(&session);
     close(session.sock);

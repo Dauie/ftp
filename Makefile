@@ -28,8 +28,8 @@ clean:
 		$(RM) $(OBJ)
 
 fclean: clean
-		rm server
-		rm client
+		$(RM) server
+		$(RM) client
 		$(RM) server.dSYM
 		$(RM) client.dSYM
 

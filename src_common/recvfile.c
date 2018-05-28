@@ -27,7 +27,7 @@ int 	recv_file(t_session *session)
 		if ((ret = recv(session->sock, buff, BUFFSZ, MSG_WAITALL)) == -1)
 		{
 			printf("[-]Error receiving data from \n");
-			return (EXIT_FAIL);
+			return (EXIT_FAILURE);
 		}
 		write(session->fd, session->buff, BUFFSZ);
 		session->off += ret;

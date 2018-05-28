@@ -18,14 +18,14 @@ int			add_header(off_t size, char *buff)
 	char 	*ret;
 
 	if (!(ret = ft_itoabse(size, 10)))
-		return (EXIT_FAIL);
+		return (EXIT_FAILUREURE);
 	tmp = ret;
 	if (ft_strlen(ret) < 10)
 	{
 		if (!(zeros = make_zero_string(10 - ft_strlen(ret))))
-			return (EXIT_FAIL);
+			return (EXIT_FAILUREURE);
 		if (!(ret = ft_strconcat(zeros, ret)))
-			return (EXIT_FAIL);
+			return (EXIT_FAILUREURE);
 		free(tmp);
 		free(zeros);
 	}

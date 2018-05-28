@@ -50,12 +50,12 @@ static int create_connection(char *addr, t_session *session)
 {
 	create_socket(session);
 	bind_socket(session, addr);
-	if (connect(sock, (const struct sockaddr *)&sin, sizeof(sin)) == -1)
+	if (connect(session->sock, (const struct sockaddr *)&session->sin, sizeof(session->sin)) == -1)
 	{
-		printf("[-]Error connecting to %s:%d ...(-.-)\n", addr, port);
-		return (EXIT_FAIL);
+		printf("[-]Error connecting to %s:%d ...(-.-)\n", addr, session->port);
+		return (EXIT_FAILURE);
 	}
-	printf("[+]Successfully connected to %s:%d\n", addr, port);
+	printf("[+]Successfully connected to %s:%d\n", addr, session->port);
 	return (EXIT_SUCCESS);
 }
 
@@ -67,7 +67,7 @@ int	main(int ac, char **av)
 	if (ac != 3)
 		usage(av[0]);
 	session.port = ft_atoi(av[2]);
-	if (create_connection(av[1], session) == EXIT_SUCCESS)
+	if (create_connection(av[1], &session) == EXIT_SUCCESS)
 		client_shell(&session);
 	close(session.sock);
 	return(0);

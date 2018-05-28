@@ -5,12 +5,12 @@ int		create_socket(t_session *session)
 	struct protoent *proto;
 
 	if ((proto = getprotobyname("tcp")) == 0)
-		return (EXIT_FAIL);
+		return (EXIT_FAILURE);
 	if ((session->sock = socket(PF_INET, SOCK_STREAM, proto->p_proto)) == -1)
 	{
 		printf("[-]Error creating socket\n");
 		// set error code
-		return (EXIT_FAIL);
+		return (EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);
 }
@@ -21,7 +21,7 @@ int 	listen_socket(t_session *session)
 	{
 		close(session->sock);
 		//set error code
-		return (EXIT_FAIL);
+		return (EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);
 }
@@ -39,7 +39,7 @@ int 	bind_socket(t_session *session, char *address)
 	{
 		printf("[-]Error binding socket on port %d\n", session->port);
 		// set error code
-		return (EXIT_FAIL);
+		return (EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);
 }
@@ -52,7 +52,7 @@ int 	options_socket(t_session *session)
 	{
 		printf("[-]Error setting options on port %d", session->port);
 		// set error code
-		return (EXIT_FAIL);
+		return (EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);
 }
@@ -63,20 +63,20 @@ int		accept_connection(t_session *session)
 				   (struct sockaddr*)&session->csin, &session->cslen)))
 	{
 		//Set error code
-		return (EXIT_FAIL);
+		return (EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);
 }
 
 int     create_endpoint(t_session *session)
 {
-	if (create_socket(session) == EXIT_FAIL)
-		return (EXIT_FAIL);
-	if (bind_socket(session) == EXIT_FAIL)
-		return (EXIT_FAIL);
-	if (options_socket(session) == EXIT_FAIL)
-		return (EXIT_FAIL);
-	if (listen_socket(session) == EXIT_FAIL)
-		return (EXIT_FAIL);
+	if (create_socket(session) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
+	if (bind_socket(session) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
+	if (options_socket(session) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
+	if (listen_socket(session) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
