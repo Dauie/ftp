@@ -82,9 +82,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/dauie/code/ftp/client/client.c">
-			<Option target="ftp"/>
-		</Unit>
 		<Unit filename="/Users/dauie/code/ftp/incl/client.h">
 			<Option target="ftp"/>
 		</Unit>
@@ -484,25 +481,28 @@
 		<Unit filename="/Users/dauie/code/ftp/libft/src/typedefined/lst/ft_lstnewstak.c">
 			<Option target="ftp"/>
 		</Unit>
-		<Unit filename="/Users/dauie/code/ftp/src/dir_cmd.c">
+		<Unit filename="/Users/dauie/code/ftp/src_client/client.c">
 			<Option target="ftp"/>
 		</Unit>
-		<Unit filename="/Users/dauie/code/ftp/src/init_session.c">
+		<Unit filename="/Users/dauie/code/ftp/src_common/init_session.c">
 			<Option target="ftp"/>
 		</Unit>
-		<Unit filename="/Users/dauie/code/ftp/src/recvfile.c">
+		<Unit filename="/Users/dauie/code/ftp/src_common/recvfile.c">
 			<Option target="ftp"/>
 		</Unit>
-		<Unit filename="/Users/dauie/code/ftp/src/sendfile.c">
+		<Unit filename="/Users/dauie/code/ftp/src_common/sendfile.c">
 			<Option target="ftp"/>
 		</Unit>
-		<Unit filename="/Users/dauie/code/ftp/src/server.c">
+		<Unit filename="/Users/dauie/code/ftp/src_common/socket.c">
 			<Option target="ftp"/>
 		</Unit>
-		<Unit filename="/Users/dauie/code/ftp/src/sig.c">
+		<Unit filename="/Users/dauie/code/ftp/src_server/dir_cmd.c">
 			<Option target="ftp"/>
 		</Unit>
-		<Unit filename="/Users/dauie/code/ftp/src/socket.c">
+		<Unit filename="/Users/dauie/code/ftp/src_server/server.c">
+			<Option target="ftp"/>
+		</Unit>
+		<Unit filename="/Users/dauie/code/ftp/src_server/sig.c">
 			<Option target="ftp"/>
 		</Unit>
 		<Unit filename="/Users/dauie/code/ftp/CMakeLists.txt">

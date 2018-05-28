@@ -4,7 +4,6 @@ project(ftp)
 set(CMAKE_CXX_STANDARD 11)
 
 add_executable(ftp
-        client/client.c
         incl/client.h
         incl/ftp.h
         incl/server.h
@@ -138,10 +137,11 @@ add_executable(ftp
         libft/src/typedefined/lst/ft_lstmap.c
         libft/src/typedefined/lst/ft_lstnew.c
         libft/src/typedefined/lst/ft_lstnewstak.c
-        src/dir_cmd.c
-        src/init_session.c
-        src/recvfile.c
-        src/sendfile.c
-        src/server.c
-        src/sig.c
-        src/socket.c)
+        src_client/client.c
+        src_common/init_session.c
+        src_common/recvfile.c
+        src_common/sendfile.c
+        src_common/socket.c
+        src_server/dir_cmd.c
+        src_server/server.c
+        src_server/sig.c)

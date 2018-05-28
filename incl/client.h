@@ -4,6 +4,6 @@
 #include "ftp.h"
 
 
-int 		recv_file(t_session *session);
+
 
 #endif

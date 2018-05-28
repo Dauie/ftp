@@ -3,10 +3,12 @@ CC = gcc
 
 CCFLAGS = -Wall -Werror -Wextra -g -fsanitize=address -O0
 
-SVR_SRC =  server/init_session.c server/sendfile.c \
-			server/server.c server/sig.c server/socket.c
+SVR_SRC =  src_server/server.c src_server/sig.c src_server/dir_cmd.c
 
-CLI_SRC = client/client.c
+CLI_SRC = src_client/client.c
+
+CMN_SRC = src_common/init_session.c src_common/recvfile.c src_common/sendfile.c \
+			src_common/socket.c
 
 OBJ = *.o
 
@@ -18,16 +20,16 @@ all:
 		$(CC) $(CCFLAGS) $(SVR_SRC) ./libft/libftprintf.a -o server
 
 client:
-		$(CC) $(CCFLAGS) $(CLI_SRC) ./libft/libftprintf.a -o client
+		$(CC) $(CCFLAGS) $(CLI_SRC) $(CMN_SRC) ./libft/libftprintf.a -o client
 
 server:
-		$(CC) $(CCFLAGS) $(SVR_SRC) ./libft/libftprintf.a -o server
+		$(CC) $(CCFLAGS) $(SVR_SRC) $(CMN_SRC) ./libft/libftprintf.a -o server
 clean:
 		$(RM) $(OBJ)
 
 fclean: clean
-		$(RM) server
-		$(RM) client
+		rm server
+		rm client
 		$(RM) server.dSYM
 		$(RM) client.dSYM
 

@@ -123,33 +123,6 @@ ftp/fast:
 	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/build
 .PHONY : ftp/fast
 
-client/client.o: client/client.c.o
-
-.PHONY : client/client.o
-
-# target to build an object file
-client/client.c.o:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/client/client.c.o
-.PHONY : client/client.c.o
-
-client/client.i: client/client.c.i
-
-.PHONY : client/client.i
-
-# target to preprocess a source file
-client/client.c.i:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/client/client.c.i
-.PHONY : client/client.c.i
-
-client/client.s: client/client.c.s
-
-.PHONY : client/client.s
-
-# target to generate assembly for a file
-client/client.c.s:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/client/client.c.s
-.PHONY : client/client.c.s
-
 libft/src/ft_printf/ft_printf.o: libft/src/ft_printf/ft_printf.c.o
 
 .PHONY : libft/src/ft_printf/ft_printf.o
@@ -3363,194 +3336,221 @@ libft/src/typedefined/lst/ft_lstnewstak.c.s:
 	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnewstak.c.s
 .PHONY : libft/src/typedefined/lst/ft_lstnewstak.c.s
 
-src/dir_cmd.o: src/dir_cmd.c.o
+src_client/client.o: src_client/client.c.o
 
-.PHONY : src/dir_cmd.o
-
-# target to build an object file
-src/dir_cmd.c.o:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/dir_cmd.c.o
-.PHONY : src/dir_cmd.c.o
-
-src/dir_cmd.i: src/dir_cmd.c.i
-
-.PHONY : src/dir_cmd.i
-
-# target to preprocess a source file
-src/dir_cmd.c.i:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/dir_cmd.c.i
-.PHONY : src/dir_cmd.c.i
-
-src/dir_cmd.s: src/dir_cmd.c.s
-
-.PHONY : src/dir_cmd.s
-
-# target to generate assembly for a file
-src/dir_cmd.c.s:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/dir_cmd.c.s
-.PHONY : src/dir_cmd.c.s
-
-src/init_session.o: src/init_session.c.o
-
-.PHONY : src/init_session.o
+.PHONY : src_client/client.o
 
 # target to build an object file
-src/init_session.c.o:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/init_session.c.o
-.PHONY : src/init_session.c.o
+src_client/client.c.o:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_client/client.c.o
+.PHONY : src_client/client.c.o
 
-src/init_session.i: src/init_session.c.i
+src_client/client.i: src_client/client.c.i
 
-.PHONY : src/init_session.i
+.PHONY : src_client/client.i
 
 # target to preprocess a source file
-src/init_session.c.i:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/init_session.c.i
-.PHONY : src/init_session.c.i
+src_client/client.c.i:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_client/client.c.i
+.PHONY : src_client/client.c.i
 
-src/init_session.s: src/init_session.c.s
+src_client/client.s: src_client/client.c.s
 
-.PHONY : src/init_session.s
+.PHONY : src_client/client.s
 
 # target to generate assembly for a file
-src/init_session.c.s:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/init_session.c.s
-.PHONY : src/init_session.c.s
+src_client/client.c.s:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_client/client.c.s
+.PHONY : src_client/client.c.s
 
-src/recvfile.o: src/recvfile.c.o
+src_common/init_session.o: src_common/init_session.c.o
 
-.PHONY : src/recvfile.o
+.PHONY : src_common/init_session.o
 
 # target to build an object file
-src/recvfile.c.o:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/recvfile.c.o
-.PHONY : src/recvfile.c.o
+src_common/init_session.c.o:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_common/init_session.c.o
+.PHONY : src_common/init_session.c.o
 
-src/recvfile.i: src/recvfile.c.i
+src_common/init_session.i: src_common/init_session.c.i
 
-.PHONY : src/recvfile.i
+.PHONY : src_common/init_session.i
 
 # target to preprocess a source file
-src/recvfile.c.i:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/recvfile.c.i
-.PHONY : src/recvfile.c.i
+src_common/init_session.c.i:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_common/init_session.c.i
+.PHONY : src_common/init_session.c.i
 
-src/recvfile.s: src/recvfile.c.s
+src_common/init_session.s: src_common/init_session.c.s
 
-.PHONY : src/recvfile.s
+.PHONY : src_common/init_session.s
 
 # target to generate assembly for a file
-src/recvfile.c.s:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/recvfile.c.s
-.PHONY : src/recvfile.c.s
+src_common/init_session.c.s:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_common/init_session.c.s
+.PHONY : src_common/init_session.c.s
 
-src/sendfile.o: src/sendfile.c.o
+src_common/recvfile.o: src_common/recvfile.c.o
 
-.PHONY : src/sendfile.o
+.PHONY : src_common/recvfile.o
 
 # target to build an object file
-src/sendfile.c.o:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/sendfile.c.o
-.PHONY : src/sendfile.c.o
+src_common/recvfile.c.o:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_common/recvfile.c.o
+.PHONY : src_common/recvfile.c.o
 
-src/sendfile.i: src/sendfile.c.i
+src_common/recvfile.i: src_common/recvfile.c.i
 
-.PHONY : src/sendfile.i
+.PHONY : src_common/recvfile.i
 
 # target to preprocess a source file
-src/sendfile.c.i:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/sendfile.c.i
-.PHONY : src/sendfile.c.i
+src_common/recvfile.c.i:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_common/recvfile.c.i
+.PHONY : src_common/recvfile.c.i
 
-src/sendfile.s: src/sendfile.c.s
+src_common/recvfile.s: src_common/recvfile.c.s
 
-.PHONY : src/sendfile.s
+.PHONY : src_common/recvfile.s
 
 # target to generate assembly for a file
-src/sendfile.c.s:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/sendfile.c.s
-.PHONY : src/sendfile.c.s
+src_common/recvfile.c.s:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_common/recvfile.c.s
+.PHONY : src_common/recvfile.c.s
 
-src/server.o: src/server.c.o
+src_common/sendfile.o: src_common/sendfile.c.o
 
-.PHONY : src/server.o
+.PHONY : src_common/sendfile.o
 
 # target to build an object file
-src/server.c.o:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/server.c.o
-.PHONY : src/server.c.o
+src_common/sendfile.c.o:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_common/sendfile.c.o
+.PHONY : src_common/sendfile.c.o
 
-src/server.i: src/server.c.i
+src_common/sendfile.i: src_common/sendfile.c.i
 
-.PHONY : src/server.i
+.PHONY : src_common/sendfile.i
 
 # target to preprocess a source file
-src/server.c.i:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/server.c.i
-.PHONY : src/server.c.i
+src_common/sendfile.c.i:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_common/sendfile.c.i
+.PHONY : src_common/sendfile.c.i
 
-src/server.s: src/server.c.s
+src_common/sendfile.s: src_common/sendfile.c.s
 
-.PHONY : src/server.s
+.PHONY : src_common/sendfile.s
 
 # target to generate assembly for a file
-src/server.c.s:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/server.c.s
-.PHONY : src/server.c.s
+src_common/sendfile.c.s:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_common/sendfile.c.s
+.PHONY : src_common/sendfile.c.s
 
-src/sig.o: src/sig.c.o
+src_common/socket.o: src_common/socket.c.o
 
-.PHONY : src/sig.o
+.PHONY : src_common/socket.o
 
 # target to build an object file
-src/sig.c.o:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/sig.c.o
-.PHONY : src/sig.c.o
+src_common/socket.c.o:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_common/socket.c.o
+.PHONY : src_common/socket.c.o
 
-src/sig.i: src/sig.c.i
+src_common/socket.i: src_common/socket.c.i
 
-.PHONY : src/sig.i
+.PHONY : src_common/socket.i
 
 # target to preprocess a source file
-src/sig.c.i:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/sig.c.i
-.PHONY : src/sig.c.i
+src_common/socket.c.i:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_common/socket.c.i
+.PHONY : src_common/socket.c.i
 
-src/sig.s: src/sig.c.s
+src_common/socket.s: src_common/socket.c.s
 
-.PHONY : src/sig.s
+.PHONY : src_common/socket.s
 
 # target to generate assembly for a file
-src/sig.c.s:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/sig.c.s
-.PHONY : src/sig.c.s
+src_common/socket.c.s:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_common/socket.c.s
+.PHONY : src_common/socket.c.s
 
-src/socket.o: src/socket.c.o
+src_server/dir_cmd.o: src_server/dir_cmd.c.o
 
-.PHONY : src/socket.o
+.PHONY : src_server/dir_cmd.o
 
 # target to build an object file
-src/socket.c.o:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/socket.c.o
-.PHONY : src/socket.c.o
+src_server/dir_cmd.c.o:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_server/dir_cmd.c.o
+.PHONY : src_server/dir_cmd.c.o
 
-src/socket.i: src/socket.c.i
+src_server/dir_cmd.i: src_server/dir_cmd.c.i
 
-.PHONY : src/socket.i
+.PHONY : src_server/dir_cmd.i
 
 # target to preprocess a source file
-src/socket.c.i:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/socket.c.i
-.PHONY : src/socket.c.i
+src_server/dir_cmd.c.i:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_server/dir_cmd.c.i
+.PHONY : src_server/dir_cmd.c.i
 
-src/socket.s: src/socket.c.s
+src_server/dir_cmd.s: src_server/dir_cmd.c.s
 
-.PHONY : src/socket.s
+.PHONY : src_server/dir_cmd.s
 
 # target to generate assembly for a file
-src/socket.c.s:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/socket.c.s
-.PHONY : src/socket.c.s
+src_server/dir_cmd.c.s:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_server/dir_cmd.c.s
+.PHONY : src_server/dir_cmd.c.s
+
+src_server/server.o: src_server/server.c.o
+
+.PHONY : src_server/server.o
+
+# target to build an object file
+src_server/server.c.o:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_server/server.c.o
+.PHONY : src_server/server.c.o
+
+src_server/server.i: src_server/server.c.i
+
+.PHONY : src_server/server.i
+
+# target to preprocess a source file
+src_server/server.c.i:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_server/server.c.i
+.PHONY : src_server/server.c.i
+
+src_server/server.s: src_server/server.c.s
+
+.PHONY : src_server/server.s
+
+# target to generate assembly for a file
+src_server/server.c.s:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_server/server.c.s
+.PHONY : src_server/server.c.s
+
+src_server/sig.o: src_server/sig.c.o
+
+.PHONY : src_server/sig.o
+
+# target to build an object file
+src_server/sig.c.o:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_server/sig.c.o
+.PHONY : src_server/sig.c.o
+
+src_server/sig.i: src_server/sig.c.i
+
+.PHONY : src_server/sig.i
+
+# target to preprocess a source file
+src_server/sig.c.i:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_server/sig.c.i
+.PHONY : src_server/sig.c.i
+
+src_server/sig.s: src_server/sig.c.s
+
+.PHONY : src_server/sig.s
+
+# target to generate assembly for a file
+src_server/sig.c.s:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_server/sig.c.s
+.PHONY : src_server/sig.c.s
 
 # Help Target
 help:
@@ -3561,9 +3561,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... ftp"
-	@echo "... client/client.o"
-	@echo "... client/client.i"
-	@echo "... client/client.s"
 	@echo "... libft/src/ft_printf/ft_printf.o"
 	@echo "... libft/src/ft_printf/ft_printf.i"
 	@echo "... libft/src/ft_printf/ft_printf.s"
@@ -3921,27 +3918,30 @@ help:
 	@echo "... libft/src/typedefined/lst/ft_lstnewstak.o"
 	@echo "... libft/src/typedefined/lst/ft_lstnewstak.i"
 	@echo "... libft/src/typedefined/lst/ft_lstnewstak.s"
-	@echo "... src/dir_cmd.o"
-	@echo "... src/dir_cmd.i"
-	@echo "... src/dir_cmd.s"
-	@echo "... src/init_session.o"
-	@echo "... src/init_session.i"
-	@echo "... src/init_session.s"
-	@echo "... src/recvfile.o"
-	@echo "... src/recvfile.i"
-	@echo "... src/recvfile.s"
-	@echo "... src/sendfile.o"
-	@echo "... src/sendfile.i"
-	@echo "... src/sendfile.s"
-	@echo "... src/server.o"
-	@echo "... src/server.i"
-	@echo "... src/server.s"
-	@echo "... src/sig.o"
-	@echo "... src/sig.i"
-	@echo "... src/sig.s"
-	@echo "... src/socket.o"
-	@echo "... src/socket.i"
-	@echo "... src/socket.s"
+	@echo "... src_client/client.o"
+	@echo "... src_client/client.i"
+	@echo "... src_client/client.s"
+	@echo "... src_common/init_session.o"
+	@echo "... src_common/init_session.i"
+	@echo "... src_common/init_session.s"
+	@echo "... src_common/recvfile.o"
+	@echo "... src_common/recvfile.i"
+	@echo "... src_common/recvfile.s"
+	@echo "... src_common/sendfile.o"
+	@echo "... src_common/sendfile.i"
+	@echo "... src_common/sendfile.s"
+	@echo "... src_common/socket.o"
+	@echo "... src_common/socket.i"
+	@echo "... src_common/socket.s"
+	@echo "... src_server/dir_cmd.o"
+	@echo "... src_server/dir_cmd.i"
+	@echo "... src_server/dir_cmd.s"
+	@echo "... src_server/server.o"
+	@echo "... src_server/server.i"
+	@echo "... src_server/server.s"
+	@echo "... src_server/sig.o"
+	@echo "... src_server/sig.i"
+	@echo "... src_server/sig.s"
 .PHONY : help
 
 
