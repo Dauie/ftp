@@ -3,9 +3,10 @@ CC = gcc
 
 CCFLAGS = -Wall -Werror -Wextra -g -fsanitize=address -O0
 
-SVR_SRC =  src/server.c src/sendfile.c src/create_temp_file.c src/init_session.c
+SVR_SRC =  server/init_session.c server/sendfile.c \
+			server/server.c server/sig.c server/socket.c
 
-CLI_SRC = src/client.c src/recvfile.c src/create_temp_file.c src/init_session.c
+CLI_SRC = client/client.c
 
 OBJ = *.o
 
@@ -15,7 +16,6 @@ all:
 		$(MAKE) -C ./libft/ re
 		$(CC) $(CCFLAGS) $(CLI_SRC) ./libft/libftprintf.a -o client
 		$(CC) $(CCFLAGS) $(SVR_SRC) ./libft/libftprintf.a -o server
-
 
 client:
 		$(CC) $(CCFLAGS) $(CLI_SRC) ./libft/libftprintf.a -o client

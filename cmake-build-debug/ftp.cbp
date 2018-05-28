@@ -82,7 +82,16 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/dauie/code/ftp/client/client.c">
+			<Option target="ftp"/>
+		</Unit>
+		<Unit filename="/Users/dauie/code/ftp/incl/client.h">
+			<Option target="ftp"/>
+		</Unit>
 		<Unit filename="/Users/dauie/code/ftp/incl/ftp.h">
+			<Option target="ftp"/>
+		</Unit>
+		<Unit filename="/Users/dauie/code/ftp/incl/server.h">
 			<Option target="ftp"/>
 		</Unit>
 		<Unit filename="/Users/dauie/code/ftp/libft/incl/bool.h">
@@ -358,6 +367,9 @@
 		<Unit filename="/Users/dauie/code/ftp/libft/src/primitive/str/ft_strjoin.c">
 			<Option target="ftp"/>
 		</Unit>
+		<Unit filename="/Users/dauie/code/ftp/libft/src/primitive/str/ft_strjoinn.c">
+			<Option target="ftp"/>
+		</Unit>
 		<Unit filename="/Users/dauie/code/ftp/libft/src/primitive/str/ft_strlcat.c">
 			<Option target="ftp"/>
 		</Unit>
@@ -470,9 +482,6 @@
 			<Option target="ftp"/>
 		</Unit>
 		<Unit filename="/Users/dauie/code/ftp/libft/src/typedefined/lst/ft_lstnewstak.c">
-			<Option target="ftp"/>
-		</Unit>
-		<Unit filename="/Users/dauie/code/ftp/src/client.c">
 			<Option target="ftp"/>
 		</Unit>
 		<Unit filename="/Users/dauie/code/ftp/src/dir_cmd.c">

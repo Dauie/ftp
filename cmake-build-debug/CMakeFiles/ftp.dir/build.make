@@ -57,9 +57,33 @@ include CMakeFiles/ftp.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/ftp.dir/flags.make
 
+CMakeFiles/ftp.dir/client/client.c.o: CMakeFiles/ftp.dir/flags.make
+CMakeFiles/ftp.dir/client/client.c.o: ../client/client.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/ftp.dir/client/client.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/client/client.c.o   -c /Users/dauie/code/ftp/client/client.c
+
+CMakeFiles/ftp.dir/client/client.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ftp.dir/client/client.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/dauie/code/ftp/client/client.c > CMakeFiles/ftp.dir/client/client.c.i
+
+CMakeFiles/ftp.dir/client/client.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ftp.dir/client/client.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/dauie/code/ftp/client/client.c -o CMakeFiles/ftp.dir/client/client.c.s
+
+CMakeFiles/ftp.dir/client/client.c.o.requires:
+
+.PHONY : CMakeFiles/ftp.dir/client/client.c.o.requires
+
+CMakeFiles/ftp.dir/client/client.c.o.provides: CMakeFiles/ftp.dir/client/client.c.o.requires
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/client/client.c.o.provides.build
+.PHONY : CMakeFiles/ftp.dir/client/client.c.o.provides
+
+CMakeFiles/ftp.dir/client/client.c.o.provides.build: CMakeFiles/ftp.dir/client/client.c.o
+
+
 CMakeFiles/ftp.dir/libft/src/ft_printf/ft_printf.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/ft_printf/ft_printf.c.o: ../libft/src/ft_printf/ft_printf.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/ft_printf.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/ft_printf.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/ft_printf/ft_printf.c.o   -c /Users/dauie/code/ftp/libft/src/ft_printf/ft_printf.c
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/ft_printf.c.i: cmake_force
@@ -83,7 +107,7 @@ CMakeFiles/ftp.dir/libft/src/ft_printf/ft_printf.c.o.provides.build: CMakeFiles/
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_cast_di.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_cast_di.c.o: ../libft/src/ft_printf/pf_cast_di.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_cast_di.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_cast_di.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/ft_printf/pf_cast_di.c.o   -c /Users/dauie/code/ftp/libft/src/ft_printf/pf_cast_di.c
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_cast_di.c.i: cmake_force
@@ -107,7 +131,7 @@ CMakeFiles/ftp.dir/libft/src/ft_printf/pf_cast_di.c.o.provides.build: CMakeFiles
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_cast_oux.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_cast_oux.c.o: ../libft/src/ft_printf/pf_cast_oux.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_cast_oux.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_cast_oux.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/ft_printf/pf_cast_oux.c.o   -c /Users/dauie/code/ftp/libft/src/ft_printf/pf_cast_oux.c
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_cast_oux.c.i: cmake_force
@@ -131,7 +155,7 @@ CMakeFiles/ftp.dir/libft/src/ft_printf/pf_cast_oux.c.o.provides.build: CMakeFile
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_ihelp.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_ihelp.c.o: ../libft/src/ft_printf/pf_ihelp.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_ihelp.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_ihelp.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/ft_printf/pf_ihelp.c.o   -c /Users/dauie/code/ftp/libft/src/ft_printf/pf_ihelp.c
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_ihelp.c.i: cmake_force
@@ -155,7 +179,7 @@ CMakeFiles/ftp.dir/libft/src/ft_printf/pf_ihelp.c.o.provides.build: CMakeFiles/f
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_initstructs.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_initstructs.c.o: ../libft/src/ft_printf/pf_initstructs.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_initstructs.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_initstructs.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/ft_printf/pf_initstructs.c.o   -c /Users/dauie/code/ftp/libft/src/ft_printf/pf_initstructs.c
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_initstructs.c.i: cmake_force
@@ -179,7 +203,7 @@ CMakeFiles/ftp.dir/libft/src/ft_printf/pf_initstructs.c.o.provides.build: CMakeF
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_is.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_is.c.o: ../libft/src/ft_printf/pf_is.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_is.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_is.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/ft_printf/pf_is.c.o   -c /Users/dauie/code/ftp/libft/src/ft_printf/pf_is.c
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_is.c.i: cmake_force
@@ -203,7 +227,7 @@ CMakeFiles/ftp.dir/libft/src/ft_printf/pf_is.c.o.provides.build: CMakeFiles/ftp.
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_itoabse.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_itoabse.c.o: ../libft/src/ft_printf/pf_itoabse.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_itoabse.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_itoabse.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/ft_printf/pf_itoabse.c.o   -c /Users/dauie/code/ftp/libft/src/ft_printf/pf_itoabse.c
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_itoabse.c.i: cmake_force
@@ -227,7 +251,7 @@ CMakeFiles/ftp.dir/libft/src/ft_printf/pf_itoabse.c.o.provides.build: CMakeFiles
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_mod.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_mod.c.o: ../libft/src/ft_printf/pf_mod.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_mod.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_mod.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/ft_printf/pf_mod.c.o   -c /Users/dauie/code/ftp/libft/src/ft_printf/pf_mod.c
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_mod.c.i: cmake_force
@@ -251,7 +275,7 @@ CMakeFiles/ftp.dir/libft/src/ft_printf/pf_mod.c.o.provides.build: CMakeFiles/ftp
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_c.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_c.c.o: ../libft/src/ft_printf/pf_print_c.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_c.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_c.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_c.c.o   -c /Users/dauie/code/ftp/libft/src/ft_printf/pf_print_c.c
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_c.c.i: cmake_force
@@ -275,7 +299,7 @@ CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_c.c.o.provides.build: CMakeFiles
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_i.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_i.c.o: ../libft/src/ft_printf/pf_print_i.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_i.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_i.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_i.c.o   -c /Users/dauie/code/ftp/libft/src/ft_printf/pf_print_i.c
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_i.c.i: cmake_force
@@ -299,7 +323,7 @@ CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_i.c.o.provides.build: CMakeFiles
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_o.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_o.c.o: ../libft/src/ft_printf/pf_print_o.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_o.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_o.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_o.c.o   -c /Users/dauie/code/ftp/libft/src/ft_printf/pf_print_o.c
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_o.c.i: cmake_force
@@ -323,7 +347,7 @@ CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_o.c.o.provides.build: CMakeFiles
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_p.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_p.c.o: ../libft/src/ft_printf/pf_print_p.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_p.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_p.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_p.c.o   -c /Users/dauie/code/ftp/libft/src/ft_printf/pf_print_p.c
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_p.c.i: cmake_force
@@ -347,7 +371,7 @@ CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_p.c.o.provides.build: CMakeFiles
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_perc.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_perc.c.o: ../libft/src/ft_printf/pf_print_perc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_perc.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_perc.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_perc.c.o   -c /Users/dauie/code/ftp/libft/src/ft_printf/pf_print_perc.c
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_perc.c.i: cmake_force
@@ -371,7 +395,7 @@ CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_perc.c.o.provides.build: CMakeFi
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_s.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_s.c.o: ../libft/src/ft_printf/pf_print_s.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_s.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_s.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_s.c.o   -c /Users/dauie/code/ftp/libft/src/ft_printf/pf_print_s.c
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_s.c.i: cmake_force
@@ -395,7 +419,7 @@ CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_s.c.o.provides.build: CMakeFiles
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_x.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_x.c.o: ../libft/src/ft_printf/pf_print_x.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_x.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_x.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_x.c.o   -c /Users/dauie/code/ftp/libft/src/ft_printf/pf_print_x.c
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_x.c.i: cmake_force
@@ -419,7 +443,7 @@ CMakeFiles/ftp.dir/libft/src/ft_printf/pf_print_x.c.o.provides.build: CMakeFiles
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_putchar.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_putchar.c.o: ../libft/src/ft_printf/pf_putchar.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_putchar.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_putchar.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/ft_printf/pf_putchar.c.o   -c /Users/dauie/code/ftp/libft/src/ft_printf/pf_putchar.c
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_putchar.c.i: cmake_force
@@ -443,7 +467,7 @@ CMakeFiles/ftp.dir/libft/src/ft_printf/pf_putchar.c.o.provides.build: CMakeFiles
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_puterror.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_puterror.c.o: ../libft/src/ft_printf/pf_puterror.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_puterror.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_puterror.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/ft_printf/pf_puterror.c.o   -c /Users/dauie/code/ftp/libft/src/ft_printf/pf_puterror.c
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_puterror.c.i: cmake_force
@@ -467,7 +491,7 @@ CMakeFiles/ftp.dir/libft/src/ft_printf/pf_puterror.c.o.provides.build: CMakeFile
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_putnbr.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_putnbr.c.o: ../libft/src/ft_printf/pf_putnbr.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_putnbr.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_putnbr.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/ft_printf/pf_putnbr.c.o   -c /Users/dauie/code/ftp/libft/src/ft_printf/pf_putnbr.c
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_putnbr.c.i: cmake_force
@@ -491,7 +515,7 @@ CMakeFiles/ftp.dir/libft/src/ft_printf/pf_putnbr.c.o.provides.build: CMakeFiles/
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_putstr.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_putstr.c.o: ../libft/src/ft_printf/pf_putstr.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_putstr.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_putstr.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/ft_printf/pf_putstr.c.o   -c /Users/dauie/code/ftp/libft/src/ft_printf/pf_putstr.c
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_putstr.c.i: cmake_force
@@ -515,7 +539,7 @@ CMakeFiles/ftp.dir/libft/src/ft_printf/pf_putstr.c.o.provides.build: CMakeFiles/
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_tick.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_tick.c.o: ../libft/src/ft_printf/pf_tick.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_tick.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_tick.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/ft_printf/pf_tick.c.o   -c /Users/dauie/code/ftp/libft/src/ft_printf/pf_tick.c
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_tick.c.i: cmake_force
@@ -539,7 +563,7 @@ CMakeFiles/ftp.dir/libft/src/ft_printf/pf_tick.c.o.provides.build: CMakeFiles/ft
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_typechr.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_typechr.c.o: ../libft/src/ft_printf/pf_typechr.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_typechr.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_typechr.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/ft_printf/pf_typechr.c.o   -c /Users/dauie/code/ftp/libft/src/ft_printf/pf_typechr.c
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_typechr.c.i: cmake_force
@@ -563,7 +587,7 @@ CMakeFiles/ftp.dir/libft/src/ft_printf/pf_typechr.c.o.provides.build: CMakeFiles
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_width.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_width.c.o: ../libft/src/ft_printf/pf_width.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_width.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/ftp.dir/libft/src/ft_printf/pf_width.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/ft_printf/pf_width.c.o   -c /Users/dauie/code/ftp/libft/src/ft_printf/pf_width.c
 
 CMakeFiles/ftp.dir/libft/src/ft_printf/pf_width.c.i: cmake_force
@@ -587,7 +611,7 @@ CMakeFiles/ftp.dir/libft/src/ft_printf/pf_width.c.o.provides.build: CMakeFiles/f
 
 CMakeFiles/ftp.dir/libft/src/futil/gnl/gnl.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/futil/gnl/gnl.c.o: ../libft/src/futil/gnl/gnl.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/ftp.dir/libft/src/futil/gnl/gnl.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/ftp.dir/libft/src/futil/gnl/gnl.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/futil/gnl/gnl.c.o   -c /Users/dauie/code/ftp/libft/src/futil/gnl/gnl.c
 
 CMakeFiles/ftp.dir/libft/src/futil/gnl/gnl.c.i: cmake_force
@@ -611,7 +635,7 @@ CMakeFiles/ftp.dir/libft/src/futil/gnl/gnl.c.o.provides.build: CMakeFiles/ftp.di
 
 CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isalnum.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isalnum.c.o: ../libft/src/primitive/char/ft_isalnum.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isalnum.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isalnum.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isalnum.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/char/ft_isalnum.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isalnum.c.i: cmake_force
@@ -635,7 +659,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isalnum.c.o.provides.build: CMake
 
 CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isalpha.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isalpha.c.o: ../libft/src/primitive/char/ft_isalpha.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isalpha.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isalpha.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isalpha.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/char/ft_isalpha.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isalpha.c.i: cmake_force
@@ -659,7 +683,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isalpha.c.o.provides.build: CMake
 
 CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isascii.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isascii.c.o: ../libft/src/primitive/char/ft_isascii.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isascii.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isascii.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isascii.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/char/ft_isascii.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isascii.c.i: cmake_force
@@ -683,7 +707,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isascii.c.o.provides.build: CMake
 
 CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isdigit.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isdigit.c.o: ../libft/src/primitive/char/ft_isdigit.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isdigit.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isdigit.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isdigit.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/char/ft_isdigit.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isdigit.c.i: cmake_force
@@ -707,7 +731,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isdigit.c.o.provides.build: CMake
 
 CMakeFiles/ftp.dir/libft/src/primitive/char/ft_islower.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/char/ft_islower.c.o: ../libft/src/primitive/char/ft_islower.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/char/ft_islower.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/char/ft_islower.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/char/ft_islower.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/char/ft_islower.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/char/ft_islower.c.i: cmake_force
@@ -731,7 +755,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/char/ft_islower.c.o.provides.build: CMake
 
 CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isprint.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isprint.c.o: ../libft/src/primitive/char/ft_isprint.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isprint.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isprint.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isprint.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/char/ft_isprint.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isprint.c.i: cmake_force
@@ -755,7 +779,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isprint.c.o.provides.build: CMake
 
 CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isspc.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isspc.c.o: ../libft/src/primitive/char/ft_isspc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isspc.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isspc.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isspc.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/char/ft_isspc.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isspc.c.i: cmake_force
@@ -779,7 +803,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isspc.c.o.provides.build: CMakeFi
 
 CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isupper.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isupper.c.o: ../libft/src/primitive/char/ft_isupper.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isupper.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isupper.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isupper.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/char/ft_isupper.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isupper.c.i: cmake_force
@@ -803,7 +827,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/char/ft_isupper.c.o.provides.build: CMake
 
 CMakeFiles/ftp.dir/libft/src/primitive/cnvrsn/ft_atoi.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/cnvrsn/ft_atoi.c.o: ../libft/src/primitive/cnvrsn/ft_atoi.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/cnvrsn/ft_atoi.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/cnvrsn/ft_atoi.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/cnvrsn/ft_atoi.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/cnvrsn/ft_atoi.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/cnvrsn/ft_atoi.c.i: cmake_force
@@ -827,7 +851,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/cnvrsn/ft_atoi.c.o.provides.build: CMakeF
 
 CMakeFiles/ftp.dir/libft/src/primitive/cnvrsn/ft_itoa.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/cnvrsn/ft_itoa.c.o: ../libft/src/primitive/cnvrsn/ft_itoa.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/cnvrsn/ft_itoa.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/cnvrsn/ft_itoa.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/cnvrsn/ft_itoa.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/cnvrsn/ft_itoa.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/cnvrsn/ft_itoa.c.i: cmake_force
@@ -851,7 +875,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/cnvrsn/ft_itoa.c.o.provides.build: CMakeF
 
 CMakeFiles/ftp.dir/libft/src/primitive/cnvrsn/ft_itoabse.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/cnvrsn/ft_itoabse.c.o: ../libft/src/primitive/cnvrsn/ft_itoabse.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/cnvrsn/ft_itoabse.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/cnvrsn/ft_itoabse.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/cnvrsn/ft_itoabse.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/cnvrsn/ft_itoabse.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/cnvrsn/ft_itoabse.c.i: cmake_force
@@ -875,7 +899,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/cnvrsn/ft_itoabse.c.o.provides.build: CMa
 
 CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_bzero.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_bzero.c.o: ../libft/src/primitive/mem/ft_bzero.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_bzero.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_bzero.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_bzero.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/mem/ft_bzero.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_bzero.c.i: cmake_force
@@ -899,7 +923,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_bzero.c.o.provides.build: CMakeFil
 
 CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memalloc.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memalloc.c.o: ../libft/src/primitive/mem/ft_memalloc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memalloc.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memalloc.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memalloc.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/mem/ft_memalloc.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memalloc.c.i: cmake_force
@@ -923,7 +947,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memalloc.c.o.provides.build: CMake
 
 CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memccpy.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memccpy.c.o: ../libft/src/primitive/mem/ft_memccpy.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memccpy.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memccpy.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memccpy.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/mem/ft_memccpy.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memccpy.c.i: cmake_force
@@ -947,7 +971,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memccpy.c.o.provides.build: CMakeF
 
 CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memchr.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memchr.c.o: ../libft/src/primitive/mem/ft_memchr.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memchr.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memchr.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memchr.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/mem/ft_memchr.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memchr.c.i: cmake_force
@@ -971,7 +995,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memchr.c.o.provides.build: CMakeFi
 
 CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memcmp.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memcmp.c.o: ../libft/src/primitive/mem/ft_memcmp.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memcmp.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memcmp.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memcmp.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/mem/ft_memcmp.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memcmp.c.i: cmake_force
@@ -995,7 +1019,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memcmp.c.o.provides.build: CMakeFi
 
 CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memcpy.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memcpy.c.o: ../libft/src/primitive/mem/ft_memcpy.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memcpy.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memcpy.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memcpy.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/mem/ft_memcpy.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memcpy.c.i: cmake_force
@@ -1019,7 +1043,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memcpy.c.o.provides.build: CMakeFi
 
 CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memdel.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memdel.c.o: ../libft/src/primitive/mem/ft_memdel.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memdel.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memdel.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memdel.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/mem/ft_memdel.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memdel.c.i: cmake_force
@@ -1043,7 +1067,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memdel.c.o.provides.build: CMakeFi
 
 CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memmove.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memmove.c.o: ../libft/src/primitive/mem/ft_memmove.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memmove.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memmove.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memmove.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/mem/ft_memmove.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memmove.c.i: cmake_force
@@ -1067,7 +1091,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memmove.c.o.provides.build: CMakeF
 
 CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memset.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memset.c.o: ../libft/src/primitive/mem/ft_memset.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memset.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memset.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memset.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/mem/ft_memset.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memset.c.i: cmake_force
@@ -1091,7 +1115,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/mem/ft_memset.c.o.provides.build: CMakeFi
 
 CMakeFiles/ftp.dir/libft/src/primitive/num/ft_numlen.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/num/ft_numlen.c.o: ../libft/src/primitive/num/ft_numlen.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/num/ft_numlen.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/num/ft_numlen.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/num/ft_numlen.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/num/ft_numlen.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/num/ft_numlen.c.i: cmake_force
@@ -1115,7 +1139,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/num/ft_numlen.c.o.provides.build: CMakeFi
 
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putchar.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putchar.c.o: ../libft/src/primitive/put/ft_putchar.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putchar.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putchar.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putchar.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/put/ft_putchar.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putchar.c.i: cmake_force
@@ -1139,7 +1163,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putchar.c.o.provides.build: CMakeF
 
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putchar_fd.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putchar_fd.c.o: ../libft/src/primitive/put/ft_putchar_fd.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putchar_fd.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putchar_fd.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putchar_fd.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/put/ft_putchar_fd.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putchar_fd.c.i: cmake_force
@@ -1163,7 +1187,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putchar_fd.c.o.provides.build: CMa
 
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putclst.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putclst.c.o: ../libft/src/primitive/put/ft_putclst.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putclst.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putclst.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putclst.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/put/ft_putclst.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putclst.c.i: cmake_force
@@ -1187,7 +1211,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putclst.c.o.provides.build: CMakeF
 
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putendl.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putendl.c.o: ../libft/src/primitive/put/ft_putendl.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putendl.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putendl.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putendl.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/put/ft_putendl.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putendl.c.i: cmake_force
@@ -1211,7 +1235,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putendl.c.o.provides.build: CMakeF
 
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putendl_fd.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putendl_fd.c.o: ../libft/src/primitive/put/ft_putendl_fd.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putendl_fd.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putendl_fd.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putendl_fd.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/put/ft_putendl_fd.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putendl_fd.c.i: cmake_force
@@ -1235,7 +1259,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putendl_fd.c.o.provides.build: CMa
 
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_puterror.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_puterror.c.o: ../libft/src/primitive/put/ft_puterror.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/put/ft_puterror.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/put/ft_puterror.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/put/ft_puterror.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/put/ft_puterror.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_puterror.c.i: cmake_force
@@ -1259,7 +1283,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/put/ft_puterror.c.o.provides.build: CMake
 
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putnbr.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putnbr.c.o: ../libft/src/primitive/put/ft_putnbr.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putnbr.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putnbr.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putnbr.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/put/ft_putnbr.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putnbr.c.i: cmake_force
@@ -1283,7 +1307,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putnbr.c.o.provides.build: CMakeFi
 
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putnbr_fd.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putnbr_fd.c.o: ../libft/src/primitive/put/ft_putnbr_fd.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putnbr_fd.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putnbr_fd.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putnbr_fd.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/put/ft_putnbr_fd.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putnbr_fd.c.i: cmake_force
@@ -1307,7 +1331,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putnbr_fd.c.o.provides.build: CMak
 
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putnlst.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putnlst.c.o: ../libft/src/primitive/put/ft_putnlst.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putnlst.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putnlst.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putnlst.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/put/ft_putnlst.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putnlst.c.i: cmake_force
@@ -1331,7 +1355,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putnlst.c.o.provides.build: CMakeF
 
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putstr.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putstr.c.o: ../libft/src/primitive/put/ft_putstr.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putstr.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putstr.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putstr.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/put/ft_putstr.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putstr.c.i: cmake_force
@@ -1355,7 +1379,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putstr.c.o.provides.build: CMakeFi
 
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putstr_fd.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putstr_fd.c.o: ../libft/src/primitive/put/ft_putstr_fd.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putstr_fd.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putstr_fd.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putstr_fd.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/put/ft_putstr_fd.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putstr_fd.c.i: cmake_force
@@ -1379,7 +1403,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putstr_fd.c.o.provides.build: CMak
 
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putstrrev.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putstrrev.c.o: ../libft/src/primitive/put/ft_putstrrev.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putstrrev.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putstrrev.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putstrrev.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/put/ft_putstrrev.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putstrrev.c.i: cmake_force
@@ -1403,7 +1427,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/put/ft_putstrrev.c.o.provides.build: CMak
 
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_puttbl.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_puttbl.c.o: ../libft/src/primitive/put/ft_puttbl.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/put/ft_puttbl.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/put/ft_puttbl.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/put/ft_puttbl.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/put/ft_puttbl.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/put/ft_puttbl.c.i: cmake_force
@@ -1427,7 +1451,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/put/ft_puttbl.c.o.provides.build: CMakeFi
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_cntbnespc.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_cntbnespc.c.o: ../libft/src/primitive/str/ft_cntbnespc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_cntbnespc.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_cntbnespc.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_cntbnespc.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_cntbnespc.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_cntbnespc.c.i: cmake_force
@@ -1451,7 +1475,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_cntbnespc.c.o.provides.build: CMak
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_cntbspc.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_cntbspc.c.o: ../libft/src/primitive/str/ft_cntbspc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_cntbspc.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_cntbspc.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_cntbspc.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_cntbspc.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_cntbspc.c.i: cmake_force
@@ -1475,7 +1499,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_cntbspc.c.o.provides.build: CMakeF
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_cnttotspc.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_cnttotspc.c.o: ../libft/src/primitive/str/ft_cnttotspc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_cnttotspc.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_cnttotspc.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_cnttotspc.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_cnttotspc.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_cnttotspc.c.i: cmake_force
@@ -1499,7 +1523,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_cnttotspc.c.o.provides.build: CMak
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_cntwrds.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_cntwrds.c.o: ../libft/src/primitive/str/ft_cntwrds.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_cntwrds.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_cntwrds.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_cntwrds.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_cntwrds.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_cntwrds.c.i: cmake_force
@@ -1523,7 +1547,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_cntwrds.c.o.provides.build: CMakeF
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_dirjoin.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_dirjoin.c.o: ../libft/src/primitive/str/ft_dirjoin.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_dirjoin.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_dirjoin.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_dirjoin.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_dirjoin.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_dirjoin.c.i: cmake_force
@@ -1547,7 +1571,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_dirjoin.c.o.provides.build: CMakeF
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstralnum.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstralnum.c.o: ../libft/src/primitive/str/ft_isstralnum.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstralnum.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstralnum.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstralnum.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_isstralnum.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstralnum.c.i: cmake_force
@@ -1571,7 +1595,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstralnum.c.o.provides.build: CMa
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstralpha.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstralpha.c.o: ../libft/src/primitive/str/ft_isstralpha.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstralpha.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstralpha.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstralpha.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_isstralpha.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstralpha.c.i: cmake_force
@@ -1595,7 +1619,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstralpha.c.o.provides.build: CMa
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstrascii.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstrascii.c.o: ../libft/src/primitive/str/ft_isstrascii.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstrascii.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstrascii.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstrascii.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_isstrascii.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstrascii.c.i: cmake_force
@@ -1619,7 +1643,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstrascii.c.o.provides.build: CMa
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstrdigit.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstrdigit.c.o: ../libft/src/primitive/str/ft_isstrdigit.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstrdigit.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstrdigit.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstrdigit.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_isstrdigit.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstrdigit.c.i: cmake_force
@@ -1643,7 +1667,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstrdigit.c.o.provides.build: CMa
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstrprint.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstrprint.c.o: ../libft/src/primitive/str/ft_isstrprint.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstrprint.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstrprint.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstrprint.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_isstrprint.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstrprint.c.i: cmake_force
@@ -1667,7 +1691,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_isstrprint.c.o.provides.build: CMa
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_nxtwrdlen.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_nxtwrdlen.c.o: ../libft/src/primitive/str/ft_nxtwrdlen.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_nxtwrdlen.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_nxtwrdlen.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_nxtwrdlen.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_nxtwrdlen.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_nxtwrdlen.c.i: cmake_force
@@ -1691,7 +1715,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_nxtwrdlen.c.o.provides.build: CMak
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strcat.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strcat.c.o: ../libft/src/primitive/str/ft_strcat.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strcat.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strcat.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strcat.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strcat.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strcat.c.i: cmake_force
@@ -1715,7 +1739,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strcat.c.o.provides.build: CMakeFi
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strchr.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strchr.c.o: ../libft/src/primitive/str/ft_strchr.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strchr.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strchr.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strchr.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strchr.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strchr.c.i: cmake_force
@@ -1739,7 +1763,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strchr.c.o.provides.build: CMakeFi
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strclr.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strclr.c.o: ../libft/src/primitive/str/ft_strclr.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strclr.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strclr.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strclr.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strclr.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strclr.c.i: cmake_force
@@ -1763,7 +1787,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strclr.c.o.provides.build: CMakeFi
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strcmp.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strcmp.c.o: ../libft/src/primitive/str/ft_strcmp.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strcmp.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strcmp.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strcmp.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strcmp.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strcmp.c.i: cmake_force
@@ -1787,7 +1811,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strcmp.c.o.provides.build: CMakeFi
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strconcat.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strconcat.c.o: ../libft/src/primitive/str/ft_strconcat.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strconcat.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strconcat.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strconcat.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strconcat.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strconcat.c.i: cmake_force
@@ -1811,7 +1835,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strconcat.c.o.provides.build: CMak
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strcpy.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strcpy.c.o: ../libft/src/primitive/str/ft_strcpy.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strcpy.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strcpy.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strcpy.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strcpy.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strcpy.c.i: cmake_force
@@ -1835,7 +1859,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strcpy.c.o.provides.build: CMakeFi
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strdel.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strdel.c.o: ../libft/src/primitive/str/ft_strdel.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strdel.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strdel.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strdel.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strdel.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strdel.c.i: cmake_force
@@ -1859,7 +1883,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strdel.c.o.provides.build: CMakeFi
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strdup.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strdup.c.o: ../libft/src/primitive/str/ft_strdup.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strdup.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strdup.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strdup.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strdup.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strdup.c.i: cmake_force
@@ -1883,7 +1907,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strdup.c.o.provides.build: CMakeFi
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strequ.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strequ.c.o: ../libft/src/primitive/str/ft_strequ.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strequ.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strequ.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strequ.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strequ.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strequ.c.i: cmake_force
@@ -1907,7 +1931,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strequ.c.o.provides.build: CMakeFi
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_striter.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_striter.c.o: ../libft/src/primitive/str/ft_striter.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_striter.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_striter.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_striter.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_striter.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_striter.c.i: cmake_force
@@ -1931,7 +1955,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_striter.c.o.provides.build: CMakeF
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_striteri.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_striteri.c.o: ../libft/src/primitive/str/ft_striteri.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_striteri.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_striteri.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_striteri.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_striteri.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_striteri.c.i: cmake_force
@@ -1955,7 +1979,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_striteri.c.o.provides.build: CMake
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoin.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoin.c.o: ../libft/src/primitive/str/ft_strjoin.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoin.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoin.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoin.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strjoin.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoin.c.i: cmake_force
@@ -1977,9 +2001,33 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoin.c.o.provides: CMakeFiles/f
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoin.c.o.provides.build: CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoin.c.o
 
 
+CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoinn.c.o: CMakeFiles/ftp.dir/flags.make
+CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoinn.c.o: ../libft/src/primitive/str/ft_strjoinn.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoinn.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoinn.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strjoinn.c
+
+CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoinn.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoinn.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/dauie/code/ftp/libft/src/primitive/str/ft_strjoinn.c > CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoinn.c.i
+
+CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoinn.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoinn.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/dauie/code/ftp/libft/src/primitive/str/ft_strjoinn.c -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoinn.c.s
+
+CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoinn.c.o.requires:
+
+.PHONY : CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoinn.c.o.requires
+
+CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoinn.c.o.provides: CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoinn.c.o.requires
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoinn.c.o.provides.build
+.PHONY : CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoinn.c.o.provides
+
+CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoinn.c.o.provides.build: CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoinn.c.o
+
+
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strlcat.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strlcat.c.o: ../libft/src/primitive/str/ft_strlcat.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strlcat.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strlcat.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strlcat.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strlcat.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strlcat.c.i: cmake_force
@@ -2003,7 +2051,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strlcat.c.o.provides.build: CMakeF
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strlen.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strlen.c.o: ../libft/src/primitive/str/ft_strlen.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strlen.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strlen.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strlen.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strlen.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strlen.c.i: cmake_force
@@ -2027,7 +2075,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strlen.c.o.provides.build: CMakeFi
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strmap.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strmap.c.o: ../libft/src/primitive/str/ft_strmap.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strmap.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strmap.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strmap.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strmap.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strmap.c.i: cmake_force
@@ -2051,7 +2099,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strmap.c.o.provides.build: CMakeFi
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strmapi.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strmapi.c.o: ../libft/src/primitive/str/ft_strmapi.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strmapi.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strmapi.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strmapi.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strmapi.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strmapi.c.i: cmake_force
@@ -2075,7 +2123,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strmapi.c.o.provides.build: CMakeF
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strncat.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strncat.c.o: ../libft/src/primitive/str/ft_strncat.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strncat.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strncat.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strncat.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strncat.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strncat.c.i: cmake_force
@@ -2099,7 +2147,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strncat.c.o.provides.build: CMakeF
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strncmp.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strncmp.c.o: ../libft/src/primitive/str/ft_strncmp.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strncmp.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strncmp.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strncmp.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strncmp.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strncmp.c.i: cmake_force
@@ -2123,7 +2171,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strncmp.c.o.provides.build: CMakeF
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strncpy.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strncpy.c.o: ../libft/src/primitive/str/ft_strncpy.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strncpy.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strncpy.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strncpy.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strncpy.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strncpy.c.i: cmake_force
@@ -2147,7 +2195,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strncpy.c.o.provides.build: CMakeF
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strndup.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strndup.c.o: ../libft/src/primitive/str/ft_strndup.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strndup.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strndup.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strndup.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strndup.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strndup.c.i: cmake_force
@@ -2171,7 +2219,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strndup.c.o.provides.build: CMakeF
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strnequ.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strnequ.c.o: ../libft/src/primitive/str/ft_strnequ.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strnequ.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strnequ.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strnequ.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strnequ.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strnequ.c.i: cmake_force
@@ -2195,7 +2243,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strnequ.c.o.provides.build: CMakeF
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strnew.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strnew.c.o: ../libft/src/primitive/str/ft_strnew.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strnew.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strnew.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strnew.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strnew.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strnew.c.i: cmake_force
@@ -2219,7 +2267,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strnew.c.o.provides.build: CMakeFi
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strnstr.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strnstr.c.o: ../libft/src/primitive/str/ft_strnstr.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strnstr.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strnstr.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strnstr.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strnstr.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strnstr.c.i: cmake_force
@@ -2243,7 +2291,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strnstr.c.o.provides.build: CMakeF
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strrchr.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strrchr.c.o: ../libft/src/primitive/str/ft_strrchr.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strrchr.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strrchr.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strrchr.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strrchr.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strrchr.c.i: cmake_force
@@ -2267,7 +2315,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strrchr.c.o.provides.build: CMakeF
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strrev.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strrev.c.o: ../libft/src/primitive/str/ft_strrev.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strrev.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strrev.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strrev.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strrev.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strrev.c.i: cmake_force
@@ -2291,7 +2339,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strrev.c.o.provides.build: CMakeFi
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strsplit.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strsplit.c.o: ../libft/src/primitive/str/ft_strsplit.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strsplit.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strsplit.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strsplit.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strsplit.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strsplit.c.i: cmake_force
@@ -2315,7 +2363,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strsplit.c.o.provides.build: CMake
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strstr.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strstr.c.o: ../libft/src/primitive/str/ft_strstr.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strstr.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strstr.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strstr.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strstr.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strstr.c.i: cmake_force
@@ -2339,7 +2387,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strstr.c.o.provides.build: CMakeFi
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strstrip.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strstrip.c.o: ../libft/src/primitive/str/ft_strstrip.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strstrip.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_98) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strstrip.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strstrip.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strstrip.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strstrip.c.i: cmake_force
@@ -2363,7 +2411,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strstrip.c.o.provides.build: CMake
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strsub.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strsub.c.o: ../libft/src/primitive/str/ft_strsub.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strsub.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_99) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strsub.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strsub.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strsub.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strsub.c.i: cmake_force
@@ -2387,7 +2435,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strsub.c.o.provides.build: CMakeFi
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strtrim.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strtrim.c.o: ../libft/src/primitive/str/ft_strtrim.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_98) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strtrim.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_100) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strtrim.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strtrim.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_strtrim.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strtrim.c.i: cmake_force
@@ -2411,7 +2459,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strtrim.c.o.provides.build: CMakeF
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_tolower.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_tolower.c.o: ../libft/src/primitive/str/ft_tolower.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_99) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_tolower.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_101) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_tolower.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_tolower.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_tolower.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_tolower.c.i: cmake_force
@@ -2435,7 +2483,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_tolower.c.o.provides.build: CMakeF
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_toupper.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_toupper.c.o: ../libft/src/primitive/str/ft_toupper.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_100) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_toupper.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_102) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/str/ft_toupper.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/str/ft_toupper.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/str/ft_toupper.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/str/ft_toupper.c.i: cmake_force
@@ -2459,7 +2507,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/str/ft_toupper.c.o.provides.build: CMakeF
 
 CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_crafttbl.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_crafttbl.c.o: ../libft/src/primitive/tbl/ft_crafttbl.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_101) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_crafttbl.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_103) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_crafttbl.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_crafttbl.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/tbl/ft_crafttbl.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_crafttbl.c.i: cmake_force
@@ -2483,7 +2531,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_crafttbl.c.o.provides.build: CMake
 
 CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_itbllen.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_itbllen.c.o: ../libft/src/primitive/tbl/ft_itbllen.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_102) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_itbllen.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_104) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_itbllen.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_itbllen.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/tbl/ft_itbllen.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_itbllen.c.i: cmake_force
@@ -2507,7 +2555,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_itbllen.c.o.provides.build: CMakeF
 
 CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tbladdl.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tbladdl.c.o: ../libft/src/primitive/tbl/ft_tbladdl.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_103) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tbladdl.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_105) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tbladdl.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tbladdl.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/tbl/ft_tbladdl.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tbladdl.c.i: cmake_force
@@ -2531,7 +2579,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tbladdl.c.o.provides.build: CMakeF
 
 CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tbldel.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tbldel.c.o: ../libft/src/primitive/tbl/ft_tbldel.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_104) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tbldel.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_106) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tbldel.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tbldel.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/tbl/ft_tbldel.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tbldel.c.i: cmake_force
@@ -2555,7 +2603,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tbldel.c.o.provides.build: CMakeFi
 
 CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tbldup.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tbldup.c.o: ../libft/src/primitive/tbl/ft_tbldup.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_105) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tbldup.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_107) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tbldup.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tbldup.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/tbl/ft_tbldup.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tbldup.c.i: cmake_force
@@ -2579,7 +2627,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tbldup.c.o.provides.build: CMakeFi
 
 CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tbllen.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tbllen.c.o: ../libft/src/primitive/tbl/ft_tbllen.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_106) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tbllen.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_108) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tbllen.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tbllen.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/tbl/ft_tbllen.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tbllen.c.i: cmake_force
@@ -2603,7 +2651,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tbllen.c.o.provides.build: CMakeFi
 
 CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tblrepline.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tblrepline.c.o: ../libft/src/primitive/tbl/ft_tblrepline.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_107) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tblrepline.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_109) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tblrepline.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tblrepline.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/tbl/ft_tblrepline.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tblrepline.c.i: cmake_force
@@ -2627,7 +2675,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tblrepline.c.o.provides.build: CMa
 
 CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tblrmline.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tblrmline.c.o: ../libft/src/primitive/tbl/ft_tblrmline.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_108) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tblrmline.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_110) "Building C object CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tblrmline.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tblrmline.c.o   -c /Users/dauie/code/ftp/libft/src/primitive/tbl/ft_tblrmline.c
 
 CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tblrmline.c.i: cmake_force
@@ -2651,7 +2699,7 @@ CMakeFiles/ftp.dir/libft/src/primitive/tbl/ft_tblrmline.c.o.provides.build: CMak
 
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstadd.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstadd.c.o: ../libft/src/typedefined/lst/ft_lstadd.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_109) "Building C object CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstadd.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_111) "Building C object CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstadd.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstadd.c.o   -c /Users/dauie/code/ftp/libft/src/typedefined/lst/ft_lstadd.c
 
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstadd.c.i: cmake_force
@@ -2675,7 +2723,7 @@ CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstadd.c.o.provides.build: CMake
 
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstdel.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstdel.c.o: ../libft/src/typedefined/lst/ft_lstdel.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_110) "Building C object CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstdel.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_112) "Building C object CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstdel.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstdel.c.o   -c /Users/dauie/code/ftp/libft/src/typedefined/lst/ft_lstdel.c
 
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstdel.c.i: cmake_force
@@ -2699,7 +2747,7 @@ CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstdel.c.o.provides.build: CMake
 
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstdelone.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstdelone.c.o: ../libft/src/typedefined/lst/ft_lstdelone.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_111) "Building C object CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstdelone.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_113) "Building C object CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstdelone.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstdelone.c.o   -c /Users/dauie/code/ftp/libft/src/typedefined/lst/ft_lstdelone.c
 
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstdelone.c.i: cmake_force
@@ -2723,7 +2771,7 @@ CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstdelone.c.o.provides.build: CM
 
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstdup.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstdup.c.o: ../libft/src/typedefined/lst/ft_lstdup.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_112) "Building C object CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstdup.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_114) "Building C object CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstdup.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstdup.c.o   -c /Users/dauie/code/ftp/libft/src/typedefined/lst/ft_lstdup.c
 
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstdup.c.i: cmake_force
@@ -2747,7 +2795,7 @@ CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstdup.c.o.provides.build: CMake
 
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lsteadd.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lsteadd.c.o: ../libft/src/typedefined/lst/ft_lsteadd.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_113) "Building C object CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lsteadd.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_115) "Building C object CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lsteadd.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lsteadd.c.o   -c /Users/dauie/code/ftp/libft/src/typedefined/lst/ft_lsteadd.c
 
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lsteadd.c.i: cmake_force
@@ -2771,7 +2819,7 @@ CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lsteadd.c.o.provides.build: CMak
 
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstiter.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstiter.c.o: ../libft/src/typedefined/lst/ft_lstiter.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_114) "Building C object CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstiter.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_116) "Building C object CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstiter.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstiter.c.o   -c /Users/dauie/code/ftp/libft/src/typedefined/lst/ft_lstiter.c
 
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstiter.c.i: cmake_force
@@ -2795,7 +2843,7 @@ CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstiter.c.o.provides.build: CMak
 
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstlen.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstlen.c.o: ../libft/src/typedefined/lst/ft_lstlen.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_115) "Building C object CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstlen.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_117) "Building C object CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstlen.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstlen.c.o   -c /Users/dauie/code/ftp/libft/src/typedefined/lst/ft_lstlen.c
 
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstlen.c.i: cmake_force
@@ -2819,7 +2867,7 @@ CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstlen.c.o.provides.build: CMake
 
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstmap.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstmap.c.o: ../libft/src/typedefined/lst/ft_lstmap.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_116) "Building C object CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstmap.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_118) "Building C object CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstmap.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstmap.c.o   -c /Users/dauie/code/ftp/libft/src/typedefined/lst/ft_lstmap.c
 
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstmap.c.i: cmake_force
@@ -2843,7 +2891,7 @@ CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstmap.c.o.provides.build: CMake
 
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnew.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnew.c.o: ../libft/src/typedefined/lst/ft_lstnew.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_117) "Building C object CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnew.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_119) "Building C object CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnew.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnew.c.o   -c /Users/dauie/code/ftp/libft/src/typedefined/lst/ft_lstnew.c
 
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnew.c.i: cmake_force
@@ -2867,7 +2915,7 @@ CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnew.c.o.provides.build: CMake
 
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnewstak.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnewstak.c.o: ../libft/src/typedefined/lst/ft_lstnewstak.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_118) "Building C object CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnewstak.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_120) "Building C object CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnewstak.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnewstak.c.o   -c /Users/dauie/code/ftp/libft/src/typedefined/lst/ft_lstnewstak.c
 
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnewstak.c.i: cmake_force
@@ -2889,33 +2937,9 @@ CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnewstak.c.o.provides: CMakeFi
 CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnewstak.c.o.provides.build: CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnewstak.c.o
 
 
-CMakeFiles/ftp.dir/src/client.c.o: CMakeFiles/ftp.dir/flags.make
-CMakeFiles/ftp.dir/src/client.c.o: ../src/client.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_119) "Building C object CMakeFiles/ftp.dir/src/client.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/src/client.c.o   -c /Users/dauie/code/ftp/src/client.c
-
-CMakeFiles/ftp.dir/src/client.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ftp.dir/src/client.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/dauie/code/ftp/src/client.c > CMakeFiles/ftp.dir/src/client.c.i
-
-CMakeFiles/ftp.dir/src/client.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ftp.dir/src/client.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/dauie/code/ftp/src/client.c -o CMakeFiles/ftp.dir/src/client.c.s
-
-CMakeFiles/ftp.dir/src/client.c.o.requires:
-
-.PHONY : CMakeFiles/ftp.dir/src/client.c.o.requires
-
-CMakeFiles/ftp.dir/src/client.c.o.provides: CMakeFiles/ftp.dir/src/client.c.o.requires
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/client.c.o.provides.build
-.PHONY : CMakeFiles/ftp.dir/src/client.c.o.provides
-
-CMakeFiles/ftp.dir/src/client.c.o.provides.build: CMakeFiles/ftp.dir/src/client.c.o
-
-
 CMakeFiles/ftp.dir/src/dir_cmd.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/src/dir_cmd.c.o: ../src/dir_cmd.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_120) "Building C object CMakeFiles/ftp.dir/src/dir_cmd.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_121) "Building C object CMakeFiles/ftp.dir/src/dir_cmd.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/src/dir_cmd.c.o   -c /Users/dauie/code/ftp/src/dir_cmd.c
 
 CMakeFiles/ftp.dir/src/dir_cmd.c.i: cmake_force
@@ -2939,7 +2963,7 @@ CMakeFiles/ftp.dir/src/dir_cmd.c.o.provides.build: CMakeFiles/ftp.dir/src/dir_cm
 
 CMakeFiles/ftp.dir/src/init_session.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/src/init_session.c.o: ../src/init_session.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_121) "Building C object CMakeFiles/ftp.dir/src/init_session.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_122) "Building C object CMakeFiles/ftp.dir/src/init_session.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/src/init_session.c.o   -c /Users/dauie/code/ftp/src/init_session.c
 
 CMakeFiles/ftp.dir/src/init_session.c.i: cmake_force
@@ -2963,7 +2987,7 @@ CMakeFiles/ftp.dir/src/init_session.c.o.provides.build: CMakeFiles/ftp.dir/src/i
 
 CMakeFiles/ftp.dir/src/recvfile.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/src/recvfile.c.o: ../src/recvfile.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_122) "Building C object CMakeFiles/ftp.dir/src/recvfile.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_123) "Building C object CMakeFiles/ftp.dir/src/recvfile.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/src/recvfile.c.o   -c /Users/dauie/code/ftp/src/recvfile.c
 
 CMakeFiles/ftp.dir/src/recvfile.c.i: cmake_force
@@ -2987,7 +3011,7 @@ CMakeFiles/ftp.dir/src/recvfile.c.o.provides.build: CMakeFiles/ftp.dir/src/recvf
 
 CMakeFiles/ftp.dir/src/sendfile.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/src/sendfile.c.o: ../src/sendfile.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_123) "Building C object CMakeFiles/ftp.dir/src/sendfile.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_124) "Building C object CMakeFiles/ftp.dir/src/sendfile.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/src/sendfile.c.o   -c /Users/dauie/code/ftp/src/sendfile.c
 
 CMakeFiles/ftp.dir/src/sendfile.c.i: cmake_force
@@ -3011,7 +3035,7 @@ CMakeFiles/ftp.dir/src/sendfile.c.o.provides.build: CMakeFiles/ftp.dir/src/sendf
 
 CMakeFiles/ftp.dir/src/server.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/src/server.c.o: ../src/server.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_124) "Building C object CMakeFiles/ftp.dir/src/server.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_125) "Building C object CMakeFiles/ftp.dir/src/server.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/src/server.c.o   -c /Users/dauie/code/ftp/src/server.c
 
 CMakeFiles/ftp.dir/src/server.c.i: cmake_force
@@ -3035,7 +3059,7 @@ CMakeFiles/ftp.dir/src/server.c.o.provides.build: CMakeFiles/ftp.dir/src/server.
 
 CMakeFiles/ftp.dir/src/sig.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/src/sig.c.o: ../src/sig.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_125) "Building C object CMakeFiles/ftp.dir/src/sig.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_126) "Building C object CMakeFiles/ftp.dir/src/sig.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/src/sig.c.o   -c /Users/dauie/code/ftp/src/sig.c
 
 CMakeFiles/ftp.dir/src/sig.c.i: cmake_force
@@ -3059,7 +3083,7 @@ CMakeFiles/ftp.dir/src/sig.c.o.provides.build: CMakeFiles/ftp.dir/src/sig.c.o
 
 CMakeFiles/ftp.dir/src/socket.c.o: CMakeFiles/ftp.dir/flags.make
 CMakeFiles/ftp.dir/src/socket.c.o: ../src/socket.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_126) "Building C object CMakeFiles/ftp.dir/src/socket.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_127) "Building C object CMakeFiles/ftp.dir/src/socket.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/src/socket.c.o   -c /Users/dauie/code/ftp/src/socket.c
 
 CMakeFiles/ftp.dir/src/socket.c.i: cmake_force
@@ -3083,6 +3107,7 @@ CMakeFiles/ftp.dir/src/socket.c.o.provides.build: CMakeFiles/ftp.dir/src/socket.
 
 # Object files for target ftp
 ftp_OBJECTS = \
+"CMakeFiles/ftp.dir/client/client.c.o" \
 "CMakeFiles/ftp.dir/libft/src/ft_printf/ft_printf.c.o" \
 "CMakeFiles/ftp.dir/libft/src/ft_printf/pf_cast_di.c.o" \
 "CMakeFiles/ftp.dir/libft/src/ft_printf/pf_cast_oux.c.o" \
@@ -3163,6 +3188,7 @@ ftp_OBJECTS = \
 "CMakeFiles/ftp.dir/libft/src/primitive/str/ft_striter.c.o" \
 "CMakeFiles/ftp.dir/libft/src/primitive/str/ft_striteri.c.o" \
 "CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoin.c.o" \
+"CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoinn.c.o" \
 "CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strlcat.c.o" \
 "CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strlen.c.o" \
 "CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strmap.c.o" \
@@ -3201,7 +3227,6 @@ ftp_OBJECTS = \
 "CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstmap.c.o" \
 "CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnew.c.o" \
 "CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnewstak.c.o" \
-"CMakeFiles/ftp.dir/src/client.c.o" \
 "CMakeFiles/ftp.dir/src/dir_cmd.c.o" \
 "CMakeFiles/ftp.dir/src/init_session.c.o" \
 "CMakeFiles/ftp.dir/src/recvfile.c.o" \
@@ -3213,6 +3238,7 @@ ftp_OBJECTS = \
 # External object files for target ftp
 ftp_EXTERNAL_OBJECTS =
 
+ftp: CMakeFiles/ftp.dir/client/client.c.o
 ftp: CMakeFiles/ftp.dir/libft/src/ft_printf/ft_printf.c.o
 ftp: CMakeFiles/ftp.dir/libft/src/ft_printf/pf_cast_di.c.o
 ftp: CMakeFiles/ftp.dir/libft/src/ft_printf/pf_cast_oux.c.o
@@ -3293,6 +3319,7 @@ ftp: CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strequ.c.o
 ftp: CMakeFiles/ftp.dir/libft/src/primitive/str/ft_striter.c.o
 ftp: CMakeFiles/ftp.dir/libft/src/primitive/str/ft_striteri.c.o
 ftp: CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoin.c.o
+ftp: CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoinn.c.o
 ftp: CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strlcat.c.o
 ftp: CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strlen.c.o
 ftp: CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strmap.c.o
@@ -3331,7 +3358,6 @@ ftp: CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstlen.c.o
 ftp: CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstmap.c.o
 ftp: CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnew.c.o
 ftp: CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnewstak.c.o
-ftp: CMakeFiles/ftp.dir/src/client.c.o
 ftp: CMakeFiles/ftp.dir/src/dir_cmd.c.o
 ftp: CMakeFiles/ftp.dir/src/init_session.c.o
 ftp: CMakeFiles/ftp.dir/src/recvfile.c.o
@@ -3341,7 +3367,7 @@ ftp: CMakeFiles/ftp.dir/src/sig.c.o
 ftp: CMakeFiles/ftp.dir/src/socket.c.o
 ftp: CMakeFiles/ftp.dir/build.make
 ftp: CMakeFiles/ftp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_127) "Linking C executable ftp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/dauie/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_128) "Linking C executable ftp"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ftp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -3349,6 +3375,7 @@ CMakeFiles/ftp.dir/build: ftp
 
 .PHONY : CMakeFiles/ftp.dir/build
 
+CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/client/client.c.o.requires
 CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/libft/src/ft_printf/ft_printf.c.o.requires
 CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/libft/src/ft_printf/pf_cast_di.c.o.requires
 CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/libft/src/ft_printf/pf_cast_oux.c.o.requires
@@ -3429,6 +3456,7 @@ CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/libft/src/primitive/str/ft_streq
 CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/libft/src/primitive/str/ft_striter.c.o.requires
 CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/libft/src/primitive/str/ft_striteri.c.o.requires
 CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoin.c.o.requires
+CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoinn.c.o.requires
 CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strlcat.c.o.requires
 CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strlen.c.o.requires
 CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strmap.c.o.requires
@@ -3467,7 +3495,6 @@ CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lst
 CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstmap.c.o.requires
 CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnew.c.o.requires
 CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnewstak.c.o.requires
-CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/src/client.c.o.requires
 CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/src/dir_cmd.c.o.requires
 CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/src/init_session.c.o.requires
 CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/src/recvfile.c.o.requires

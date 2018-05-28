@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/ftp.dir/client/client.c.o"
   "CMakeFiles/ftp.dir/libft/src/ft_printf/ft_printf.c.o"
   "CMakeFiles/ftp.dir/libft/src/ft_printf/pf_cast_di.c.o"
   "CMakeFiles/ftp.dir/libft/src/ft_printf/pf_cast_oux.c.o"
@@ -79,6 +80,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/ftp.dir/libft/src/primitive/str/ft_striter.c.o"
   "CMakeFiles/ftp.dir/libft/src/primitive/str/ft_striteri.c.o"
   "CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoin.c.o"
+  "CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoinn.c.o"
   "CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strlcat.c.o"
   "CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strlen.c.o"
   "CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strmap.c.o"
@@ -117,7 +119,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstmap.c.o"
   "CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnew.c.o"
   "CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnewstak.c.o"
-  "CMakeFiles/ftp.dir/src/client.c.o"
   "CMakeFiles/ftp.dir/src/dir_cmd.c.o"
   "CMakeFiles/ftp.dir/src/init_session.c.o"
   "CMakeFiles/ftp.dir/src/recvfile.c.o"

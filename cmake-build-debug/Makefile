@@ -123,6 +123,33 @@ ftp/fast:
 	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/build
 .PHONY : ftp/fast
 
+client/client.o: client/client.c.o
+
+.PHONY : client/client.o
+
+# target to build an object file
+client/client.c.o:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/client/client.c.o
+.PHONY : client/client.c.o
+
+client/client.i: client/client.c.i
+
+.PHONY : client/client.i
+
+# target to preprocess a source file
+client/client.c.i:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/client/client.c.i
+.PHONY : client/client.c.i
+
+client/client.s: client/client.c.s
+
+.PHONY : client/client.s
+
+# target to generate assembly for a file
+client/client.c.s:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/client/client.c.s
+.PHONY : client/client.c.s
+
 libft/src/ft_printf/ft_printf.o: libft/src/ft_printf/ft_printf.c.o
 
 .PHONY : libft/src/ft_printf/ft_printf.o
@@ -2283,6 +2310,33 @@ libft/src/primitive/str/ft_strjoin.c.s:
 	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoin.c.s
 .PHONY : libft/src/primitive/str/ft_strjoin.c.s
 
+libft/src/primitive/str/ft_strjoinn.o: libft/src/primitive/str/ft_strjoinn.c.o
+
+.PHONY : libft/src/primitive/str/ft_strjoinn.o
+
+# target to build an object file
+libft/src/primitive/str/ft_strjoinn.c.o:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoinn.c.o
+.PHONY : libft/src/primitive/str/ft_strjoinn.c.o
+
+libft/src/primitive/str/ft_strjoinn.i: libft/src/primitive/str/ft_strjoinn.c.i
+
+.PHONY : libft/src/primitive/str/ft_strjoinn.i
+
+# target to preprocess a source file
+libft/src/primitive/str/ft_strjoinn.c.i:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoinn.c.i
+.PHONY : libft/src/primitive/str/ft_strjoinn.c.i
+
+libft/src/primitive/str/ft_strjoinn.s: libft/src/primitive/str/ft_strjoinn.c.s
+
+.PHONY : libft/src/primitive/str/ft_strjoinn.s
+
+# target to generate assembly for a file
+libft/src/primitive/str/ft_strjoinn.c.s:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/libft/src/primitive/str/ft_strjoinn.c.s
+.PHONY : libft/src/primitive/str/ft_strjoinn.c.s
+
 libft/src/primitive/str/ft_strlcat.o: libft/src/primitive/str/ft_strlcat.c.o
 
 .PHONY : libft/src/primitive/str/ft_strlcat.o
@@ -3309,33 +3363,6 @@ libft/src/typedefined/lst/ft_lstnewstak.c.s:
 	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/libft/src/typedefined/lst/ft_lstnewstak.c.s
 .PHONY : libft/src/typedefined/lst/ft_lstnewstak.c.s
 
-src/client.o: src/client.c.o
-
-.PHONY : src/client.o
-
-# target to build an object file
-src/client.c.o:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/client.c.o
-.PHONY : src/client.c.o
-
-src/client.i: src/client.c.i
-
-.PHONY : src/client.i
-
-# target to preprocess a source file
-src/client.c.i:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/client.c.i
-.PHONY : src/client.c.i
-
-src/client.s: src/client.c.s
-
-.PHONY : src/client.s
-
-# target to generate assembly for a file
-src/client.c.s:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src/client.c.s
-.PHONY : src/client.c.s
-
 src/dir_cmd.o: src/dir_cmd.c.o
 
 .PHONY : src/dir_cmd.o
@@ -3534,6 +3561,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... ftp"
+	@echo "... client/client.o"
+	@echo "... client/client.i"
+	@echo "... client/client.s"
 	@echo "... libft/src/ft_printf/ft_printf.o"
 	@echo "... libft/src/ft_printf/ft_printf.i"
 	@echo "... libft/src/ft_printf/ft_printf.s"
@@ -3774,6 +3804,9 @@ help:
 	@echo "... libft/src/primitive/str/ft_strjoin.o"
 	@echo "... libft/src/primitive/str/ft_strjoin.i"
 	@echo "... libft/src/primitive/str/ft_strjoin.s"
+	@echo "... libft/src/primitive/str/ft_strjoinn.o"
+	@echo "... libft/src/primitive/str/ft_strjoinn.i"
+	@echo "... libft/src/primitive/str/ft_strjoinn.s"
 	@echo "... libft/src/primitive/str/ft_strlcat.o"
 	@echo "... libft/src/primitive/str/ft_strlcat.i"
 	@echo "... libft/src/primitive/str/ft_strlcat.s"
@@ -3888,9 +3921,6 @@ help:
 	@echo "... libft/src/typedefined/lst/ft_lstnewstak.o"
 	@echo "... libft/src/typedefined/lst/ft_lstnewstak.i"
 	@echo "... libft/src/typedefined/lst/ft_lstnewstak.s"
-	@echo "... src/client.o"
-	@echo "... src/client.i"
-	@echo "... src/client.s"
 	@echo "... src/dir_cmd.o"
 	@echo "... src/dir_cmd.i"
 	@echo "... src/dir_cmd.s"
