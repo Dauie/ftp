@@ -31,7 +31,7 @@ int 	bind_socket(t_session *session, char *address)
 	session->sin.sin_family = AF_INET;
 	session->sin.sin_port = htons(session->port);
 	if (address)
-		sin.sin_addr.s_addr = inet_addr(address);
+		session->sin.sin_addr.s_addr = inet_addr(address);
 	else
 		session->sin.sin_addr.s_addr = htonl(INADDR_ANY);
 	if (bind(session->sock, (const struct sockaddr *)&session->sin,
@@ -57,26 +57,5 @@ int 	options_socket(t_session *session)
 	return (EXIT_SUCCESS);
 }
 
-int		accept_connection(t_session *session)
-{
-	if (!(session->cs = accept(session->sock,
-				   (struct sockaddr*)&session->csin, &session->cslen)))
-	{
-		//Set error code
-		return (EXIT_FAILURE);
-	}
-	return (EXIT_SUCCESS);
-}
 
-int     create_endpoint(t_session *session)
-{
-	if (create_socket(session) == EXIT_FAILURE)
-		return (EXIT_FAILURE);
-	if (bind_socket(session) == EXIT_FAILURE)
-		return (EXIT_FAILURE);
-	if (options_socket(session) == EXIT_FAILURE)
-		return (EXIT_FAILURE);
-	if (listen_socket(session) == EXIT_FAILURE)
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
-}
+

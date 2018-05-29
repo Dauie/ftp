@@ -27,7 +27,7 @@ typedef enum 	e_mode
 {
 	M_NON = 0,
 	M_PSV = 1,
-	M_PRT = 2;
+	M_PRT = 2
 }				t_mode;
 
 char	*g_sprtd_cmds[] = { "CWD", "HELP", "LIST", "PASV", "PWD", "QUIT" , "RETR", "STOR"};
@@ -45,12 +45,12 @@ typedef struct          s_session
 	unsigned int        cslen;
 	struct sockaddr_in  csin;
 	struct sockaddr_in  sin;
-
 	char 				buff[BUFFSZ];
 	char                **env; // maybe remove
 	char 				**argv;
 	struct s_session	*psv;
 }						t_session;
+
 
 int			add_header(off_t size, char *buff);
 int 		bind_socket(t_session *session, char *address);

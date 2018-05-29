@@ -3,6 +3,9 @@
  *  ./client
  */
 
+int 	(*g_client_funcs[])(t_session *) = { &c_cwd, &c_help, &c_list, &c_passive,
+											&c_pwd, &c_quit, &c_retrieve, &c_store};
+
 static void usage(char *str)
 {
 	printf("Usage: %s <addr> <port>\n", str);
@@ -13,6 +16,19 @@ int		c_quit(t_session *session)
 {
 	session->run = FALSE;
 	return (EXIT_SUCCESS);
+}
+
+int 	c_help(t_session *session)
+{
+	if (send_msg(session, 9, "FTP Server Usage:\n",
+				 "cwd - cwd <dir> - change working directory.\n",
+				 "help - Lists all supported commands\n",
+				 "ls - ls <path> - List files directories in path\n",
+				 "passive - Enter passive mode\n",
+				 "pwd - Prints working directory\n",
+				 "quit - Closes connection and quits program.\n",
+				 "retrieve - retrieve <path> - Retrieve file at path.\n",
+				 "store - store <path> - Store file at path.\n");
 }
 
 static int	dispatch_userin(t_session *session, char *user_input)

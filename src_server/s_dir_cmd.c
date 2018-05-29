@@ -16,7 +16,7 @@ int		redirect_output_fd(int fd)
 	return (EXIT_SUCCESS);
 }
 
-int		change_dir(t_session *session)
+int		s_cwd(t_session *session)
 {
 	if (chdir(session->buff) == -1)
 	{
@@ -27,7 +27,7 @@ int		change_dir(t_session *session)
 	return (EXIT_SUCCESS);
 }
 
-int		print_pwd(t_session *session)
+int		s_pwd(t_session *session)
 {
 	char	dir[256];
 	char 	*res;
@@ -41,7 +41,7 @@ int		print_pwd(t_session *session)
 	return (EXIT_SUCCESS);
 }
 
-int		list(t_session *session)
+int		s_list(t_session *session)
 {
 	pid_t			pid;
 	struct rusage 	rusage;

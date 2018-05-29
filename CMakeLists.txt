@@ -139,11 +139,14 @@ add_executable(ftp
         libft/src/typedefined/lst/ft_lstnewstak.c
         src_client/c_dir_cmd.c
         src_client/c_passive.c
+        src_client/c_retrieve.c
+        src_client/c_store.c
         src_client/client.c
         src_common/recvfile.c
         src_common/sendfile.c
         src_common/session.c
         src_common/socket.c
+        src_server/client.c
         src_server/s_dir_cmd.c
         src_server/s_passive.c
         src_server/server.c

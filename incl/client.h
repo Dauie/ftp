@@ -25,7 +25,4 @@ int		c_quit(t_session *session);
 int		c_retrieve(t_session *session);
 int 	c_store(t_session *session);
 
-int 	(*g_client_funcs[])(t_session *) = { &c_cwd, &c_help, &c_list, &c_passive,
-											&c_pwd, &c_quit, &c_retrieve, &c_store};
-
 #endif
