@@ -31,7 +31,7 @@ static void     dispatch_command(t_session *session)
 		if (ft_strncmp(session->buff,
 			   g_sprtd_cmds[i], ft_strlen(g_sprtd_cmds[i])) == 0)
 		{
-			g_cmds[i](session);
+			g_svrfuncs[i](session);
 			break;
 		}
 	}

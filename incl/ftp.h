@@ -23,22 +23,31 @@
 # define BUFFSZ (1024)
 # define HDRSZ (10)
 
+typedef enum 	e_mode
+{
+	M_NON = 0,
+	M_PSV = 1,
+	M_PRT = 2;
+}				t_mode;
+
+char	*g_sprtd_cmds[] = { "CWD", "HELP", "LIST", "PASV", "PWD", "QUIT" , "RETR", "STOR"};
+
 typedef struct          s_session
 {
 	int 				run;
+	int 				mode;
 	int                 port;
 	int                 sock;
 	int                 cs;
 	int 				fd;
 	int 				opt;
 	pid_t 				pid;
-	off_t 				off;
-	off_t 				size;
 	unsigned int        cslen;
 	struct sockaddr_in  csin;
 	struct sockaddr_in  sin;
+
 	char 				buff[BUFFSZ];
-	char                **env;
+	char                **env; // maybe remove
 	char 				**argv;
 	struct s_session	*psv;
 }						t_session;
@@ -46,10 +55,13 @@ typedef struct          s_session
 int			add_header(off_t size, char *buff);
 int 		bind_socket(t_session *session, char *address);
 int			create_socket(t_session *session);
+int 		create_temp_file(t_session *session);
 void 		init_session(t_session * session);
 int 		listen_socket(t_session *session);
 int 		options_socket(t_session *session);
 int 		recv_file(t_session *session);
+int 		recv_msg(t_session *session);
 int			send_file(t_session *session);
+int			send_msg(t_session *session, int n, ...);
 
 #endif

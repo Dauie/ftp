@@ -9,44 +9,58 @@ static void usage(char *str)
 	exit(-1);
 }
 
-void		print_file(int fd)
+int		c_quit(t_session *session)
 {
-	int ret;
-	char *line;
+	session->run = FALSE;
+	return (EXIT_SUCCESS);
+}
 
-	ret = 0;
-	while ((ret = gnl(fd, &line)) > 0)
+static int	dispatch_userin(t_session *session, char *user_input)
+{
+	int i;
+	int j;
+
+	i = -1;
+	j = -1;
+	while (++i < CMD_CNT)
 	{
-		printf("%s", line);
-		free(line);
+		while (++j < 2)
+		{
+			if (ft_strcmp(g_cmds[i][j], session->argv[0]) == 0)
+			{
+				if (send_msg(session, 2, session->argv[0],
+							 &user_input[ft_strlen(session->argv[0])]) == EXIT_FAILURE)
+					return (EXIT_FAILURE);
+				g_client_funcs[i](session);
+				return (EXIT_SUCCESS);
+			}
+		}
 	}
+	if (i == CMD_CNT)
+		printf("[-]Command not implemented\n");
+	return (EXIT_SUCCESS);
 }
 
 static void	client_shell(t_session *session)
 {
 	char	*user_input;
 
-	while (TRUE)
+	while (session->run == TRUE)
 	{
-		// Get command from user
+		ft_bzero(session->buff, BUFFSZ);
 		write(1, "(^-^)> ", 7);
 		if (gnl(0, &user_input) < 0)
 			break;
-		ft_strcpy(session->buff, user_input);
+		if (!(session->argv = ft_strsplit(user_input, ' ')) || !session->argv[0])
+			continue;
+		dispatch_userin(session, user_input);
 		free(user_input);
-		// Send command to server
-		send(session->sock, session->buff, BUFFSZ, MSG_WAITALL);
-		// Close client if prompted to
-		if (ft_strncmp(session->buff, "quit", 4) == 0)
-			break;
-		recv_file(session);
-		print_file(session->fd);
-		ft_bzero(session->buff, BUFFSZ);
+		ft_tbldel(session->argv, ft_tbllen(session->argv));
 	}
 	printf("[-]Disconnected from server\n");
 }
 
-static int create_connection(char *addr, t_session *session)
+static int create_connection(t_session *session, char *addr)
 {
 	create_socket(session);
 	bind_socket(session, addr);
@@ -67,7 +81,7 @@ int	main(int ac, char **av)
 	if (ac != 3)
 		usage(av[0]);
 	session.port = ft_atoi(av[2]);
-	if (create_connection(av[1], &session) == EXIT_SUCCESS)
+	if (create_connection(&session, av[1]) == EXIT_SUCCESS)
 		client_shell(&session);
 	close(session.sock);
 	return(0);

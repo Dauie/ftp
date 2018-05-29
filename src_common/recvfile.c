@@ -1,36 +1,29 @@
 #include "../incl/client.h"
 
 
-int			prep_recv(t_session *session)
+int 		recv_msg(t_session *session)
 {
-	session->off =  0;
-	session->size = 0;
-	ft_bzero(session->buff, BUFFSZ);
-	// Wait for size of response being sent
-	recv(session->sock, session->buff, BUFFSZ, MSG_WAITALL);
-	ft_printf("Got file size%s\n", session->buff);
-	// need to do error checking to check OS for sufficient space.
-	session->size = ft_atoi(session->buff);
-	ft_printf("%i", (int)session->size);
+	if (recv(session->cs, session->buff, BUFFSZ, 0) == -1)
+		return (EXIT_FAILURE);
+	write(STDOUT_FILENO, session->buff, BUFFSZ);
 	return (EXIT_SUCCESS);
 }
 
 int 	recv_file(t_session *session)
 {
-	char 	buff[BUFFSZ];
 	ssize_t ret;
+	t_session *s;
 
-	ret = 0;
-	prep_recv(session);
-	while (session->off < session->size)
+	s = session->mode == M_PSV ? session->psv : session;
+	ret = TRUE;
+	while (ret >= TRUE)
 	{
-		if ((ret = recv(session->sock, buff, BUFFSZ, MSG_WAITALL)) == -1)
+		if ((ret = recv(s->sock, s->buff, BUFFSZ, 0)) == -1)
 		{
 			printf("[-]Error receiving data from \n");
 			return (EXIT_FAILURE);
 		}
-		write(session->fd, session->buff, BUFFSZ);
-		session->off += ret;
+		write(s->fd, s->buff, ft_strlen(s->buff));
 	}
 	return (EXIT_SUCCESS);
 }

@@ -5,12 +5,12 @@ int		redirect_output_fd(int fd)
 {
 	if (dup2(fd, STDERR_FILENO) < 0)
 	{
-		printf("[-]Error redirecting STDERR to file descriptor %d\n", fd);
+		printf("[-]Error redirecting STDERR to socket: %d\n", fd);
 		return (EXIT_FAILURE);
 	}
 	if (dup2(fd, STDOUT_FILENO) < 0)
 	{
-		printf("[-]Error redirecting STDOUT to file descriptor %d\n", fd);
+		printf("[-]Error redirecting STDOUT to socket: %d\n", fd);
 		return (EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);
@@ -56,14 +56,14 @@ int		list(t_session *session)
 		return (EXIT_FAILURE);
 	}
 	else if (pid > 0)
+	{
+		redirect_output_fd(session->psv);
 		execv("/bin/ls", session->argv);
+	}
 	else if (pid == 0)
 	{
-		if (wait4(pid, &wait_status, 0, &rusage ) == -1)
-		{
-			printf("[-]Error waiting on child process to complete\n");
-			return(EXIT_FAILURE);
-		}
+		handel_sig(SIGINT);
+		handel_sig(SIGCHLD);
 	}
 	return (EXIT_SUCCESS);
 }
