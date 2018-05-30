@@ -3,7 +3,18 @@
  *  ./client
  */
 
-int 	(*g_client_funcs[])(t_session *) = { &c_cwd, &c_help, &c_list, &c_passive,
+char	*g_cmds[][2] = {
+		{ "CWD ", "cd" },
+		{ "HELP", "help" },
+		{ "LIST", "ls" },
+		{ "PASV", "passive" },
+		{ "PWD", "pwd" },
+		{ "QUIT", "quit" },
+		{ "RETR", "get" },
+		{ "STOR", "put" },
+};
+
+int 	(*g_c_funcs[])(t_session *) = { &c_cwd, &c_help, &c_list, &c_passive,
 											&c_pwd, &c_quit, &c_retrieve, &c_store};
 
 static void usage(char *str)
@@ -20,15 +31,9 @@ int		c_quit(t_session *session)
 
 int 	c_help(t_session *session)
 {
-	if (send_msg(session, 9, "FTP Server Usage:\n",
-				 "cwd - cwd <dir> - change working directory.\n",
-				 "help - Lists all supported commands\n",
-				 "ls - ls <path> - List files directories in path\n",
-				 "passive - Enter passive mode\n",
-				 "pwd - Prints working directory\n",
-				 "quit - Closes connection and quits program.\n",
-				 "retrieve - retrieve <path> - Retrieve file at path.\n",
-				 "store - store <path> - Store file at path.\n");
+	recv_msg(session);
+	write(1, session->buff, ft_strlen(session->buff));
+	return (EXIT_SUCCESS);
 }
 
 static int	dispatch_userin(t_session *session, char *user_input)
@@ -37,9 +42,9 @@ static int	dispatch_userin(t_session *session, char *user_input)
 	int j;
 
 	i = -1;
-	j = -1;
 	while (++i < CMD_CNT)
 	{
+		j = -1;
 		while (++j < 2)
 		{
 			if (ft_strcmp(g_cmds[i][j], session->argv[0]) == 0)
@@ -47,7 +52,7 @@ static int	dispatch_userin(t_session *session, char *user_input)
 				if (send_msg(session, 2, session->argv[0],
 							 &user_input[ft_strlen(session->argv[0])]) == EXIT_FAILURE)
 					return (EXIT_FAILURE);
-				g_client_funcs[i](session);
+				g_c_funcs[i](session);
 				return (EXIT_SUCCESS);
 			}
 		}
@@ -69,7 +74,8 @@ static void	client_shell(t_session *session)
 			break;
 		if (!(session->argv = ft_strsplit(user_input, ' ')) || !session->argv[0])
 			continue;
-		dispatch_userin(session, user_input);
+		if (dispatch_userin(session, user_input) == EXIT_FAILURE)
+			break;
 		free(user_input);
 		ft_tbldel(session->argv, ft_tbllen(session->argv));
 	}
@@ -78,8 +84,7 @@ static void	client_shell(t_session *session)
 
 static int create_connection(t_session *session, char *addr)
 {
-	create_socket(session);
-	bind_socket(session, addr);
+	create_socket(session, addr);
 	if (connect(session->sock, (const struct sockaddr *)&session->sin, sizeof(session->sin)) == -1)
 	{
 		printf("[-]Error connecting to %s:%d ...(-.-)\n", addr, session->port);

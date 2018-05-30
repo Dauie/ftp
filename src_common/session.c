@@ -27,38 +27,36 @@ void close_session(t_session *session)
 	}
 }
 
+static char* make_zero_string(size_t len)
+{
+	char	*ret;
 
+	if (!(ret = ft_strnew(len)))
+		return (NULL);
+	while (len--)
+		ret[len] = '0';
+	return(ret);
+}
 
-//static char* make_zero_string(size_t len)
-//{
-//	char	*ret;
-//
-//	if (!(ret = ft_strnew(len)))
-//		return (NULL);
-//	while (len--)
-//		ret[len] = '0';
-//	return(ret);
-//}
-//
-//int			add_header(off_t size, char *buff)
-//{
-//	char 	*zeros;
-//	char 	*tmp;
-//	char 	*ret;
-//
-//	if (!(ret = ft_itoabse(size, 10)))
-//		return (EXIT_FAILUREURE);
-//	tmp = ret;
-//	if (ft_strlen(ret) < 10)
-//	{
-//		if (!(zeros = make_zero_string(10 - ft_strlen(ret))))
-//			return (EXIT_FAILUREURE);
-//		if (!(ret = ft_strconcat(zeros, ret)))
-//			return (EXIT_FAILUREURE);
-//		free(tmp);
-//		free(zeros);
-//	}
-//	ft_strcpy(buff, ret);
-//	free(ret);
-//	return (EXIT_SUCCESS);
-//}
+int			add_header(off_t size, char *buff)
+{
+	char 	*zeros;
+	char 	*tmp;
+	char 	*ret;
+
+	if (!(ret = ft_itoabse(size, 10)))
+		return (EXIT_FAILURE);
+	tmp = ret;
+	if (ft_strlen(ret) < 10)
+	{
+		if (!(zeros = make_zero_string(10 - ft_strlen(ret))))
+			return (EXIT_FAILURE);
+		if (!(ret = ft_strconcat(zeros, ret)))
+			return (EXIT_FAILURE);
+		free(tmp);
+		free(zeros);
+	}
+	ft_strcpy(buff, ret);
+	free(ret);
+	return (EXIT_SUCCESS);
+}

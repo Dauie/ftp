@@ -5,5 +5,6 @@ void 	handel_sig(int sig)
 	pid_t pid;
 
 	pid = 0;
-	wait4(pid, NULL, 0, NULL);
+	if (sig == SIGINT || sig == SIGCHLD)
+		wait4(pid, NULL, 0, NULL);
 }

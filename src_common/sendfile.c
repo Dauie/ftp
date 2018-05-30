@@ -1,4 +1,4 @@
-#include "../incl/server.h"
+#include "../incl/ftp.h"
 
 int			send_file(t_session *session)
 {
@@ -31,7 +31,8 @@ int		send_msg(t_session *session, int n, ...)
 	while (++i < n)
 		ft_strcat(res, tmp[i]);
 	free(tmp);
-	send(session->cs, res, len, 0);
+	send(session->cs, res, len, MSG_DONTWAIT);
+	ft_printf("message sent: %s", res);
 	return (EXIT_SUCCESS);
 }
 

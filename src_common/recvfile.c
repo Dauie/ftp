@@ -1,10 +1,13 @@
-#include "../incl/client.h"
+#include "../incl/ftp.h"
 
 
 int 		recv_msg(t_session *session)
 {
-	if (recv(session->cs, session->buff, BUFFSZ, 0) == -1)
+	ssize_t ret;
+	if ((ret = recv(session->cs, session->buff, BUFFSZ - 1, 0)) == -1)
 		return (EXIT_FAILURE);
+	else if (ret == 0)
+		session->run = FALSE;
 	write(STDOUT_FILENO, session->buff, BUFFSZ);
 	return (EXIT_SUCCESS);
 }
@@ -18,12 +21,11 @@ int 	recv_file(t_session *session)
 	ret = TRUE;
 	while (ret >= TRUE)
 	{
-		if ((ret = recv(s->sock, s->buff, BUFFSZ, 0)) == -1)
+		if ((ret = recv(s->sock, s->buff, BUFFSZ, MSG_DONTWAIT)) == -1)
 		{
 			printf("[-]Error receiving data from \n");
 			return (EXIT_FAILURE);
 		}
-		write(s->fd, s->buff, ft_strlen(s->buff));
 	}
 	return (EXIT_SUCCESS);
 }

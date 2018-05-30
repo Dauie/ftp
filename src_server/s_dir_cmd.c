@@ -20,10 +20,10 @@ int		s_cwd(t_session *session)
 {
 	if (chdir(session->buff) == -1)
 	{
-		send_client_msg(session, 1, "451 Requested action aborted. Local error in processing.\n\r");
+		send_msg(session, 1, "451 Requested action aborted. Local error in processing.\n\r");
 		return (EXIT_FAILURE);
 	}
-	send_client_msg(session, 1, "200 Working directory changed\n\r");
+	send_msg(session, 1, "200 Working directory changed\n\r");
 	return (EXIT_SUCCESS);
 }
 
@@ -34,20 +34,17 @@ int		s_pwd(t_session *session)
 
 	if ((res = getcwd(dir, 255)) == NULL)
 	{
-		send_client_msg(session, 1, "451 Requested action aborted. Local error in processing.\n\r");
+		send_msg(session, 1, "451 Requested action aborted. Local error in processing.\n\r");
 		return (EXIT_FAILURE);
 	}
-	send_client_msg(session, 3, "200 ", res, "\n\r");
+	send_msg(session, 3, "200 ", res, "\n\r");
 	return (EXIT_SUCCESS);
 }
 
 int		s_list(t_session *session)
 {
 	pid_t			pid;
-	struct rusage 	rusage;
-	int 			wait_status;
 
-	pid = 0;
 	if (!(session->argv = ft_strsplit(session->buff, ' ')))
 		return (EXIT_FAILURE);
 	if ((pid = fork()) == -1)
@@ -57,7 +54,7 @@ int		s_list(t_session *session)
 	}
 	else if (pid > 0)
 	{
-		redirect_output_fd(session->psv);
+		redirect_output_fd(session->psv->cs);
 		execv("/bin/ls", session->argv);
 	}
 	else if (pid == 0)

@@ -1,6 +1,6 @@
-#include "../incl/server.h"
+#include "../incl/ftp.h"
 
-int		create_socket(t_session *session)
+int		create_socket(t_session *session, char *address)
 {
 	struct protoent *proto;
 
@@ -12,11 +12,18 @@ int		create_socket(t_session *session)
 		// set error code
 		return (EXIT_FAILURE);
 	}
+	session->sin.sin_family = AF_INET;
+	session->sin.sin_port = htons(session->port);
+	if (address)
+		session->sin.sin_addr.s_addr = inet_addr(address);
+	else
+		session->sin.sin_addr.s_addr = htonl(INADDR_ANY);
 	return (EXIT_SUCCESS);
 }
 
 int 	listen_socket(t_session *session)
 {
+
 	if ((listen(session->sock, 1)) == -1)
 	{
 		close(session->sock);
@@ -26,14 +33,8 @@ int 	listen_socket(t_session *session)
 	return (EXIT_SUCCESS);
 }
 
-int 	bind_socket(t_session *session, char *address)
+int 	bind_socket(t_session *session)
 {
-	session->sin.sin_family = AF_INET;
-	session->sin.sin_port = htons(session->port);
-	if (address)
-		session->sin.sin_addr.s_addr = inet_addr(address);
-	else
-		session->sin.sin_addr.s_addr = htonl(INADDR_ANY);
 	if (bind(session->sock, (const struct sockaddr *)&session->sin,
 			 sizeof(session->sin)) < 0)
 	{

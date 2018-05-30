@@ -3,10 +3,10 @@ CC = gcc
 
 CCFLAGS = -Wall -Werror -Wextra -g -fsanitize=address -O0
 
-SVR_SRC =  src_server/server.c src_server/sig.c src_server/s_dir_cmd.c src_server/client.c \
+SVR_SRC =  src_server/server.c src_server/sig.c src_server/s_dir_cmd.c src_server/s_client.c \
 			src_server/s_passive.c
 
-CLI_SRC = src_client/client.c src_client/c_dir_cmd.c src_client/c_passive.c \
+CLI_SRC = src_client/c_client.c src_client/c_dir_cmd.c src_client/c_passive.c \
 			src_client/c_retrieve.c src_client/c_store.c
 
 CMN_SRC = src_common/session.c src_common/recvfile.c src_common/sendfile.c \

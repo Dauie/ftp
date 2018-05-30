@@ -39,11 +39,11 @@ int 	s_passive(t_session *session)
 	if (!(session->psv = ft_memalloc(sizeof(t_session))))
 		return (EXIT_FAILURE);
 	session->psv->port = rand_ephem_port();
-	if (create_endpoint(session->psv) == EXIT_FAILURE)
+	if (create_endpoint(session->psv, NULL) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	if (!(psv_addr = make_passive_addr(&session->csin, session->psv->port)))
 		return (EXIT_FAILURE);
-	if (send_client_msg(session, 3, "227 Entering Passive Mode. ", psv_addr, "\n\r") == EXIT_FAILURE)
+	if (send_msg(session, 3, "227 Entering Passive Mode. ", psv_addr, "\n\r") == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	free(psv_addr);
 	return (EXIT_SUCCESS);

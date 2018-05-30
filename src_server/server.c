@@ -8,17 +8,31 @@ void    usage(char *str)
     exit(EXIT_FAILURE);
 }
 
-int		quit(t_session *session)
+int		s_quit(t_session *session)
 {
 	if (ft_strcmp((const char *)&session->buff, "quit" ) == 0)
 	{
 		printf("[+]Host has disconnected from socket %d\n", session->cs);
 		close(session->cs);
 		session->run = FALSE;
-		return (EXIT_SUCCESS);
 	}
+	return(EXIT_SUCCESS);
 }
 
+int 	s_help(t_session *session)
+{
+	if (send_msg(session, 9, "FTP Server Usage:\n",
+				 "cwd - cwd <dir> - change working directory.\n",
+				 "help - Lists all supported commands\n",
+				 "ls - ls <path> - List files/directories in path\n",
+				 "passive - Enter passive mode\n",
+				 "pwd - Prints working directory\n",
+				 "quit - Closes connection and quits program.\n",
+				 "retrieve - retrieve <path> - Retrieve file at path.\n",
+				 "store - store <path> - Store file at path.\n") == EXIT_FAILURE)
+		return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
+}
 
 static void    session_manager(t_session *session)
 {
@@ -36,7 +50,7 @@ static void    session_manager(t_session *session)
         else if (session->pid > 0)
         {
 			close(session->cs);
-			signal(SIGINT, handel_sig);
+//			signal(SIGINT, handel_sig);
 			signal(SIGCHLD, handel_sig);
         }
         else if (session->pid == 0)
@@ -60,9 +74,9 @@ int		accept_connection(t_session *session)
 
 int     create_endpoint(t_session *session, char *address)
 {
-	if (create_socket(session) == EXIT_FAILURE)
+	if (create_socket(session, address) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
-	if (bind_socket(session, address) == EXIT_FAILURE)
+	if (bind_socket(session) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	if (options_socket(session) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
@@ -84,6 +98,7 @@ int main(int ac, char **av)
     session.port = ft_atoi(av[1]);
     if (create_endpoint(&session, NULL) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
+	printf("[+]Server started on port %d\n", session.port);
 	session.cslen = sizeof(session.csin);
     session_manager(&session);
     close(session.sock);

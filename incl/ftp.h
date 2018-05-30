@@ -30,7 +30,7 @@ typedef enum 	e_mode
 	M_PRT = 2
 }				t_mode;
 
-char	*g_sprtd_cmds[] = { "CWD", "HELP", "LIST", "PASV", "PWD", "QUIT" , "RETR", "STOR"};
+
 
 typedef struct          s_session
 {
@@ -53,8 +53,8 @@ typedef struct          s_session
 
 
 int			add_header(off_t size, char *buff);
-int 		bind_socket(t_session *session, char *address);
-int			create_socket(t_session *session);
+int 		bind_socket(t_session *session);
+int			create_socket(t_session *session, char *address);
 int 		create_temp_file(t_session *session);
 void 		init_session(t_session * session);
 int 		listen_socket(t_session *session);
