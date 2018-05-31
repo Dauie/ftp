@@ -4,10 +4,11 @@
 int 		recv_msg(int sock, char *buff, int *run)
 {
 	ssize_t ret;
-	if ((ret = recv(sock, buff, BUFFSZ - 1, 0)) == -1)
+	if ((ret = recv(sock, buff, BUFFSZ, 0)) == -1)
 		return (EXIT_FAILURE);
 	else if (ret == 0)
 		*run = FALSE;
+	printf("recv: %d - %s\n", (int)ret, buff);
 	return (EXIT_SUCCESS);
 }
 
@@ -26,6 +27,7 @@ int 	recv_file(t_session *session)
 			return (EXIT_FAILURE);
 		}
 	}
+
 	return (EXIT_SUCCESS);
 }
 

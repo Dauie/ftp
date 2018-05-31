@@ -14,6 +14,7 @@ int		send_msg(int sock, int n, ...)
 	char	**tmp;
 	char	buff[BUFFSZ];
 	int		i;
+	ssize_t ret;
 
 	i = -1;
 	va_start(ap, n);
@@ -26,7 +27,8 @@ int		send_msg(int sock, int n, ...)
 	while (++i < n)
 		ft_strcat(buff, tmp[i]);
 	free(tmp);
-	send(sock, buff, BUFFSZ, MSG_WAITALL);
+	ret = send(sock, buff, BUFFSZ, MSG_WAITALL);
+	printf("sent: %d\n", (int)ret);
 	return (EXIT_SUCCESS);
 }
 

@@ -46,15 +46,13 @@ static void    session_manager(t_session *session)
             continue;
         }
         else if (session->pid > 0)
-        {
 			close(session->cs);
-//			signal(SIGINT, handel_sig);
-			signal(SIGCHLD, handel_sig);
-        }
         else if (session->pid == 0)
         {
-            close(session->sock);
+			close(session->sock);
             manage_client_session(session);
+			printf("Exited client loop\n");
+			break ;
         }
     }
 }
@@ -98,6 +96,7 @@ int main(int ac, char **av)
 		return (EXIT_FAILURE);
 	printf("[+]Server started on port %d\n", session.port);
 	session.cslen = sizeof(session.csin);
+	signal(SIGCHLD, handel_sig);
     session_manager(&session);
     close(session.sock);
     return(0);

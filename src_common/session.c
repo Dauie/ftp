@@ -2,6 +2,7 @@
 
 void init_session(t_session *session)
 {
+
 	session->argv = NULL;
 	session->cs = 0;
 	session->cslen = 0;
