@@ -1,7 +1,5 @@
 #include "../incl/server.h"
 
-
-
 void    usage(char *str)
 {
     printf("Useage: %s <port>\n", str);
@@ -21,7 +19,7 @@ int		s_quit(t_session *session)
 
 int 	s_help(t_session *session)
 {
-	if (send_msg(session, 9, "FTP Server Usage:\n",
+	if (send_msg(session->cs, 9, "FTP Server Usage:\n",
 				 "cwd - cwd <dir> - change working directory.\n",
 				 "help - Lists all supported commands\n",
 				 "ls - ls <path> - List files/directories in path\n",

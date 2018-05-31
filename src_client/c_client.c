@@ -31,9 +31,20 @@ int		c_quit(t_session *session)
 
 int 	c_help(t_session *session)
 {
-	recv_msg(session);
+	recv_msg(session->sock, session->buff, &session->run);
 	write(1, session->buff, ft_strlen(session->buff));
 	return (EXIT_SUCCESS);
+}
+
+ssize_t 		read_stdin(char *buff)
+{
+	ssize_t ret;
+
+	ret = 0;
+	if ((ret = read(0, buff, BUFFSZ)) < 0)
+		return (EXIT_FAILURE);
+	buff[ret - 1] = '\0';
+	return (ret);
 }
 
 static int	dispatch_userin(t_session *session, char *user_input)
@@ -49,7 +60,7 @@ static int	dispatch_userin(t_session *session, char *user_input)
 		{
 			if (ft_strcmp(g_cmds[i][j], session->argv[0]) == 0)
 			{
-				if (send_msg(session, 2, session->argv[0],
+				if (send_msg(session->sock, 2, g_cmds[i][0],
 							 &user_input[ft_strlen(session->argv[0])]) == EXIT_FAILURE)
 					return (EXIT_FAILURE);
 				g_c_funcs[i](session);
@@ -64,19 +75,19 @@ static int	dispatch_userin(t_session *session, char *user_input)
 
 static void	client_shell(t_session *session)
 {
-	char	*user_input;
+	char	user_input[BUFFSZ];
 
 	while (session->run == TRUE)
 	{
 		ft_bzero(session->buff, BUFFSZ);
+		ft_bzero(user_input, BUFFSZ);
 		write(1, "(^-^)> ", 7);
-		if (gnl(0, &user_input) < 0)
-			break;
+		if (read_stdin(user_input) == EXIT_FAILURE)
+			continue;
 		if (!(session->argv = ft_strsplit(user_input, ' ')) || !session->argv[0])
 			continue;
 		if (dispatch_userin(session, user_input) == EXIT_FAILURE)
 			break;
-		free(user_input);
 		ft_tbldel(session->argv, ft_tbllen(session->argv));
 	}
 	printf("[-]Disconnected from server\n");

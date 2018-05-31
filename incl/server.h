@@ -24,5 +24,7 @@ int  		s_passive(t_session *session);
 int 		s_port(t_session *session);
 int 		s_pwd(t_session *session);
 int			s_quit(t_session *session);
+int 		s_store(t_session *session);
+int 		s_retrieve(t_session *session);
 
 #endif

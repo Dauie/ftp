@@ -43,7 +43,7 @@ int 	s_passive(t_session *session)
 		return (EXIT_FAILURE);
 	if (!(psv_addr = make_passive_addr(&session->csin, session->psv->port)))
 		return (EXIT_FAILURE);
-	if (send_msg(session, 3, "227 Entering Passive Mode. ", psv_addr, "\n\r") == EXIT_FAILURE)
+	if (send_msg(session->cs, 3, "227 Entering Passive Mode. ", psv_addr, "\n\r") == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	free(psv_addr);
 	return (EXIT_SUCCESS);

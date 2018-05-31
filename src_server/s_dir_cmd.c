@@ -20,10 +20,10 @@ int		s_cwd(t_session *session)
 {
 	if (chdir(session->buff) == -1)
 	{
-		send_msg(session, 1, "451 Requested action aborted. Local error in processing.\n\r");
+		send_msg(session->cs, 1, "451 Requested action aborted. Local error in processing.\n\r");
 		return (EXIT_FAILURE);
 	}
-	send_msg(session, 1, "200 Working directory changed\n\r");
+	send_msg(session->cs, 1, "200 Working directory changed\n\r");
 	return (EXIT_SUCCESS);
 }
 
@@ -34,10 +34,23 @@ int		s_pwd(t_session *session)
 
 	if ((res = getcwd(dir, 255)) == NULL)
 	{
-		send_msg(session, 1, "451 Requested action aborted. Local error in processing.\n\r");
+		send_msg(session->cs, 1, "451 Requested action aborted. Local error in processing.\n\r");
 		return (EXIT_FAILURE);
 	}
-	send_msg(session, 3, "200 ", res, "\n\r");
+	send_msg(session->cs, 3, "200 ", res, "\n\r");
+	recv_msg(session->cs, session->buff, &session->run);
+	return (EXIT_SUCCESS);
+}
+
+int 		s_store(t_session *session)
+{
+	send_msg(session->cs, 1, "502 Command not implemented.\n\r");
+	return (EXIT_SUCCESS);
+}
+
+int 		s_retrieve(t_session *session)
+{
+	send_msg(session->cs, 1, "502 Command not implemented.\n\r");
 	return (EXIT_SUCCESS);
 }
 

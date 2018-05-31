@@ -20,7 +20,7 @@
 #include "../libft/incl/gnl.h"
 
 
-# define BUFFSZ (1024)
+# define BUFFSZ (512)
 # define HDRSZ (10)
 
 typedef enum 	e_mode
@@ -30,7 +30,11 @@ typedef enum 	e_mode
 	M_PRT = 2
 }				t_mode;
 
-
+typedef enum	e_sock
+{
+	S_CLI = 0,
+	S_SVR = 1
+}				t_sock;
 
 typedef struct          s_session
 {
@@ -60,8 +64,8 @@ void 		init_session(t_session * session);
 int 		listen_socket(t_session *session);
 int 		options_socket(t_session *session);
 int 		recv_file(t_session *session);
-int 		recv_msg(t_session *session);
-int			send_file(t_session *session);
-int			send_msg(t_session *session, int n, ...);
+int 		recv_msg(int sock, char *buff, int *run_status);
+int			send_file(int sock, int fd);
+int			send_msg(int sock, int n, ...);
 
 #endif

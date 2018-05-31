@@ -1,14 +1,13 @@
 #include "../incl/ftp.h"
 
 
-int 		recv_msg(t_session *session)
+int 		recv_msg(int sock, char *buff, int *run)
 {
 	ssize_t ret;
-	if ((ret = recv(session->cs, session->buff, BUFFSZ - 1, 0)) == -1)
+	if ((ret = recv(sock, buff, BUFFSZ - 1, 0)) == -1)
 		return (EXIT_FAILURE);
 	else if (ret == 0)
-		session->run = FALSE;
-	write(STDOUT_FILENO, session->buff, BUFFSZ);
+		*run = FALSE;
 	return (EXIT_SUCCESS);
 }
 
