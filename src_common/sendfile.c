@@ -26,7 +26,7 @@ int		send_msg(int sock, int n, ...)
 	while (++i < n)
 		ft_strcat(buff, tmp[i]);
 	free(tmp);
-	send(sock, buff, BUFFSZ, MSG_WAITALL);
+	send(sock, buff, BUFFSZ, 0);
 	return (EXIT_SUCCESS);
 }
 

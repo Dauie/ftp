@@ -41,4 +41,5 @@ void     manage_client_session(t_session *session)
 			continue;
 		dispatch_command(session);
 	}
+	printf("[+]Client %s:%d disconnected.\n", inet_ntoa(session->csin.sin_addr), session->sock);
 }
