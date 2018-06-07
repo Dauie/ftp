@@ -5,6 +5,17 @@ int 	(*g_s_funcs[])(t_session *) = { &s_cwd, &s_help, &s_list, &s_passive,
 
 char	*g_sprtd_cmds[] = { "CWD", "HELP", "LIST", "PASV", "PWD", "QUIT" , "RETR", "STOR"};
 
+int		s_quit(t_session *session)
+{
+	if (ft_strcmp((const char *)&session->buff, "quit" ) == 0)
+	{
+		printf("[+]Host has disconnected from socket %d\n", session->cs);
+		close(session->cs);
+		session->run = FALSE;
+	}
+	return(EXIT_SUCCESS);
+}
+
 static void     dispatch_command(t_session *session)
 {
 	int	i;
@@ -25,8 +36,7 @@ static void     dispatch_command(t_session *session)
 	}
 	if (i == len)
 		send_msg(session->cs, 1, "502 Command not implemented.\n\r");
-	if (session->argv)
-		ft_tbldel(session->argv, ft_tbllen(session->argv));
+	clean_session(session);
 }
 
 void     manage_client_session(t_session *session)
@@ -41,4 +51,5 @@ void     manage_client_session(t_session *session)
 			continue;
 		dispatch_command(session);
 	}
+	printf("[-]Client disconnected from %s\n", inet_ntoa(session->csin.sin_addr));
 }

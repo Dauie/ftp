@@ -2,9 +2,8 @@
 
 int			send_file(int sock, int fd)
 {
-	close(fd);
-	send_msg(sock, 1, "502 [-]Command not implemented.\n\r");
-	send_msg(sock, 1, "226 [+]Closing data connection.\n\r");
+	(void)sock;
+	(void)fd;
 	return (EXIT_SUCCESS);
 }
 
@@ -26,7 +25,11 @@ int		send_msg(int sock, int n, ...)
 	while (++i < n)
 		ft_strcat(buff, tmp[i]);
 	free(tmp);
-	send(sock, buff, BUFFSZ, MSG_WAITALL);
+	if (send(sock, buff, BUFFSZ, MSG_WAITALL) == -1) {
+		printf("[-]Error writing to socket\n");
+		return (EXIT_FAILURE);
+	}
+	write(1, "sent\n", 5);
 	return (EXIT_SUCCESS);
 }
 

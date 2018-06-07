@@ -16,14 +16,39 @@ int		redirect_output_fd(int fd)
 	return (EXIT_SUCCESS);
 }
 
+static char			*getenvar(char **env, char *qry, size_t qlen) {
+	char *res;
+	int i;
+
+	i = -1;
+	res = NULL;
+	while (env[++i]) {
+		if (ft_strncmp(env[i], qry, qlen) == 0 &&
+			env[i][qlen] == '=')
+			if (!(res = ft_strdup(env[i])))
+				return (NULL);
+	}
+	return (res);
+}
+
 int		s_cwd(t_session *session)
 {
-	if (chdir(session->buff) == -1)
+	char	dir[256];
+	char 	*start_path;
+	char 	*res;
+
+	if (!(res = getcwd(dir, 255)) || !(start_path = getenvar(session->env, "PWD", 3)))
 	{
 		send_msg(session->cs, 1, "451 Requested action aborted. Local error in processing.\n\r");
 		return (EXIT_FAILURE);
 	}
-	send_msg(session->cs, 1, "200 Working directory changed\n\r");
+	if ((ft_strcmp(res, &start_path[4]) == 0 && ft_strcmp(session->argv[1], "..") == 0) ||
+			chdir(session->argv[1]) == -1)
+	{
+		send_msg(session->cs, 1, "550 Requested action not taken. File unavailable\n\r");
+		return (EXIT_FAILURE);
+	}
+	s_pwd(session);
 	return (EXIT_SUCCESS);
 }
 
@@ -31,14 +56,16 @@ int		s_pwd(t_session *session)
 {
 	char	dir[256];
 	char 	*res;
+	char	*hide_pwd;
 
-	if ((res = getcwd(dir, 255)) == NULL)
+
+	if (!(res = getcwd(dir, 255)) || !(hide_pwd = getenvar(session->env, "PWD", 3)))
 	{
 		send_msg(session->cs, 1, "451 Requested action aborted. Local error in processing.\n\r");
 		return (EXIT_FAILURE);
 	}
-	send_msg(session->cs, 3, "200 ", res, "\n\r");
-	recv_msg(session->cs, session->buff, &session->run);
+	strcat(dir, "/");
+	send_msg(session->cs, 3, "200 ", &res[ft_strlen(&hide_pwd[4])], "\n\r");
 	return (EXIT_SUCCESS);
 }
 

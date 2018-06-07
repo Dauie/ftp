@@ -20,6 +20,7 @@
 #include "../libft/incl/gnl.h"
 
 
+# define DEFAULT_ADDRESS "127.0.0.1"
 # define BUFFSZ (512)
 # define HDRSZ (10)
 
@@ -50,7 +51,7 @@ typedef struct          s_session
 	struct sockaddr_in  csin;
 	struct sockaddr_in  sin;
 	char 				buff[BUFFSZ];
-	char                **env; // maybe remove
+	char                **env;
 	char 				**argv;
 	struct s_session	*psv;
 }						t_session;
@@ -58,6 +59,7 @@ typedef struct          s_session
 
 int			add_header(off_t size, char *buff);
 int 		bind_socket(t_session *session);
+void 		clean_session(t_session *session);
 int			create_socket(t_session *session, char *address);
 int 		create_temp_file(t_session *session);
 void 		init_session(t_session * session);

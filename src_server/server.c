@@ -6,28 +6,17 @@ void    usage(char *str)
     exit(EXIT_FAILURE);
 }
 
-int		s_quit(t_session *session)
-{
-	if (ft_strcmp((const char *)&session->buff, "quit" ) == 0)
-	{
-		printf("[+]Host has disconnected from socket %d\n", session->cs);
-		close(session->cs);
-		session->run = FALSE;
-	}
-	return(EXIT_SUCCESS);
-}
-
 int 	s_help(t_session *session)
 {
 	if (send_msg(session->cs, 9, "FTP Server Usage:\n",
-				 "cwd - cwd <dir> - change working directory.\n",
-				 "help - Lists all supported commands\n",
-				 "ls - ls <path> - List files/directories in path\n",
-				 "passive - Enter passive mode\n",
-				 "pwd - Prints working directory\n",
-				 "quit - Closes connection and quits program.\n",
-				 "retrieve - retrieve <path> - Retrieve file at path.\n",
-				 "store - store <path> - Store file at path.\n") == EXIT_FAILURE)
+				 "CWD <dir> - change working directory.\n",
+				 "HELP - Lists all supported commands\n",
+				 "LIST <path> - List files/directories in path\n",
+				 "PASV - Enter passive mode\n",
+				 "PWD - Prints working directory\n",
+				 "QUIT - Closes connection and quits program.\n",
+				 "RETR <path> - Retrieve file at path.\n",
+				 "STOR <path> - Store file at path.\n") == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
@@ -38,8 +27,7 @@ static void    session_manager(t_session *session)
     {
 		if (accept_connection(session) == EXIT_FAILURE)
 			continue;
-        printf("[+]New connection %s:%d on sd %d\n",
-               inet_ntoa(session->csin.sin_addr), ntohs(session->csin.sin_port), session->cs);
+
         if ((session->pid = fork()) == -1)
         {
             close(session->cs);
@@ -67,6 +55,8 @@ int		accept_connection(t_session *session)
 		//Set error code
 		return (EXIT_FAILURE);
 	}
+	printf("[+]New connection %s:%d on sd %d\n",
+		   inet_ntoa(session->csin.sin_addr), ntohs(session->csin.sin_port), session->cs);;
 	return (EXIT_SUCCESS);
 }
 

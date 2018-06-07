@@ -11,16 +11,17 @@ void init_session(t_session *session)
 	session->port = 0;
 	session->run = TRUE;
 	session->sock = 0;
+	ft_bzero(session->buff, BUFFSZ);
 }
 
-void close_session(t_session *session)
+void clean_session(t_session *session)
 {
 	if (session->argv)
 	{
 		ft_tbldel(session->argv, ft_tbllen(session->argv));
 		session->argv = NULL;
 	}
-	if (session->psv)
+	if (session->psv && session->mode == M_NON)
 	{
 		free(session->psv);
 		session->psv = NULL;

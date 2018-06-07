@@ -4,7 +4,7 @@
  */
 
 char	*g_cmds[][2] = {
-		{ "CWD ", "cd" },
+		{ "CWD", "cd" },
 		{ "HELP", "help" },
 		{ "LIST", "ls" },
 		{ "PASV", "passive" },
@@ -58,7 +58,7 @@ static int	dispatch_userin(t_session *session, char *user_input)
 		j = -1;
 		while (++j < 2)
 		{
-			if (ft_strcmp(g_cmds[i][j], session->argv[0]) == 0)
+			if (ft_strncmp(g_cmds[i][j], session->argv[0], ft_strlen(session->argv[0])) == 0)
 			{
 				if (send_msg(session->sock, 2, g_cmds[i][0],
 							 &user_input[ft_strlen(session->argv[0])]) == EXIT_FAILURE)
@@ -86,14 +86,13 @@ static void	client_shell(t_session *session)
 			continue;
 		if (!(session->argv = ft_strsplit(user_input, ' ')) || !session->argv[0])
 			continue;
-		if (dispatch_userin(session, user_input) == EXIT_FAILURE)
-			break;
-		ft_tbldel(session->argv, ft_tbllen(session->argv));
+		dispatch_userin(session, user_input);
+		clean_session(session);
 	}
 	printf("[-]Disconnected from server\n");
 }
 
-static int create_connection(t_session *session, char *addr)
+int create_connection(t_session *session, char *addr)
 {
 	create_socket(session, addr);
 	if (connect(session->sock, (const struct sockaddr *)&session->sin, sizeof(session->sin)) == -1)
