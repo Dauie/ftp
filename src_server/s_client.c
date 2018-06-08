@@ -36,7 +36,6 @@ static void     dispatch_command(t_session *session)
 	}
 	if (i == len)
 		send_msg(session->cs, 1, "502 Command not implemented.\n\r");
-	clean_session(session);
 }
 
 void     manage_client_session(t_session *session)
@@ -50,6 +49,7 @@ void     manage_client_session(t_session *session)
 		if (recv_msg(session->cs, session->buff, &session->run) == EXIT_FAILURE)
 			continue;
 		dispatch_command(session);
+		clean_session(session);
 	}
 	printf("[-]Client disconnected from %s\n", inet_ntoa(session->csin.sin_addr));
 }

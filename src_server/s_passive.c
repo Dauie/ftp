@@ -51,11 +51,10 @@ int 	s_passive(t_session *session) {
 		send_msg(session->cs, 1, "451 Requested action aborted. Local error in processing.\n\r");
 		return (EXIT_FAILURE);
 	}
-	if (send_msg(session->cs, 3, "227 Entering Passive Mode. ", psv_addr, "\n\r") == EXIT_FAILURE)
-		return (EXIT_FAILURE);
+	send_msg(session->cs, 3, "227 Entering Passive Mode. ", psv_addr, "\n\r");
 	if (accept_connection(session->psv) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
-	send_msg(session->psv->cs, 1, "Hello?\r\n");
+	session->mode = M_PSV;
 	free(psv_addr);
 	return (EXIT_SUCCESS);
 }

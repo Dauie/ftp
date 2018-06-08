@@ -94,8 +94,9 @@ static void	client_shell(t_session *session)
 
 int create_connection(t_session *session, char *addr)
 {
-	create_socket(session, addr);
-	if (connect(session->sock, (const struct sockaddr *)&session->sin, sizeof(session->sin)) == -1)
+	if (create_socket(session, addr) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
+	if (connect(session->sock, (const struct sockaddr *)&session->sin, sizeof(session->sin)) == EXIT_FAILURE)
 	{
 		printf("[-]Error connecting to %s:%d ...(-.-)\n", addr, session->port);
 		return (EXIT_FAILURE);

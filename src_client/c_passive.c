@@ -36,8 +36,6 @@ int 	c_passive(t_session *session)
 		printf("[-] Error establishing PASV connection\n");
 		return (EXIT_FAILURE);
 	}
-	if (!(recv_msg(session->psv->cs, session->psv->buff, &session->psv->run)))
-		printf("[-]Error writing to passive socket\n");
 	session->mode = M_PSV;
 	return (EXIT_SUCCESS);
 }

@@ -69,18 +69,6 @@ int		s_pwd(t_session *session)
 	return (EXIT_SUCCESS);
 }
 
-int 		s_store(t_session *session)
-{
-	send_msg(session->cs, 1, "502 Command not implemented.\n\r");
-	return (EXIT_SUCCESS);
-}
-
-int 		s_retrieve(t_session *session)
-{
-	send_msg(session->cs, 1, "502 Command not implemented.\n\r");
-	return (EXIT_SUCCESS);
-}
-
 int		s_list(t_session *session)
 {
 	pid_t			pid;

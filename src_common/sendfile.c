@@ -1,9 +1,29 @@
 #include "../incl/ftp.h"
 
-int			send_file(int sock, int fd)
+int			send_file(int sock, int fd, char *buff, off_t len)
 {
-	(void)sock;
-	(void)fd;
+	off_t 	rd;
+	ssize_t ret;
+
+	rd = 0;
+	while (rd < len)
+	{
+		ft_bzero(buff, BUFFSZ);
+		if ((ret = read(fd, buff, BUFFSZ)) == -1){
+			printf("Issue reading file\n");
+			return (EXIT_FAILURE);
+		}
+		if (ret == 0) {
+			printf("EOF\n");
+			return (EXIT_SUCCESS);
+		}
+		rd += BUFFSZ;
+		if ((send(sock, buff, ft_strlen(buff), MSG_DONTWAIT) == -1))
+		{
+			printf("Failed to send file\n");
+			return (EXIT_FAILURE);
+		}
+	}
 	return (EXIT_SUCCESS);
 }
 
@@ -15,6 +35,7 @@ int		send_msg(int sock, int n, ...)
 	int		i;
 
 	i = -1;
+	printf("Enter send\n");
 	va_start(ap, n);
 	ft_bzero(buff, BUFFSZ);
 	if (!(tmp = ft_memalloc(sizeof(char *) * (n + 1))))
