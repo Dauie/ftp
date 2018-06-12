@@ -149,5 +149,7 @@ add_executable(ftp
         src_server/s_client.c
         src_server/s_dir_cmd.c
         src_server/s_passive.c
+        src_server/s_retrieve.c
+        src_server/s_store.c
         src_server/server.c
         src_server/sig.c)

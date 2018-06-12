@@ -65,9 +65,9 @@ int 		create_temp_file(t_session *session);
 void 		init_session(t_session * session);
 int 		listen_socket(t_session *session);
 int 		options_socket(t_session *session);
-int 		recv_file(t_session *session);
+int			recv_file(int sock, int fd, char *buff);
 int 		recv_msg(int sock, char *buff, int *run_status);
-int			send_file(int sock, int fd);
+int			send_file(int sock, int fd, char *buff, off_t len);
 int			send_msg(int sock, int n, ...);
 
 #endif
