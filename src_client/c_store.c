@@ -2,7 +2,26 @@
 
 int 	c_store(t_session *session)
 {
-	recv_msg(session->sock, session->buff, &session->run);
-	write(1, session->buff, ft_strlen(session->buff));
-	return (EXIT_SUCCESS);
+	off_t   len;
+	char    *lstr;
+
+	if (session->mode == M_PSV)
+	{
+		len = session->argv[1] ? get_file_size(session->argv[1]) : 0;
+		if (!session->argv[1] || (session->fd = open(session->argv[1], O_RDONLY)) < 0)
+		{
+            close_passive(session);
+            recv_msg(session->sock, session->buff, &session->run);
+            printf("[-]Error reading from passive socket.\n");
+            return (EXIT_FAILURE);
+		}
+		send_msg(session->psv->sock, 1, (lstr = ft_itoa(len)));
+		free(lstr);
+		send_file(session->psv->sock, session->fd, session->psv->buff, len);
+        recv_msg(session->sock, session->buff, &session->run);
+		close_passive(session);
+		return (EXIT_SUCCESS);
+	}
+    recv_msg(session->sock, session->buff, &session->run);
+	return (EXIT_FAILURE);
 }

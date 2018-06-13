@@ -1,5 +1,27 @@
 #include "../incl/ftp.h"
 
+off_t       get_file_size(char *file)
+{
+    off_t   len;
+	int 	fd;
+
+    len = 0;
+	fd = open(file, O_RDONLY);
+    if ((len = lseek(fd, 0, SEEK_END)) == -1)
+    {
+        printf("%s\n", strerror(errno));
+    }
+    close(fd);
+    return (len);
+}
+
+void        close_passive(t_session *session)
+{
+    close(session->psv->sock);
+    close(session->fd);
+    session->mode = M_NON;
+}
+
 int			send_file(int sock, int fd, char *buff, off_t len)
 {
 	off_t 	rd;
@@ -13,12 +35,10 @@ int			send_file(int sock, int fd, char *buff, off_t len)
 			printf("Issue reading file\n");
 			return (EXIT_FAILURE);
 		}
-		if (ret == 0) {
-			printf("EOF\n");
+		if (ret == 0)
 			return (EXIT_SUCCESS);
-		}
 		rd += BUFFSZ;
-		if ((send(sock, buff, ft_strlen(buff), MSG_DONTWAIT) == -1))
+		if ((send(sock, buff, BUFFSZ, MSG_WAITALL) == -1))
 		{
 			printf("Failed to send file\n");
 			return (EXIT_FAILURE);
@@ -35,7 +55,6 @@ int		send_msg(int sock, int n, ...)
 	int		i;
 
 	i = -1;
-	printf("Enter send\n");
 	va_start(ap, n);
 	ft_bzero(buff, BUFFSZ);
 	if (!(tmp = ft_memalloc(sizeof(char *) * (n + 1))))
@@ -50,7 +69,6 @@ int		send_msg(int sock, int n, ...)
 		printf("[-]Error writing to socket\n");
 		return (EXIT_FAILURE);
 	}
-	write(1, "sent\n", 5);
 	return (EXIT_SUCCESS);
 }
 

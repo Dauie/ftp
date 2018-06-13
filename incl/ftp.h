@@ -60,14 +60,16 @@ typedef struct          s_session
 int			add_header(off_t size, char *buff);
 int 		bind_socket(t_session *session);
 void 		clean_session(t_session *session);
+void        close_passive(t_session *session);
 int			create_socket(t_session *session, char *address);
 int 		create_temp_file(t_session *session);
 void 		init_session(t_session * session);
 int 		listen_socket(t_session *session);
 int 		options_socket(t_session *session);
-int			recv_file(int sock, int fd, char *buff);
+int			recv_file(int sock, int fd, char *buff, off_t len);
 int 		recv_msg(int sock, char *buff, int *run_status);
 int			send_file(int sock, int fd, char *buff, off_t len);
 int			send_msg(int sock, int n, ...);
+off_t       get_file_size(char *file);
 
 #endif
