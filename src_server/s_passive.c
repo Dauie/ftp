@@ -44,14 +44,14 @@ int 	s_passive(t_session *session) {
 	session->psv->port = rand_ephem_port();
 	if (create_endpoint(session->psv, NULL) == EXIT_FAILURE)
 	{
-		send_msg(session->cs, 1, "451 Requested action aborted. Local error in processing.\n\r");
+		send_msg(session->cs, 1, "451 Requested action aborted. Local error in processing. \r\n");
 		return (EXIT_FAILURE);
 	}
 	if (!(psv_addr = make_passive_addr(session->psv->sin.sin_addr.s_addr, session->psv->sin.sin_port))) {
-		send_msg(session->cs, 1, "451 Requested action aborted. Local error in processing.\n\r");
+		send_msg(session->cs, 1, "451 Requested action aborted. Local error in processing. \r\n");
 		return (EXIT_FAILURE);
 	}
-	send_msg(session->cs, 3, "227 Entering Passive Mode. ", psv_addr, "\n\r");
+	send_msg(session->cs, 3, "227 Entering Passive Mode. ", psv_addr, " \r\n");
 	if (accept_connection(session->psv) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	session->mode = M_PSV;

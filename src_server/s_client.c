@@ -35,7 +35,7 @@ static void     dispatch_command(t_session *session)
 		}
 	}
 	if (i == len)
-		send_msg(session->cs, 1, "502 Command not implemented.\n\r");
+		send_msg(session->cs, 1, "502 Command not implemented. \r\n");
 }
 
 void     manage_client_session(t_session *session)

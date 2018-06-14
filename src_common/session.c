@@ -23,6 +23,8 @@ void clean_session(t_session *session)
 	}
 	if (session->psv && session->mode == M_NON)
 	{
+		if (session->psv->argv)
+			ft_tbldel(session->psv->argv, ft_tbllen(session->psv->argv));
 		free(session->psv);
 		session->psv = NULL;
 	}

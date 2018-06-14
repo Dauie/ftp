@@ -15,10 +15,13 @@ off_t       get_file_size(char *file)
     return (len);
 }
 
-void        close_passive(t_session *session)
+void        close_passive(t_session *session, t_type type)
 {
-    close(session->psv->sock);
-    close(session->fd);
+
+    if (type == T_SVR)
+        close(session->psv->cs);
+    else if (type == T_CLI)
+        close(session->psv->port);
     session->mode = M_NON;
 }
 
@@ -32,7 +35,7 @@ int			send_file(int sock, int fd, char *buff, off_t len)
 	{
 		ft_bzero(buff, BUFFSZ);
 		if ((ret = read(fd, buff, BUFFSZ)) == -1){
-			printf("Issue reading file\n");
+			printf("[-]Issue reading file\n");
 			return (EXIT_FAILURE);
 		}
 		if (ret == 0)
@@ -40,7 +43,7 @@ int			send_file(int sock, int fd, char *buff, off_t len)
 		rd += BUFFSZ;
 		if ((send(sock, buff, BUFFSZ, MSG_WAITALL) == -1))
 		{
-			printf("Failed to send file\n");
+			printf("[-]Failed to send file\n");
 			return (EXIT_FAILURE);
 		}
 	}

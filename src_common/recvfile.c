@@ -9,7 +9,9 @@ int 		recv_msg(int sock, char *buff, int *run)
 		return (EXIT_FAILURE);
 	else if (ret == 0)
 		*run = FALSE;
-	printf("[*]%s", buff);
+	ft_printf("[*]%s", buff);
+    if (ft_strchr(buff, '\n') == NULL)
+        write(1, "\n", 1);
 	return (EXIT_SUCCESS);
 }
 

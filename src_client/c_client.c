@@ -4,18 +4,18 @@
  */
 
 char	*g_cmds[][2] = {
-		{ "CWD", "cd" },
-		{ "HELP", "help" },
-		{ "LIST", "ls" },
-		{ "PASV", "passive" },
-		{ "PWD", "pwd" },
-		{ "QUIT", "quit" },
-		{ "RETR", "get" },
-		{ "STOR", "put" },
+		{ "CWD ", "cd" },
+		{ "HELP ", "help" },
+		{ "LIST ", "ls" },
+		{ "PASV ", "passive" },
+		{ "PWD ", "pwd" },
+		{ "QUIT ", "quit" },
+		{ "RETR ", "get" },
+		{ "STOR ", "put" },
 };
 
-int 	(*g_c_funcs[])(t_session *) = { &c_cwd, &c_help, &c_list, &c_passive,
-											&c_pwd, &c_quit, &c_retrieve, &c_store};
+int 	(*g_c_funcs[])(t_session *) = { &c_dircmd, &c_help, &c_list, &c_passive,
+                                       &c_dircmd, &c_quit, &c_retrieve, &c_store};
 
 static void usage(char *str)
 {
@@ -58,7 +58,7 @@ static int	dispatch_userin(t_session *session, char *user_input)
 		j = -1;
 		while (++j < 2)
 		{
-			if (ft_strncmp(g_cmds[i][j], session->argv[0], ft_strlen(session->argv[0])) == 0)
+			if (ft_strncmp(g_cmds[i][j], session->argv[0], ft_strlen(session->argv[0]) - 1) == 0)
 			{
 				if (send_msg(session->sock, 2, g_cmds[i][0],
 							 &user_input[ft_strlen(session->argv[0])]) == EXIT_FAILURE)

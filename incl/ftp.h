@@ -31,11 +31,11 @@ typedef enum 	e_mode
 	M_PRT = 2
 }				t_mode;
 
-typedef enum	e_sock
+typedef enum    e_type
 {
-	S_CLI = 0,
-	S_SVR = 1
-}				t_sock;
+    T_SVR = 0,
+    T_CLI = 1,
+}               t_type;
 
 typedef struct          s_session
 {
@@ -60,9 +60,8 @@ typedef struct          s_session
 int			add_header(off_t size, char *buff);
 int 		bind_socket(t_session *session);
 void 		clean_session(t_session *session);
-void        close_passive(t_session *session);
+void        close_passive(t_session *session, t_type type);
 int			create_socket(t_session *session, char *address);
-int 		create_temp_file(t_session *session);
 void 		init_session(t_session * session);
 int 		listen_socket(t_session *session);
 int 		options_socket(t_session *session);

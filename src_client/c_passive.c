@@ -18,17 +18,16 @@ static int 	c_parse_port(char *response)
 	return (port ? port : EXIT_FAILURE);
 }
 
-// Verify communication on new passive socket.
 int 	c_passive(t_session *session)
 {
 	char	addr[BUFFSZ];
-
 
 	if (!(session->psv = ft_memalloc(sizeof(t_session))))
 		return (EXIT_FAILURE);
 	init_session(session->psv);
 	printf("[+]Initiating PASV mode\n");
 	recv_msg(session->sock, addr, &session->run);
+    printf("%s", addr);
 	session->psv->port = c_parse_port(addr);
 	if (create_connection(session->psv, inet_ntoa(session->sin.sin_addr)) == EXIT_FAILURE)
 	{
