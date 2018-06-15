@@ -5,13 +5,19 @@ int 		recv_msg(int sock, char *buff, int *run)
 {
 	ssize_t ret;
 
-	if ((ret = recv(sock, buff, BUFFSZ, MSG_WAITALL)) == -1)
+    ft_bzero(buff, BUFFSZ);
+    if ((ret = recv(sock, buff, BUFFSZ, MSG_PEEK)) == -1)
+        return (EXIT_FAILURE);
+	if ((ret = recv(sock, buff, (size_t)ret, MSG_WAITALL)) == -1)
 		return (EXIT_FAILURE);
 	else if (ret == 0)
 		*run = FALSE;
-	ft_printf("[*]%s", buff);
-    if (ft_strchr(buff, '\n') == NULL)
-        write(1, "\n", 1);
+    if (buff[0])
+    {
+        ft_printf("[*]%s", buff);
+        if (ft_strchr(buff, '\n') == NULL)
+            write(1, "\n", 1);
+    }
 	return (EXIT_SUCCESS);
 }
 
@@ -25,10 +31,12 @@ int		recv_file(int sock, int fd, char *buff, off_t len)
 	while (rd < len)
 	{
         ft_bzero(buff, BUFFSZ);
-        if ((ret = recv(sock, buff, BUFFSZ, MSG_WAITALL)) == -1)
+        if ((ret = recv(sock, buff, BUFFSZ, MSG_PEEK)) == -1)
             return (EXIT_FAILURE);
-        rd += BUFFSZ;
-		if ((write(fd, buff, ft_strlen(buff))) == -1)
+        if ((ret = recv(sock, buff, (size_t)ret, MSG_WAITALL)) == -1)
+            return (EXIT_FAILURE);
+        rd += ret;
+		if ((write(fd, buff, (size_t)ret)) == -1)
 		{
 			printf("Error writing to new file\n");
 			return (EXIT_FAILURE);

@@ -98,7 +98,6 @@ int		s_list(t_session *session)
 		{
             wait4(pid, &status, 0, &rusage);
             close_passive(session, T_SVR);
-            printf("closed connection\n");
             send_msg(session->cs, 1, "226 Closing data connection. Requested file action successful. \r\n");
 		}
 		else if (pid == 0)

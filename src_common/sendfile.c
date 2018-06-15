@@ -40,8 +40,8 @@ int			send_file(int sock, int fd, char *buff, off_t len)
 		}
 		if (ret == 0)
 			return (EXIT_SUCCESS);
-		rd += BUFFSZ;
-		if ((send(sock, buff, BUFFSZ, MSG_WAITALL) == -1))
+		rd += ret;
+		if ((send(sock, buff, (size_t)ret, MSG_WAITALL) == -1))
 		{
 			printf("[-]Failed to send file\n");
 			return (EXIT_FAILURE);
@@ -68,7 +68,8 @@ int		send_msg(int sock, int n, ...)
 	while (++i < n)
 		ft_strcat(buff, tmp[i]);
 	free(tmp);
-	if (send(sock, buff, BUFFSZ, MSG_WAITALL) == -1) {
+	if (send(sock, buff, BUFFSZ, MSG_WAITALL) == -1)
+    {
 		printf("[-]Error writing to socket\n");
 		return (EXIT_FAILURE);
 	}

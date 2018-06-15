@@ -57,7 +57,6 @@ typedef struct          s_session
 }						t_session;
 
 
-int			add_header(off_t size, char *buff);
 int 		bind_socket(t_session *session);
 void 		clean_session(t_session *session);
 void        close_passive(t_session *session, t_type type);

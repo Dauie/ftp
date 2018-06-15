@@ -22,6 +22,6 @@ int 	s_store(t_session *session)
         close(session->fd);
         return (EXIT_SUCCESS);
     }
-    send_msg(session->cs, 1, "425 Can't open data connection. \r\n");
+    send_msg(session->cs, 1, "425 Can't open data connection. Use PASV. \r\n");
     return (EXIT_SUCCESS);
 }

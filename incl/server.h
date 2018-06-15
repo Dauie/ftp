@@ -2,6 +2,7 @@
 #define SERVER_H
 
 #include "ftp.h"
+#include <sys/stat.h>
 
 # define MAX_CLIENTS (42)
 

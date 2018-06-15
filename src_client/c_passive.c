@@ -27,7 +27,6 @@ int 	c_passive(t_session *session)
 	init_session(session->psv);
 	printf("[+]Initiating PASV mode\n");
 	recv_msg(session->sock, addr, &session->run);
-    printf("%s", addr);
 	session->psv->port = c_parse_port(addr);
 	if (create_connection(session->psv, inet_ntoa(session->sin.sin_addr)) == EXIT_FAILURE)
 	{
