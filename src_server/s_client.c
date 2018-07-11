@@ -1,7 +1,7 @@
 #include "../incl/server.h"
 
 int 	(*g_s_funcs[])(t_session *) = { &s_cwd, &s_help, &s_list, &s_passive,
-										&s_pwd, &s_quit, &s_retrieve, &s_store };
+	&s_pwd, &s_quit, &s_retrieve, &s_store };
 
 char	*g_sprtd_cmds[] = { "CWD", "HELP", "LIST", "PASV", "PWD", "QUIT" , "RETR", "STOR"};
 
@@ -13,7 +13,7 @@ int		s_quit(t_session *session)
 		close(session->cs);
 		session->run = FALSE;
 	}
-	return(EXIT_SUCCESS);
+	return(SUCCESS);
 }
 
 static void     dispatch_command(t_session *session)
@@ -28,7 +28,7 @@ static void     dispatch_command(t_session *session)
 	while (session->argv[0] && ++i < len)
 	{
 		if (ft_strncmp(session->argv[0],
-					   g_sprtd_cmds[i], ft_strlen(g_sprtd_cmds[i])) == 0)
+					g_sprtd_cmds[i], ft_strlen(g_sprtd_cmds[i])) == 0)
 		{
 			g_s_funcs[i](session);
 			break;
@@ -40,13 +40,10 @@ static void     dispatch_command(t_session *session)
 
 void     manage_client_session(t_session *session)
 {
-	ssize_t     ret;
-
-	ret = 0;
 	while (session->run)
 	{
 		ft_bzero(session->buff, BUFFSZ);
-		if (recv_msg(session->cs, session->buff, &session->run) == EXIT_FAILURE)
+		if (recv_msg(session->cs, session->buff, &session->run) == FAILURE)
 			continue;
 		dispatch_command(session);
 		clean_session(session);

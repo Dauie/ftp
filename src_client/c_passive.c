@@ -9,13 +9,13 @@ static int 	c_parse_port(char *response)
 	resp = NULL;
 	ip_port = NULL;
 	if (!(resp = ft_strsplit(response, ' ')))
-		return (EXIT_FAILURE);
+		return (FAILURE);
 	if (!resp[4] || !(ip_port = ft_strsplit(resp[4], ',')))
-		return (EXIT_FAILURE);
+		return (FAILURE);
 	ft_tbldel(resp, ft_tbllen(resp));
 	port = (ip_port[4] ? ft_atoi(ip_port[4]) : 0) * 256 +
-			(ip_port[5] ? ft_atoi(ip_port[5]) : 0);
-	return (port ? port : EXIT_FAILURE);
+		(ip_port[5] ? ft_atoi(ip_port[5]) : 0);
+	return (port ? port : FAILURE);
 }
 
 int 	c_passive(t_session *session)
@@ -23,17 +23,17 @@ int 	c_passive(t_session *session)
 	char	addr[BUFFSZ];
 
 	if (!(session->psv = ft_memalloc(sizeof(t_session))))
-		return (EXIT_FAILURE);
+		return (FAILURE);
 	init_session(session->psv);
 	printf("[+]Initiating PASV mode\n");
 	recv_msg(session->sock, addr, &session->run);
 	session->psv->port = c_parse_port(addr);
-	if (create_connection(session->psv, inet_ntoa(session->sin.sin_addr)) == EXIT_FAILURE)
+	if (create_connection(session->psv, inet_ntoa(session->sin.sin_addr)) == FAILURE)
 	{
 		clean_session(session);
 		printf("[-] Error establishing PASV connection\n");
-		return (EXIT_FAILURE);
+		return (FAILURE);
 	}
 	session->mode = M_PSV;
-	return (EXIT_SUCCESS);
+	return (SUCCESS);
 }

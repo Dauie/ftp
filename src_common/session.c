@@ -48,18 +48,18 @@ int			add_header(off_t size, char *buff)
 	char 	*ret;
 
 	if (!(ret = ft_itoabse(size, 10)))
-		return (EXIT_FAILURE);
+		return (FAILURE);
 	tmp = ret;
 	if (ft_strlen(ret) < 10)
 	{
 		if (!(zeros = make_zero_string(10 - ft_strlen(ret))))
-			return (EXIT_FAILURE);
+			return (FAILURE);
 		if (!(ret = ft_strconcat(zeros, ret)))
-			return (EXIT_FAILURE);
+			return (FAILURE);
 		free(tmp);
 		free(zeros);
 	}
 	ft_strcpy(buff, ret);
 	free(ret);
-	return (EXIT_SUCCESS);
+	return (SUCCESS);
 }

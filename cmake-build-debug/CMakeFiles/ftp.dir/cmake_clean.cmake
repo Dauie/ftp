@@ -133,7 +133,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/ftp.dir/src_server/s_retrieve.c.o"
   "CMakeFiles/ftp.dir/src_server/s_store.c.o"
   "CMakeFiles/ftp.dir/src_server/server.c.o"
-  "CMakeFiles/ftp.dir/src_server/sig.c.o"
+  "CMakeFiles/ftp.dir/src_common/sig.c.o"
   "ftp.pdb"
   "ftp"
 )

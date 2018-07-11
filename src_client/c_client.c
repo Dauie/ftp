@@ -1,21 +1,18 @@
 #include "../incl/client.h"
-/*
- *  ./client
- */
 
 char	*g_cmds[][2] = {
-		{ "CWD ", "cd" },
-		{ "HELP ", "help" },
-		{ "LIST ", "ls" },
-		{ "PASV ", "passive" },
-		{ "PWD ", "pwd" },
-		{ "QUIT ", "quit" },
-		{ "RETR ", "get" },
-		{ "STOR ", "put" },
+	{ "CWD ", "cd" },
+	{ "HELP ", "help" },
+	{ "LIST ", "ls" },
+	{ "PASV ", "passive" },
+	{ "PWD ", "pwd" },
+	{ "QUIT ", "quit" },
+	{ "RETR ", "get" },
+	{ "STOR ", "put" },
 };
 
 int 	(*g_c_funcs[])(t_session *) = { &c_dircmd, &c_help, &c_list, &c_passive,
-                                       &c_dircmd, &c_quit, &c_retrieve, &c_store};
+	&c_dircmd, &c_quit, &c_retrieve, &c_store};
 
 static void usage(char *str)
 {
@@ -26,23 +23,23 @@ static void usage(char *str)
 int		c_quit(t_session *session)
 {
 	session->run = FALSE;
-	return (EXIT_SUCCESS);
+	return (SUCCESS);
 }
 
 int 	c_help(t_session *session)
 {
 	recv_msg(session->sock, session->buff, &session->run);
 	write(1, session->buff, ft_strlen(session->buff));
-	return (EXIT_SUCCESS);
+	return (SUCCESS);
 }
 
-ssize_t 		read_stdin(char *buff)
+ssize_t			read_stdin(char *buff)
 {
 	ssize_t ret;
 
 	ret = 0;
 	if ((ret = read(0, buff, BUFFSZ)) < 0)
-		return (EXIT_FAILURE);
+		return (FAILURE);
 	buff[ret - 1] = '\0';
 	return (ret);
 }
@@ -61,16 +58,16 @@ static int	dispatch_userin(t_session *session, char *user_input)
 			if (ft_strncmp(g_cmds[i][j], session->argv[0], ft_strlen(session->argv[0]) - 1) == 0)
 			{
 				if (send_msg(session->sock, 2, g_cmds[i][0],
-							 &user_input[ft_strlen(session->argv[0])]) == EXIT_FAILURE)
-					return (EXIT_FAILURE);
+							&user_input[ft_strlen(session->argv[0])]) == FAILURE)
+					return (FAILURE);
 				g_c_funcs[i](session);
-				return (EXIT_SUCCESS);
+				return (SUCCESS);
 			}
 		}
 	}
 	if (i == CMD_CNT)
 		printf("[-]Command not implemented\n");
-	return (EXIT_SUCCESS);
+	return (SUCCESS);
 }
 
 static void	client_shell(t_session *session)
@@ -82,7 +79,7 @@ static void	client_shell(t_session *session)
 		ft_bzero(session->buff, BUFFSZ);
 		ft_bzero(user_input, BUFFSZ);
 		write(1, "(^-^)> ", 7);
-		if (read_stdin(user_input) == EXIT_FAILURE)
+		if (read_stdin(user_input) == FAILURE)
 			continue;
 		if (!(session->argv = ft_strsplit(user_input, ' ')) || !session->argv[0])
 			continue;
@@ -94,28 +91,33 @@ static void	client_shell(t_session *session)
 
 int create_connection(t_session *session, char *addr)
 {
-	if (create_socket(session, addr) == EXIT_FAILURE)
-		return (EXIT_FAILURE);
-	if (connect(session->sock, (const struct sockaddr *)&session->sin, sizeof(session->sin)) == EXIT_FAILURE)
+	if (create_socket(session, addr) == FAILURE)
+		return (FAILURE);
+	if (connect(session->sock, (const struct sockaddr *)&session->sin, sizeof(session->sin)) == FAILURE)
 	{
 		printf("[-]Error connecting to %s:%d ...(-.-)\n", addr, session->port);
-		return (EXIT_FAILURE);
+		return (FAILURE);
 	}
 	printf("[+]Successfully connected to %s:%d\n", addr, session->port);
-	return (EXIT_SUCCESS);
+	return (SUCCESS);
 }
 
 int	main(int ac, char **av)
 {
-	t_session session;
+	t_session *session;
 
-	init_session(&session);
 	if (ac != 3)
 		usage(av[0]);
-	session.port = ft_atoi(av[2]);
-	if (create_connection(&session, av[1]) == EXIT_SUCCESS)
-		client_shell(&session);
-	close(session.sock);
+	if (!(session = ft_memalloc(sizeof(t_session))))
+		return (FAILURE);
+	g_session = session;
+	init_session(session);
+	session->port = ft_atoi(av[2]);
+	signal(SIGINT, handel_killcli_sig);
+	if (create_connection(session, av[1]) == SUCCESS)
+		client_shell(session);
+	free(session);
+	close(session->sock);
 	return(0);
 }
 

@@ -3273,28 +3273,28 @@ CMakeFiles/ftp.dir/src_server/server.c.o.provides: CMakeFiles/ftp.dir/src_server
 CMakeFiles/ftp.dir/src_server/server.c.o.provides.build: CMakeFiles/ftp.dir/src_server/server.c.o
 
 
-CMakeFiles/ftp.dir/src_server/sig.c.o: CMakeFiles/ftp.dir/flags.make
-CMakeFiles/ftp.dir/src_server/sig.c.o: ../src_server/sig.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_135) "Building C object CMakeFiles/ftp.dir/src_server/sig.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/src_server/sig.c.o   -c /nfs/2016/r/rlutt/code/ftp/src_server/sig.c
+CMakeFiles/ftp.dir/src_common/sig.c.o: CMakeFiles/ftp.dir/flags.make
+CMakeFiles/ftp.dir/src_common/sig.c.o: ../src_common/sig.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_135) "Building C object CMakeFiles/ftp.dir/src_common/sig.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ftp.dir/src_common/sig.c.o   -c /nfs/2016/r/rlutt/code/ftp/src_common/sig.c
 
-CMakeFiles/ftp.dir/src_server/sig.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ftp.dir/src_server/sig.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /nfs/2016/r/rlutt/code/ftp/src_server/sig.c > CMakeFiles/ftp.dir/src_server/sig.c.i
+CMakeFiles/ftp.dir/src_common/sig.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ftp.dir/src_common/sig.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /nfs/2016/r/rlutt/code/ftp/src_common/sig.c > CMakeFiles/ftp.dir/src_common/sig.c.i
 
-CMakeFiles/ftp.dir/src_server/sig.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ftp.dir/src_server/sig.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /nfs/2016/r/rlutt/code/ftp/src_server/sig.c -o CMakeFiles/ftp.dir/src_server/sig.c.s
+CMakeFiles/ftp.dir/src_common/sig.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ftp.dir/src_common/sig.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /nfs/2016/r/rlutt/code/ftp/src_common/sig.c -o CMakeFiles/ftp.dir/src_common/sig.c.s
 
-CMakeFiles/ftp.dir/src_server/sig.c.o.requires:
+CMakeFiles/ftp.dir/src_common/sig.c.o.requires:
 
-.PHONY : CMakeFiles/ftp.dir/src_server/sig.c.o.requires
+.PHONY : CMakeFiles/ftp.dir/src_common/sig.c.o.requires
 
-CMakeFiles/ftp.dir/src_server/sig.c.o.provides: CMakeFiles/ftp.dir/src_server/sig.c.o.requires
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_server/sig.c.o.provides.build
-.PHONY : CMakeFiles/ftp.dir/src_server/sig.c.o.provides
+CMakeFiles/ftp.dir/src_common/sig.c.o.provides: CMakeFiles/ftp.dir/src_common/sig.c.o.requires
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_common/sig.c.o.provides.build
+.PHONY : CMakeFiles/ftp.dir/src_common/sig.c.o.provides
 
-CMakeFiles/ftp.dir/src_server/sig.c.o.provides.build: CMakeFiles/ftp.dir/src_server/sig.c.o
+CMakeFiles/ftp.dir/src_common/sig.c.o.provides.build: CMakeFiles/ftp.dir/src_common/sig.c.o
 
 
 # Object files for target ftp
@@ -3433,7 +3433,7 @@ ftp_OBJECTS = \
 "CMakeFiles/ftp.dir/src_server/s_retrieve.c.o" \
 "CMakeFiles/ftp.dir/src_server/s_store.c.o" \
 "CMakeFiles/ftp.dir/src_server/server.c.o" \
-"CMakeFiles/ftp.dir/src_server/sig.c.o"
+"CMakeFiles/ftp.dir/src_common/sig.c.o"
 
 # External object files for target ftp
 ftp_EXTERNAL_OBJECTS =
@@ -3572,7 +3572,7 @@ ftp: CMakeFiles/ftp.dir/src_server/s_passive.c.o
 ftp: CMakeFiles/ftp.dir/src_server/s_retrieve.c.o
 ftp: CMakeFiles/ftp.dir/src_server/s_store.c.o
 ftp: CMakeFiles/ftp.dir/src_server/server.c.o
-ftp: CMakeFiles/ftp.dir/src_server/sig.c.o
+ftp: CMakeFiles/ftp.dir/src_common/sig.c.o
 ftp: CMakeFiles/ftp.dir/build.make
 ftp: CMakeFiles/ftp.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/nfs/2016/r/rlutt/code/ftp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_136) "Linking C executable ftp"
@@ -3717,7 +3717,7 @@ CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/src_server/s_passive.c.o.require
 CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/src_server/s_retrieve.c.o.requires
 CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/src_server/s_store.c.o.requires
 CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/src_server/server.c.o.requires
-CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/src_server/sig.c.o.requires
+CMakeFiles/ftp.dir/requires: CMakeFiles/ftp.dir/src_common/sig.c.o.requires
 
 .PHONY : CMakeFiles/ftp.dir/requires
 

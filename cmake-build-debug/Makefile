@@ -3552,6 +3552,33 @@ src_common/session.c.s:
 	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_common/session.c.s
 .PHONY : src_common/session.c.s
 
+src_common/sig.o: src_common/sig.c.o
+
+.PHONY : src_common/sig.o
+
+# target to build an object file
+src_common/sig.c.o:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_common/sig.c.o
+.PHONY : src_common/sig.c.o
+
+src_common/sig.i: src_common/sig.c.i
+
+.PHONY : src_common/sig.i
+
+# target to preprocess a source file
+src_common/sig.c.i:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_common/sig.c.i
+.PHONY : src_common/sig.c.i
+
+src_common/sig.s: src_common/sig.c.s
+
+.PHONY : src_common/sig.s
+
+# target to generate assembly for a file
+src_common/sig.c.s:
+	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_common/sig.c.s
+.PHONY : src_common/sig.c.s
+
 src_common/socket.o: src_common/socket.c.o
 
 .PHONY : src_common/socket.o
@@ -3740,33 +3767,6 @@ src_server/server.s: src_server/server.c.s
 src_server/server.c.s:
 	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_server/server.c.s
 .PHONY : src_server/server.c.s
-
-src_server/sig.o: src_server/sig.c.o
-
-.PHONY : src_server/sig.o
-
-# target to build an object file
-src_server/sig.c.o:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_server/sig.c.o
-.PHONY : src_server/sig.c.o
-
-src_server/sig.i: src_server/sig.c.i
-
-.PHONY : src_server/sig.i
-
-# target to preprocess a source file
-src_server/sig.c.i:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_server/sig.c.i
-.PHONY : src_server/sig.c.i
-
-src_server/sig.s: src_server/sig.c.s
-
-.PHONY : src_server/sig.s
-
-# target to generate assembly for a file
-src_server/sig.c.s:
-	$(MAKE) -f CMakeFiles/ftp.dir/build.make CMakeFiles/ftp.dir/src_server/sig.c.s
-.PHONY : src_server/sig.c.s
 
 # Help Target
 help:
@@ -4158,6 +4158,9 @@ help:
 	@echo "... src_common/session.o"
 	@echo "... src_common/session.i"
 	@echo "... src_common/session.s"
+	@echo "... src_common/sig.o"
+	@echo "... src_common/sig.i"
+	@echo "... src_common/sig.s"
 	@echo "... src_common/socket.o"
 	@echo "... src_common/socket.i"
 	@echo "... src_common/socket.s"
@@ -4179,9 +4182,6 @@ help:
 	@echo "... src_server/server.o"
 	@echo "... src_server/server.i"
 	@echo "... src_server/server.s"
-	@echo "... src_server/sig.o"
-	@echo "... src_server/sig.i"
-	@echo "... src_server/sig.s"
 .PHONY : help
 
 

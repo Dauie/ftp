@@ -5,12 +5,11 @@ int		create_socket(t_session *session, char *address)
 	struct protoent *proto;
 
 	if ((proto = getprotobyname("tcp")) == 0)
-		return (EXIT_FAILURE);
+		return (FAILURE);
 	if ((session->sock = socket(PF_INET, SOCK_STREAM, proto->p_proto)) == -1)
 	{
 		printf("[-]Error creating socket\n");
-		// set error code
-		return (EXIT_FAILURE);
+		return (FAILURE);
 	}
 	session->sin.sin_family = AF_INET;
 	session->sin.sin_port = htons(session->port);
@@ -18,7 +17,8 @@ int		create_socket(t_session *session, char *address)
 		session->sin.sin_addr.s_addr = inet_addr(address);
 	else
 		session->sin.sin_addr.s_addr = htonl(INADDR_ANY);
-	return (EXIT_SUCCESS);
+	session->cslen = sizeof(session->csin);
+	return (SUCCESS);
 }
 
 int 	listen_socket(t_session *session)
@@ -27,35 +27,34 @@ int 	listen_socket(t_session *session)
 	if ((listen(session->sock, 1)) == -1)
 	{
 		close(session->sock);
-		//set error code
-		return (EXIT_FAILURE);
+		return (FAILURE);
 	}
-	return (EXIT_SUCCESS);
+	return (SUCCESS);
 }
 
 int 	bind_socket(t_session *session)
 {
 	if (bind(session->sock, (const struct sockaddr *)&session->sin,
-			 sizeof(session->sin)) < 0)
+				sizeof(session->sin)) < 0)
 	{
 		printf("[-]Error binding socket on port %d\n", session->port);
 		// set error code
-		return (EXIT_FAILURE);
+		return (FAILURE);
 	}
-	return (EXIT_SUCCESS);
+	return (SUCCESS);
 }
 
 int 	options_socket(t_session *session)
 {
 	session->opt = TRUE;
 	if (setsockopt(session->sock, SOL_SOCKET, SO_REUSEADDR,
-				   (char *)&session->opt, sizeof(session->opt)) < 0)
+				(char *)&session->opt, sizeof(session->opt)) < 0)
 	{
 		printf("[-]Error setting options on port %d", session->port);
 		// set error code
-		return (EXIT_FAILURE);
+		return (FAILURE);
 	}
-	return (EXIT_SUCCESS);
+	return (SUCCESS);
 }
 
 

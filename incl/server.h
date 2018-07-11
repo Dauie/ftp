@@ -4,7 +4,7 @@
 #include "ftp.h"
 #include <sys/stat.h>
 
-# define MAX_CLIENTS (42)
+t_session *g_session;
 
 typedef enum 			e_ephem
 {
@@ -14,7 +14,7 @@ typedef enum 			e_ephem
 
 int			accept_connection(t_session *session);
 int     	create_endpoint(t_session *session, char *address);
-void 		handel_sig(int sig);
+
 void     	manage_client_session(t_session *session);
 int			prep_send(t_session *session);
 int			redirect_output_fd(int fd);

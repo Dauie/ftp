@@ -33,28 +33,28 @@ static char 	*make_passive_addr(unsigned int addr, unsigned short port)
 	return (ret);
 }
 
-int 	s_passive(t_session *session) {
-	char *psv_addr;
-	struct addrinfo;
-
+int			s_passive(t_session *session) {
+	char	*psv_addr;
+	struct	addrinfo;
 
 	if (!(session->psv = ft_memalloc(sizeof(t_session))))
-		return (EXIT_FAILURE);
+		return (FAILURE);
 	init_session(session->psv);
 	session->psv->port = rand_ephem_port();
-	if (create_endpoint(session->psv, NULL) == EXIT_FAILURE)
+	if (create_endpoint(session->psv, NULL) == FAILURE)
 	{
 		send_msg(session->cs, 1, "451 Requested action aborted. Local error in processing. \r\n");
-		return (EXIT_FAILURE);
+		return (FAILURE);
 	}
-	if (!(psv_addr = make_passive_addr(session->psv->sin.sin_addr.s_addr, session->psv->sin.sin_port))) {
+	if (!(psv_addr = make_passive_addr(session->psv->sin.sin_addr.s_addr, session->psv->sin.sin_port)))
+	{
 		send_msg(session->cs, 1, "451 Requested action aborted. Local error in processing. \r\n");
-		return (EXIT_FAILURE);
+		return (FAILURE);
 	}
 	send_msg(session->cs, 3, "227 Entering Passive Mode. ", psv_addr, " \r\n");
-	if (accept_connection(session->psv) == EXIT_FAILURE)
-		return (EXIT_FAILURE);
+	if (accept_connection(session->psv) == FAILURE)
+		return (FAILURE);
 	session->mode = M_PSV;
 	free(psv_addr);
-	return (EXIT_SUCCESS);
+	return (SUCCESS);
 }

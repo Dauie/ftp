@@ -505,6 +505,9 @@
 		<Unit filename="/nfs/2016/r/rlutt/code/ftp/src_common/session.c">
 			<Option target="ftp"/>
 		</Unit>
+		<Unit filename="/nfs/2016/r/rlutt/code/ftp/src_common/sig.c">
+			<Option target="ftp"/>
+		</Unit>
 		<Unit filename="/nfs/2016/r/rlutt/code/ftp/src_common/socket.c">
 			<Option target="ftp"/>
 		</Unit>
@@ -524,9 +527,6 @@
 			<Option target="ftp"/>
 		</Unit>
 		<Unit filename="/nfs/2016/r/rlutt/code/ftp/src_server/server.c">
-			<Option target="ftp"/>
-		</Unit>
-		<Unit filename="/nfs/2016/r/rlutt/code/ftp/src_server/sig.c">
 			<Option target="ftp"/>
 		</Unit>
 		<Unit filename="/nfs/2016/r/rlutt/code/ftp/CMakeLists.txt">
