@@ -55,7 +55,7 @@ static int	dispatch_userin(t_session *session, char *user_input)
 		j = -1;
 		while (++j < 2)
 		{
-			if (ft_strncmp(g_cmds[i][j], session->argv[0], ft_strlen(session->argv[0]) - 1) == 0)
+			if (ft_strncmp(g_cmds[i][j], session->argv[0], ft_strlen(g_cmds[i][j])) == 0)
 			{
 				if (send_msg(session->sock, 2, g_cmds[i][0],
 							&user_input[ft_strlen(session->argv[0])]) == FAILURE)
@@ -116,8 +116,8 @@ int	main(int ac, char **av)
 	signal(SIGINT, handel_killcli_sig);
 	if (create_connection(session, av[1]) == SUCCESS)
 		client_shell(session);
-	free(session);
 	close(session->sock);
+	free(session);
 	return(0);
 }
 

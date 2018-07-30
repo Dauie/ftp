@@ -13,11 +13,24 @@ set(SOURCE_FILES
 		libft/incl/gnl.h
 		libft/incl/lst.h
 		libft/incl/mem.h
+		libft/incl/net.h
 		libft/incl/num.h
 		libft/incl/printf.h
 		libft/incl/put.h
+		libft/incl/return_types.h
 		libft/incl/str.h
 		libft/incl/tbl.h
+		libft/src/char/ft_isalnum.c
+		libft/src/char/ft_isalpha.c
+		libft/src/char/ft_isascii.c
+		libft/src/char/ft_isdigit.c
+		libft/src/char/ft_islower.c
+		libft/src/char/ft_isprint.c
+		libft/src/char/ft_isspc.c
+		libft/src/char/ft_isupper.c
+		libft/src/cnvrsn/ft_atoi.c
+		libft/src/cnvrsn/ft_itoa.c
+		libft/src/cnvrsn/ft_itoabse.c
 		libft/src/ft_printf/ft_printf.c
 		libft/src/ft_printf/pf_cast_di.c
 		libft/src/ft_printf/pf_cast_oux.c
@@ -40,103 +53,94 @@ set(SOURCE_FILES
 		libft/src/ft_printf/pf_tick.c
 		libft/src/ft_printf/pf_typechr.c
 		libft/src/ft_printf/pf_width.c
-		libft/src/futil/gnl/gnl.c
-		libft/src/primitive/char/ft_isalnum.c
-		libft/src/primitive/char/ft_isalpha.c
-		libft/src/primitive/char/ft_isascii.c
-		libft/src/primitive/char/ft_isdigit.c
-		libft/src/primitive/char/ft_islower.c
-		libft/src/primitive/char/ft_isprint.c
-		libft/src/primitive/char/ft_isspc.c
-		libft/src/primitive/char/ft_isupper.c
-		libft/src/primitive/cnvrsn/ft_atoi.c
-		libft/src/primitive/cnvrsn/ft_itoa.c
-		libft/src/primitive/cnvrsn/ft_itoabse.c
-		libft/src/primitive/mem/ft_bzero.c
-		libft/src/primitive/mem/ft_memalloc.c
-		libft/src/primitive/mem/ft_memccpy.c
-		libft/src/primitive/mem/ft_memchr.c
-		libft/src/primitive/mem/ft_memcmp.c
-		libft/src/primitive/mem/ft_memcpy.c
-		libft/src/primitive/mem/ft_memdel.c
-		libft/src/primitive/mem/ft_memmove.c
-		libft/src/primitive/mem/ft_memset.c
-		libft/src/primitive/num/ft_numlen.c
-		libft/src/primitive/put/ft_putchar.c
-		libft/src/primitive/put/ft_putchar_fd.c
-		libft/src/primitive/put/ft_putclst.c
-		libft/src/primitive/put/ft_putendl.c
-		libft/src/primitive/put/ft_putendl_fd.c
-		libft/src/primitive/put/ft_puterror.c
-		libft/src/primitive/put/ft_putnbr.c
-		libft/src/primitive/put/ft_putnbr_fd.c
-		libft/src/primitive/put/ft_putnlst.c
-		libft/src/primitive/put/ft_putstr.c
-		libft/src/primitive/put/ft_putstr_fd.c
-		libft/src/primitive/put/ft_putstrrev.c
-		libft/src/primitive/put/ft_puttbl.c
-		libft/src/primitive/str/ft_cntbnespc.c
-		libft/src/primitive/str/ft_cntbspc.c
-		libft/src/primitive/str/ft_cnttotspc.c
-		libft/src/primitive/str/ft_cntwrds.c
-		libft/src/primitive/str/ft_dirjoin.c
-		libft/src/primitive/str/ft_isstralnum.c
-		libft/src/primitive/str/ft_isstralpha.c
-		libft/src/primitive/str/ft_isstrascii.c
-		libft/src/primitive/str/ft_isstrdigit.c
-		libft/src/primitive/str/ft_isstrprint.c
-		libft/src/primitive/str/ft_nxtwrdlen.c
-		libft/src/primitive/str/ft_strcat.c
-		libft/src/primitive/str/ft_strchr.c
-		libft/src/primitive/str/ft_strclr.c
-		libft/src/primitive/str/ft_strcmp.c
-		libft/src/primitive/str/ft_strconcat.c
-		libft/src/primitive/str/ft_strcpy.c
-		libft/src/primitive/str/ft_strdel.c
-		libft/src/primitive/str/ft_strdup.c
-		libft/src/primitive/str/ft_strequ.c
-		libft/src/primitive/str/ft_striter.c
-		libft/src/primitive/str/ft_striteri.c
-		libft/src/primitive/str/ft_strjoin.c
-		libft/src/primitive/str/ft_strjoinn.c
-		libft/src/primitive/str/ft_strlcat.c
-		libft/src/primitive/str/ft_strlen.c
-		libft/src/primitive/str/ft_strmap.c
-		libft/src/primitive/str/ft_strmapi.c
-		libft/src/primitive/str/ft_strncat.c
-		libft/src/primitive/str/ft_strncmp.c
-		libft/src/primitive/str/ft_strncpy.c
-		libft/src/primitive/str/ft_strndup.c
-		libft/src/primitive/str/ft_strnequ.c
-		libft/src/primitive/str/ft_strnew.c
-		libft/src/primitive/str/ft_strnstr.c
-		libft/src/primitive/str/ft_strrchr.c
-		libft/src/primitive/str/ft_strrev.c
-		libft/src/primitive/str/ft_strsplit.c
-		libft/src/primitive/str/ft_strstr.c
-		libft/src/primitive/str/ft_strstrip.c
-		libft/src/primitive/str/ft_strsub.c
-		libft/src/primitive/str/ft_strtrim.c
-		libft/src/primitive/str/ft_tolower.c
-		libft/src/primitive/str/ft_toupper.c
-		libft/src/primitive/tbl/ft_crafttbl.c
-		libft/src/primitive/tbl/ft_itbllen.c
-		libft/src/primitive/tbl/ft_tbladdl.c
-		libft/src/primitive/tbl/ft_tbldel.c
-		libft/src/primitive/tbl/ft_tbldup.c
-		libft/src/primitive/tbl/ft_tbllen.c
-		libft/src/primitive/tbl/ft_tblrepline.c
-		libft/src/primitive/tbl/ft_tblrmline.c
-		libft/src/typedefined/lst/ft_lstadd.c
-		libft/src/typedefined/lst/ft_lstdel.c
-		libft/src/typedefined/lst/ft_lstdelone.c
-		libft/src/typedefined/lst/ft_lstdup.c
-		libft/src/typedefined/lst/ft_lsteadd.c
-		libft/src/typedefined/lst/ft_lstiter.c
-		libft/src/typedefined/lst/ft_lstlen.c
-		libft/src/typedefined/lst/ft_lstmap.c
-		libft/src/typedefined/lst/ft_lstnew.c
-		libft/src/typedefined/lst/ft_lstnewstak.c
+		libft/src/gnl/gnl.c
+		libft/src/lst/ft_lstadd.c
+		libft/src/lst/ft_lstdel.c
+		libft/src/lst/ft_lstdelone.c
+		libft/src/lst/ft_lstdup.c
+		libft/src/lst/ft_lsteadd.c
+		libft/src/lst/ft_lstiter.c
+		libft/src/lst/ft_lstlen.c
+		libft/src/lst/ft_lstmap.c
+		libft/src/lst/ft_lstnew.c
+		libft/src/lst/ft_lstnewstak.c
+		libft/src/mem/ft_bzero.c
+		libft/src/mem/ft_memalloc.c
+		libft/src/mem/ft_memccpy.c
+		libft/src/mem/ft_memchr.c
+		libft/src/mem/ft_memcmp.c
+		libft/src/mem/ft_memcpy.c
+		libft/src/mem/ft_memdel.c
+		libft/src/mem/ft_memmove.c
+		libft/src/mem/ft_memset.c
+		libft/src/net/ft_domtoip.c
+		libft/src/net/ft_gethstaddr.c
+		libft/src/num/ft_numlen.c
+		libft/src/put/ft_putchar.c
+		libft/src/put/ft_putchar_fd.c
+		libft/src/put/ft_putclst.c
+		libft/src/put/ft_putendl.c
+		libft/src/put/ft_putendl_fd.c
+		libft/src/put/ft_puterror.c
+		libft/src/put/ft_putnbr.c
+		libft/src/put/ft_putnbr_fd.c
+		libft/src/put/ft_putnlst.c
+		libft/src/put/ft_putstr.c
+		libft/src/put/ft_putstr_fd.c
+		libft/src/put/ft_putstrrev.c
+		libft/src/put/ft_puttbl.c
+		libft/src/str/ft_cntbnespc.c
+		libft/src/str/ft_cntbspc.c
+		libft/src/str/ft_cnttotspc.c
+		libft/src/str/ft_cntwrds.c
+		libft/src/str/ft_dirjoin.c
+		libft/src/str/ft_isstralnum.c
+		libft/src/str/ft_isstralpha.c
+		libft/src/str/ft_isstrascii.c
+		libft/src/str/ft_isstrdigit.c
+		libft/src/str/ft_isstrprint.c
+		libft/src/str/ft_nxtwrdlen.c
+		libft/src/str/ft_strcat.c
+		libft/src/str/ft_strchr.c
+		libft/src/str/ft_strclr.c
+		libft/src/str/ft_strcmp.c
+		libft/src/str/ft_strconcat.c
+		libft/src/str/ft_strcpy.c
+		libft/src/str/ft_strdel.c
+		libft/src/str/ft_strdup.c
+		libft/src/str/ft_strequ.c
+		libft/src/str/ft_striter.c
+		libft/src/str/ft_striteri.c
+		libft/src/str/ft_strjoin.c
+		libft/src/str/ft_strjoinn.c
+		libft/src/str/ft_strlcat.c
+		libft/src/str/ft_strlen.c
+		libft/src/str/ft_strmap.c
+		libft/src/str/ft_strmapi.c
+		libft/src/str/ft_strncat.c
+		libft/src/str/ft_strncmp.c
+		libft/src/str/ft_strncpy.c
+		libft/src/str/ft_strndup.c
+		libft/src/str/ft_strnequ.c
+		libft/src/str/ft_strnew.c
+		libft/src/str/ft_strnstr.c
+		libft/src/str/ft_strrchr.c
+		libft/src/str/ft_strrev.c
+		libft/src/str/ft_strsplit.c
+		libft/src/str/ft_strstr.c
+		libft/src/str/ft_strstrip.c
+		libft/src/str/ft_strsub.c
+		libft/src/str/ft_strtrim.c
+		libft/src/str/ft_tolower.c
+		libft/src/str/ft_toupper.c
+		libft/src/tbl/ft_crafttbl.c
+		libft/src/tbl/ft_itbllen.c
+		libft/src/tbl/ft_tbladdl.c
+		libft/src/tbl/ft_tbldel.c
+		libft/src/tbl/ft_tbldup.c
+		libft/src/tbl/ft_tbllen.c
+		libft/src/tbl/ft_tblrepline.c
+		libft/src/tbl/ft_tblrmline.c
 		src_client/c_client.c
 		src_client/c_dir_cmd.c
 		src_client/c_passive.c
@@ -145,13 +149,13 @@ set(SOURCE_FILES
 		src_common/recvfile.c
 		src_common/sendfile.c
 		src_common/session.c
+		src_common/sig.c
 		src_common/socket.c
 		src_server/s_client.c
 		src_server/s_dir_cmd.c
 		src_server/s_passive.c
 		src_server/s_retrieve.c
 		src_server/s_store.c
-		src_server/server.c
-		src_common/sig.c)
+		src_server/server.c)
 
 add_executable(ftp ${SOURCE_FILES})
