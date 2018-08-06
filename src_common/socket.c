@@ -46,12 +46,12 @@ int 	bind_socket(t_session *session)
 
 int 	options_socket(t_session *session)
 {
-	session->opt = TRUE;
+	int opt;
+	opt = TRUE;
 	if (setsockopt(session->sock, SOL_SOCKET, SO_REUSEADDR,
-				(char *)&session->opt, sizeof(session->opt)) < 0)
+				(char *)&opt, sizeof(opt)) < 0)
 	{
 		printf("[-]Error setting options on port %d", session->port);
-		// set error code
 		return (FAILURE);
 	}
 	return (SUCCESS);

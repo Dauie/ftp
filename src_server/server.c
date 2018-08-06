@@ -79,7 +79,7 @@ int 			main(int ac, char **av)
 
 	if (ac != 2)
 		usage(av[0]);
-	signal(SIGINT, handel_killsvr_sig);
+	signal(SIGINT, handel_sig);
 	if (!(session = ft_memalloc(sizeof(t_session))))
 		return (FAILURE);
 	init_session(session);

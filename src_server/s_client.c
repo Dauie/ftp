@@ -5,7 +5,8 @@ int 	(*g_s_funcs[])(t_session *) = { &s_cwd, &s_help, &s_list, &s_passive,
 
 char	*g_sprtd_cmds[] = { "CWD", "HELP", "LIST", "PASV", "PWD", "QUIT" , "RETR", "STOR"};
 
-int		s_quit(t_session *session)
+int
+s_quit(t_session *session)
 {
 	if (ft_strcmp((const char *)&session->buff, "quit" ) == 0)
 	{
@@ -16,7 +17,7 @@ int		s_quit(t_session *session)
 	return(SUCCESS);
 }
 
-static void     dispatch_command(t_session *session)
+static void		dispatch_command(t_session *session)
 {
 	int	i;
 	int len;
@@ -38,10 +39,12 @@ static void     dispatch_command(t_session *session)
 		send_msg(session->cs, 1, "502 Command not implemented. \r\n");
 }
 
-void     manage_client_session(t_session *session)
+void			manage_client_session(t_session *session)
 {
 	while (session->run)
 	{
+		if (session->kill == TRUE)
+			kill_server(session);
 		ft_bzero(session->buff, BUFFSZ);
 		if (recv_msg(session->cs, session->buff, &session->run) == FAILURE)
 			continue;

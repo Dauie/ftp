@@ -76,6 +76,8 @@ static void	client_shell(t_session *session)
 
 	while (session->run == TRUE)
 	{
+		if (session->kill == TRUE)
+			kill_client(session);
 		ft_bzero(session->buff, BUFFSZ);
 		ft_bzero(user_input, BUFFSZ);
 		write(1, "(^-^)> ", 7);
@@ -113,7 +115,7 @@ int	main(int ac, char **av)
 	g_session = session;
 	init_session(session);
 	session->port = ft_atoi(av[2]);
-	signal(SIGINT, handel_killcli_sig);
+	signal(SIGINT, handel_sig);
 	if (create_connection(session, av[1]) == SUCCESS)
 		client_shell(session);
 	close(session->sock);
