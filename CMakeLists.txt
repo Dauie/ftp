@@ -75,6 +75,8 @@ set(SOURCE_FILES
 		libft/src/mem/ft_memset.c
 		libft/src/net/ft_domtoip.c
 		libft/src/net/ft_gethstaddr.c
+		libft/src/net/ft_getifaceaddr.c
+		libft/src/net/ft_isaddrset.c
 		libft/src/num/ft_numlen.c
 		libft/src/put/ft_putchar.c
 		libft/src/put/ft_putchar_fd.c

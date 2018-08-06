@@ -51,7 +51,6 @@ int 	s_retrieve(t_session *session)
 
 	if (session->mode == M_PSV)
 	{
-
 		if ((len = prepare_send(session)) == FAILURE)
 			return (FAILURE);
 		if (send_file(session->psv->cs, session->fd, session->psv->buff, len) ==  FAILURE)

@@ -29,7 +29,7 @@ static char 	*make_passive_addr(unsigned int addr, unsigned short port)
 		if (i < 5)
 			ft_strcat(ret, ",");
 	}
-	ft_tbldel(ip_port, 6);
+	ft_tbldel(&ip_port);
 	return (ret);
 }
 

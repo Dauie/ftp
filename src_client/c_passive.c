@@ -12,10 +12,10 @@ static int 	c_parse_port(char *response)
 		return (FAILURE);
 	if (!resp[4] || !(ip_port = ft_strsplit(resp[4], ',')))
 		return (FAILURE);
-	ft_tbldel(resp, ft_tbllen(resp));
+	ft_tbldel(&resp);
 	port = (ip_port[4] ? ft_atoi(ip_port[4]) : 0) * 256 +
 		(ip_port[5] ? ft_atoi(ip_port[5]) : 0);
-	return (port ? port : FAILURE);
+	return (port ? port : (int)FAILURE);
 }
 
 int 	c_passive(t_session *session)

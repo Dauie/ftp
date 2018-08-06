@@ -75,6 +75,7 @@ int 			main(int ac, char **av)
 {
 	t_session	*session;
 	extern char **environ;
+	char		hst_addr[INET_ADDRSTRLEN];
 
 	if (ac != 2)
 		usage(av[0]);
@@ -86,7 +87,8 @@ int 			main(int ac, char **av)
 	if (!(session->env = ft_tbldup(environ, ft_tbllen(environ))))
 		return (FAILURE);
 	session->port = ft_atoi(av[1]);
-	if (create_endpoint(session, NULL) == FAILURE)
+	ft_gethstaddr(hst_addr);
+	if (create_endpoint(session, hst_addr) == FAILURE)
 		return (FAILURE);
 	printf("[+]Server started on port %d\n", session->port);
 	session_manager(session);

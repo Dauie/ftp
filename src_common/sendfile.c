@@ -5,7 +5,6 @@ off_t       get_file_size(char *file)
 	off_t   len;
 	int 	fd;
 
-	len = 0;
 	fd = open(file, O_RDONLY);
 	if ((len = lseek(fd, 0, SEEK_END)) == -1)
 	{

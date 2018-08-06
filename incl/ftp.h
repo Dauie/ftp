@@ -1,23 +1,19 @@
 #ifndef FTP_H
 #define FTP_H
 
-#include <arpa/inet.h>
 #include <errno.h>
 #include <fcntl.h>
-#include <netdb.h>
 #include <signal.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <sys/mman.h>
 #include <sys/resource.h>
-#include <sys/socket.h>
 #include <sys/time.h>
-#include <sys/types.h>
 
+#include "../libft/incl/net.h"
 #include "../libft/incl/str.h"
 #include "../libft/incl/mem.h"
 #include "../libft/incl/cnvrsn.h"
-#include "../libft/incl/gnl.h"
 #include "../libft/incl/return_types.h"
 
 # define BUFFSZ (512)

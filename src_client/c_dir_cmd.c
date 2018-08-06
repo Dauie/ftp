@@ -6,7 +6,6 @@ int 	c_dircmd(t_session *session)
 	return (SUCCESS);
 }
 
-
 int 	c_list(t_session *session)
 {
 	off_t ret;

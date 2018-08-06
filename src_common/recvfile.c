@@ -27,7 +27,6 @@ int		recv_file(int sock, int fd, char *buff, off_t len)
 	off_t ret;
 
 	rd = 0;
-	ft_bzero(buff, BUFFSZ);
 	while (rd < len)
 	{
 		ft_bzero(buff, BUFFSZ);

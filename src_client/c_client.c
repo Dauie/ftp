@@ -1,14 +1,14 @@
 #include "../incl/client.h"
 
 char	*g_cmds[][2] = {
-	{ "CWD ", "cd" },
-	{ "HELP ", "help" },
-	{ "LIST ", "ls" },
-	{ "PASV ", "passive" },
-	{ "PWD ", "pwd" },
-	{ "QUIT ", "quit" },
-	{ "RETR ", "get" },
-	{ "STOR ", "put" },
+	{ "CWD", "cd" },
+	{ "HELP", "help" },
+	{ "LIST", "ls" },
+	{ "PASV", "passive" },
+	{ "PWD", "pwd" },
+	{ "QUIT", "quit" },
+	{ "RETR", "get" },
+	{ "STOR", "put" },
 };
 
 int 	(*g_c_funcs[])(t_session *) = { &c_dircmd, &c_help, &c_list, &c_passive,
