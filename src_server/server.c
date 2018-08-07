@@ -49,10 +49,7 @@ int				accept_connection(t_session *session)
 {
 	if (!(session->cs = accept(session->sock,
 					(struct sockaddr*)&session->sin, &session->cslen)))
-	{
-		//Set error code
 		return (FAILURE);
-	}
 	printf("[+]New connection %s:%d on sd %d\n",
 			inet_ntoa(session->sin.sin_addr), ntohs(session->sin.sin_port), session->cs);;
 	return (SUCCESS);
@@ -79,7 +76,7 @@ int 			main(int ac, char **av)
 
 	if (ac != 2)
 		usage(av[0]);
-	signal(SIGINT, handel_sig);
+	signal(SIGINT, handel_killsvr_sig);
 	if (!(session = ft_memalloc(sizeof(t_session))))
 		return (FAILURE);
 	init_session(session);

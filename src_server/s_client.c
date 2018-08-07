@@ -5,8 +5,7 @@ int 	(*g_s_funcs[])(t_session *) = { &s_cwd, &s_help, &s_list, &s_passive,
 
 char	*g_sprtd_cmds[] = { "CWD", "HELP", "LIST", "PASV", "PWD", "QUIT" , "RETR", "STOR"};
 
-int
-s_quit(t_session *session)
+int			s_quit(t_session *session)
 {
 	if (ft_strcmp((const char *)&session->buff, "quit" ) == 0)
 	{
@@ -43,8 +42,6 @@ void			manage_client_session(t_session *session)
 {
 	while (session->run)
 	{
-		if (session->kill == TRUE)
-			kill_server(session);
 		ft_bzero(session->buff, BUFFSZ);
 		if (recv_msg(session->cs, session->buff, &session->run) == FAILURE)
 			continue;

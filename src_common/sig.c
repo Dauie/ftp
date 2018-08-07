@@ -1,48 +1,42 @@
 #include "../incl/ftp.h"
 
-void	kill_server(t_session *session)
+void 	handel_killsvr_sig(int sig)
 {
-	if (session->argv)
-		ft_tbldel(&session->argv);
-	if (session->env)
-		ft_tbldel(&session->env);
-	if (session->psv)
+	(void)sig;
+	if (g_session->argv)
+		ft_tbldel(&g_session->argv);
+	if (g_session->env)
+		ft_tbldel(&g_session->env);
+	if (g_session->psv)
 	{
-		if (session->psv->port > 2)
-			close(session->psv->port);
-		if (session->psv->fd > 2)
-			close(session->psv->fd);
-		free(session->psv);
+		if (g_session->psv->port > 2)
+			close(g_session->psv->port);
+		if (g_session->psv->fd > 2)
+			close(g_session->psv->fd);
+		free(g_session->psv);
 	}
-	close(session->sock);
-	free(session);
+	close(g_session->sock);
+	free(g_session);
 	printf("\n[+]FTP Server Terminated - (^-^)^ bye.\n");
 	exit(1);
 }
 
-void	kill_client(t_session *session)
+void	handel_killcli_sig(int sig)
 {
-	send_msg(session->sock, 1, "QUIT");
-	if (session->argv)
-		ft_tbldel(&session->argv);
-	if (session->psv)
+	(void)sig;
+	send_msg(g_session->sock, 1, "QUIT");
+	if (g_session->argv)
+		ft_tbldel(&g_session->argv);
+	if (g_session->psv)
 	{
-		if (session->psv->port > 2)
-			close(session->psv->port);
-		if (session->psv->fd > 2)
-			close(session->psv->fd);
-		free(session->psv);
+		if (g_session->psv->port > 2)
+			close(g_session->psv->port);
+		if (g_session->psv->fd > 2)
+			close(g_session->psv->fd);
+		free(g_session->psv);
 	}
-	close(session->sock);
-	free(session);
+	close(g_session->sock);
+	free(g_session);
 	printf("\n[+](^-^)^ bye.\n");
 	exit(1);
-}
-
-void	handel_sig(int sig)
-{
-	if (sig == SIGINT)
-	{
-		g_session->kill = TRUE;
-	}
 }

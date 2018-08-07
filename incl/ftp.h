@@ -11,7 +11,6 @@
 #include <time.h>
 #include <sys/wait.h>
 
-
 #include "../libft/incl/net.h"
 #include "../libft/incl/str.h"
 #include "../libft/incl/mem.h"
@@ -36,12 +35,12 @@ typedef enum			e_type
 typedef struct			s_session
 {
 	int					run;
-	volatile int 		kill;
 	int					mode;
 	int					port;
 	int					sock;
 	int					cs;
 	int					fd;
+	int					opt;
 	pid_t				pid;
 	unsigned int		cslen;
 	struct sockaddr_in	csin;
@@ -58,10 +57,9 @@ int			bind_socket(t_session *session);
 void		clean_session(t_session *session);
 void		close_passive(t_session *session, t_type type);
 int			create_socket(t_session *session, char *address);
-void		handel_sig(int sig);
+void		handel_killsvr_sig(int sig);
+void		handel_killcli_sig(int sig);
 void		init_session(t_session * session);
-void		kill_client(t_session *session);
-void		kill_server(t_session *session);
 int			listen_socket(t_session *session);
 int			options_socket(t_session *session);
 int			recv_file(int sock, int fd, char *buff, off_t len);
