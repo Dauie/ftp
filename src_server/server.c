@@ -10,7 +10,7 @@ static void		session_manager(t_session *session)
 {
 	while (session->run)
 	{
-		if (accept_connection(session) == FAILURE)
+		if (accept_connection(session, NULL) == FAILURE)
 			continue;
 		if ((session->pid = fork()) == -1)
 		{
@@ -45,11 +45,16 @@ int				s_help(t_session *session)
 	return (SUCCESS);
 }
 
-int				accept_connection(t_session *session)
+int				accept_connection(t_session *session, struct sockaddr_in *check)
 {
 	if (!(session->cs = accept(session->sock,
 					(struct sockaddr*)&session->sin, &session->cslen)))
 		return (FAILURE);
+	if (check)
+	{
+		if (session->sin.sin_addr.s_addr != check->sin_addr.s_addr)
+			return (FAILURE);
+	}
 	printf("[+]New connection %s:%d on sd %d\n",
 			inet_ntoa(session->sin.sin_addr), ntohs(session->sin.sin_port), session->cs);;
 	return (SUCCESS);
@@ -72,7 +77,6 @@ int 			main(int ac, char **av)
 {
 	t_session	*session;
 	extern char **environ;
-	char		hst_addr[INET_ADDRSTRLEN];
 
 	if (ac != 2)
 		usage(av[0]);
@@ -84,8 +88,7 @@ int 			main(int ac, char **av)
 	if (!(session->env = ft_tbldup(environ, ft_tbllen(environ))))
 		return (FAILURE);
 	session->port = ft_atoi(av[1]);
-	ft_gethstaddr(hst_addr);
-	if (create_endpoint(session, hst_addr) == FAILURE)
+	if (create_endpoint(session, NULL) == FAILURE)
 		return (FAILURE);
 	printf("[+]Server started on port %d\n", session->port);
 	session_manager(session);

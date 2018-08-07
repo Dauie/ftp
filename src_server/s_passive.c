@@ -54,8 +54,11 @@ int			s_passive(t_session *session) {
 		return (FAILURE);
 	}
 	send_msg(session->cs, 3, "227 Entering Passive Mode. ", psv_addr, " \r\n");
-	if (accept_connection(session->psv) == FAILURE)
+	if (accept_connection(session->psv, session->csin) == FAILURE)
+	{
+		close_passive(session, T_SVR);
 		return (FAILURE);
+	}
 	session->mode = M_PSV;
 	free(psv_addr);
 	return (SUCCESS);
