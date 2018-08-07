@@ -80,9 +80,15 @@ static void	client_shell(t_session *session)
 		ft_bzero(user_input, BUFFSZ);
 		write(1, "(^-^)> ", 7);
 		if (read_stdin(user_input) == FAILURE)
+		{
+			printf("on read_stdin: %s\n", strerror(errno));
 			continue;
+		}
 		if (!(session->argv = ft_strsplit(user_input, ' ')) || !session->argv[0])
+		{
+			printf("on strsplit: %s\n", strerror(errno));
 			continue;
+		}
 		dispatch_userin(session, user_input);
 		clean_session(session);
 	}

@@ -79,7 +79,7 @@ int		s_pwd(t_session *session)
 		send_msg(session->cs, 1, "451 Requested action aborted. Local error in processing. \r\n");
 		return (FAILURE);
 	}
-	strcat(dir, "/");
+	ft_strcat(dir, "/");
 	send_msg(session->cs, 3, "200 ", &res[ft_strlen(&hide_pwd[4])], " \r\n");
 	free(hide_pwd);
 	return (SUCCESS);

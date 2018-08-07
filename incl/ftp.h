@@ -17,7 +17,7 @@
 #include "../libft/incl/cnvrsn.h"
 #include "../libft/incl/return_types.h"
 
-# define BUFFSZ (512)
+# define BUFFSZ (256)
 
 typedef enum			e_mode
 {

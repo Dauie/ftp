@@ -17,9 +17,9 @@ off_t       get_file_size(char *file)
 void        close_passive(t_session *session, t_type type)
 {
 
-	if (type == T_SVR)
+	if (type == T_SVR && session->psv->cs > 2)
 		close(session->psv->cs);
-	else if (type == T_CLI)
+	else if (type == T_CLI && session->psv->port > 2)
 		close(session->psv->port);
 	session->mode = M_NON;
 }

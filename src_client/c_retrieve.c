@@ -8,14 +8,14 @@ int 	c_retrieve(t_session *session)
 	{
 		if (!session->argv[1])
 		{
-			close_passive(session, T_SVR);
+			close_passive(session, T_CLI);
 			dprintf(STDERR_FILENO, "[-]Error file not specified.\n");
 			return (FAILURE);
 		}
 		if ((session->fd = open(session->argv[1], O_CREAT | O_RDWR, 0755)) == -1)
 		{
 			close_passive(session, T_CLI);
-			dprintf(STDERR_FILENO, "[-]Error creating file.");
+			dprintf(STDERR_FILENO, "[-]Error creating file.\n");
 			return (FAILURE);
 		}
 		if ((recv_msg(session->psv->sock, session->psv->buff, &session->psv->run)) == FAILURE)
@@ -28,7 +28,7 @@ int 	c_retrieve(t_session *session)
 		if ((recv_file(session->psv->sock, session->fd, session->psv->buff, len)) == FAILURE)
 		{
 			close_passive(session, T_CLI);
-			dprintf(STDERR_FILENO, "[-]Error receiving %s from server.",
+			dprintf(STDERR_FILENO, "[-]Error receiving %s from server.\n",
 					session->argv[1]);
 			return (FAILURE);
 		}

@@ -9,7 +9,7 @@ int 	c_store(t_session *session)
 	{
 		if (!session->argv[1])
 		{
-			close_passive(session, T_SVR);
+			close_passive(session, T_CLI);
 			dprintf(STDERR_FILENO, "[-]Error file not specified.\n");
 			return (FAILURE);
 		}
