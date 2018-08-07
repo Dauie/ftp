@@ -46,6 +46,8 @@ int			s_passive(t_session *session) {
 		send_msg(session->cs, 1, "451 Requested action aborted. Local error in processing. \r\n");
 		return (FAILURE);
 	}
+	ft_gethstaddr(session->buff);
+	inet_pton(AF_INET, session->buff, &session->psv->sin.sin_addr.s_addr);
 	if (!(psv_addr = make_passive_addr(session->psv->sin.sin_addr.s_addr, session->psv->sin.sin_port)))
 	{
 		send_msg(session->cs, 1, "451 Requested action aborted. Local error in processing. \r\n");

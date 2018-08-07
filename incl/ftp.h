@@ -40,7 +40,6 @@ typedef struct			s_session
 	int					sock;
 	int					cs;
 	int					fd;
-	int					opt;
 	pid_t				pid;
 	unsigned int		cslen;
 	struct sockaddr_in	csin;

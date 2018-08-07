@@ -12,8 +12,12 @@ int 	c_list(t_session *session)
 
 	if (session->mode == M_PSV)
 	{
-		while ((ret = recv(session->psv->sock, session->psv->buff, BUFFSZ, 0)) != 0 && ret != -1)
+		ft_bzero(session->psv->buff, BUFF_SIZE);
+		while (recv(session->psv->sock, session->psv->buff, BUFFSZ, 0) > 0)
+		{
 			write(1, session->psv->buff, BUFFSZ);
+			ft_bzero(session->psv->buff, BUFF_SIZE);
+		}
 		ret = recv_msg(session->sock, session->buff, &session->run);
 		close_passive(session, T_CLI);
 		return ((int)ret);
