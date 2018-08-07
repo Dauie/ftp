@@ -38,13 +38,18 @@ int		s_cwd(t_session *session)
 	char 	*cd;
 
 	start_path = NULL;
+	if (!session->argv[1])
+	{
+		send_msg(session->cs, 1, "451 Requested action aborted. Directory not specified. \r\n");
+		return (FAILURE);
+	}
 	if (!(cd = getcwd(dir, 255)) || !(start_path = getenvar(session->env, "PWD", 3)))
 	{
 		send_msg(session->cs, 1, "451 Requested action aborted. Local error in processing. \r\n");
 		return (FAILURE);
 	}
-	if (session->argv[1] && ((ft_strcmp(cd, &start_path[4]) == 0 && ft_strcmp(session->argv[1], "..") == 0) ||
-				ft_strncmp(session->argv[1], "/", 1) == 0 || ft_strncmp(session->argv[1], "~/", 2) == 0))
+	if ((ft_strcmp(cd, &start_path[4]) == 0 && ft_strcmp(session->argv[1], "..") == 0) ||
+				ft_strncmp(session->argv[1], "/", 1) == 0 || ft_strncmp(session->argv[1], "~/", 2) == 0)
 	{
 		free(start_path);
 		send_msg(session->cs, 1, "550 Requested action not taken. \r\n");
@@ -68,7 +73,6 @@ int		s_pwd(t_session *session)
 	char	dir[256];
 	char 	*res;
 	char	*hide_pwd;
-
 
 	if (!(res = getcwd(dir, 255)) || !(hide_pwd = getenvar(session->env, "PWD", 3)))
 	{

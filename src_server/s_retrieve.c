@@ -21,6 +21,12 @@ static off_t     prepare_send(t_session *session)
 	char    dir[256];
 	char    *str;
 
+	if (!session->argv[1])
+	{
+		close_passive(session, T_SVR);
+		send_msg(session->cs, 1, "451 Requested action aborted. File not specified. \r\n");
+		return (FAILURE);
+	}
 	if (!(str = getcwd(dir, 255)))
 	{
 		close_passive(session, T_SVR);
@@ -33,7 +39,7 @@ static off_t     prepare_send(t_session *session)
 		send_msg(session->cs, 1, "550 Requested action not taken. Cannot transfer directory. \r\n");
 		return (FAILURE);
 	}
-	if (!session->argv[1] || (session->fd = open(session->argv[1], O_RDONLY)) < 0)
+	if ((session->fd = open(session->argv[1], O_RDONLY)) < 0)
 	{
 		close_passive(session, T_SVR);
 		send_msg(session->cs, 1, "550 Requested action not taken. File unavailable. \r\n");
