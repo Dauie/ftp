@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   c_passive.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/07 13:43:35 by rlutt             #+#    #+#             */
+/*   Updated: 2018/08/07 13:43:35 by rlutt            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../incl/client.h"
 
-static int 	c_parse_port(char *response)
+static int		c_parse_port(char *response)
 {
-	char **resp;
-	char **ip_port;
-	int port;
+	char		**resp;
+	char		**ip_port;
+	int			port;
 
 	resp = NULL;
 	ip_port = NULL;
@@ -18,9 +30,9 @@ static int 	c_parse_port(char *response)
 	return (port ? port : (int)FAILURE);
 }
 
-int 	c_passive(t_session *session)
+int				c_passive(t_session *session)
 {
-	char	addr[BUFFSZ];
+	char		addr[BUFFSZ];
 
 	if (!(session->psv = ft_memalloc(sizeof(t_session))))
 		return (FAILURE);
@@ -28,7 +40,8 @@ int 	c_passive(t_session *session)
 	printf("[+]Initiating PASV mode\n");
 	recv_msg(session->sock, addr, &session->run);
 	session->psv->port = c_parse_port(addr);
-	if (create_connection(session->psv, inet_ntoa(session->sin.sin_addr)) == FAILURE)
+	if (create_connection(session->psv,
+			inet_ntoa(session->sin.sin_addr)) == FAILURE)
 	{
 		clean_session(session);
 		printf("[-] Error establishing PASV connection\n");

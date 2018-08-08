@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   s_passive.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/07 13:45:17 by rlutt             #+#    #+#             */
+/*   Updated: 2018/08/07 17:08:24 by rlutt            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../incl/server.h"
 
 static int		rand_ephem_port(void)
@@ -6,11 +18,11 @@ static int		rand_ephem_port(void)
 	return ((rand() % ((EPHEM_MAX - EPHEM_MIN) + 1)) + EPHEM_MIN);
 }
 
-static char 	*make_passive_addr(unsigned int addr, unsigned short port)
+static char		*make_passive_addr(unsigned int addr, unsigned short port)
 {
-	int		i;
-	char 	**ip_port;
-	char 	*ret;
+	int			i;
+	char		**ip_port;
+	char		*ret;
 
 	i = -1;
 	if (!(ip_port = ft_memalloc(sizeof(char *) * 7)))
@@ -33,33 +45,45 @@ static char 	*make_passive_addr(unsigned int addr, unsigned short port)
 	return (ret);
 }
 
-int			s_passive(t_session *session) {
-	char	*psv_addr;
-	struct	addrinfo;
+static int		make_passive_connection(t_session *session)
+{
+	char		*psv_addr;
+
+	if (create_endpoint(session->psv, NULL) == FAILURE)
+	{
+		send_msg(session->cs, 1, "451 Requested action aborted."
+				" Local error in processing. \r\n");
+		return (FAILURE);
+	}
+	ft_gethstaddr(session->buff);
+	inet_pton(AF_INET, session->buff, &session->psv->sin.sin_addr.s_addr);
+	if (!(psv_addr = make_passive_addr(session->psv->sin.sin_addr.s_addr,
+									   session->psv->sin.sin_port)))
+	{
+		send_msg(session->cs, 1, "451 Requested action aborted."
+				" Local error in processing. \r\n");
+		return (FAILURE);
+	}
+	send_msg(session->cs, 3, "227 Entering Passive Mode. ", psv_addr, " \r\n");
+	free(psv_addr);
+	return (SUCCESS);
+}
+
+int				s_passive(t_session *session) {
+
+	struct		addrinfo;
 
 	if (!(session->psv = ft_memalloc(sizeof(t_session))))
 		return (FAILURE);
 	init_session(session->psv);
 	session->psv->port = rand_ephem_port();
-	if (create_endpoint(session->psv, NULL) == FAILURE)
-	{
-		send_msg(session->cs, 1, "451 Requested action aborted. Local error in processing. \r\n");
+	if (make_passive_connection(session) == FAILURE)
 		return (FAILURE);
-	}
-	ft_gethstaddr(session->buff);
-	inet_pton(AF_INET, session->buff, &session->psv->sin.sin_addr.s_addr);
-	if (!(psv_addr = make_passive_addr(session->psv->sin.sin_addr.s_addr, session->psv->sin.sin_port)))
-	{
-		send_msg(session->cs, 1, "451 Requested action aborted. Local error in processing. \r\n");
-		return (FAILURE);
-	}
-	send_msg(session->cs, 3, "227 Entering Passive Mode. ", psv_addr, " \r\n");
-	if (accept_connection(session->psv, session->csin) == FAILURE)
+	if (accept_connection(session->psv) == FAILURE)
 	{
 		close_passive(session, T_SVR);
 		return (FAILURE);
 	}
 	session->mode = M_PSV;
-	free(psv_addr);
 	return (SUCCESS);
 }

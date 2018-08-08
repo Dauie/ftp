@@ -12,7 +12,7 @@ typedef enum 			e_ephem
 	EPHEM_MAX = 64738
 }						t_ephem;
 
-int			accept_connection(t_session *session, struct sockaddr_in check);
+int			accept_connection(t_session *session);
 int			create_endpoint(t_session *session, char *address);
 void		manage_client_session(t_session *session);
 int			prep_send(t_session *session);

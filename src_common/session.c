@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   session.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/07 13:44:26 by rlutt             #+#    #+#             */
+/*   Updated: 2018/08/07 13:44:26 by rlutt            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../incl/ftp.h"
 
-void init_session(t_session *session)
+void		init_session(t_session *session)
 {
 	ft_memset(session, 0, sizeof(t_session));
 	session->mode = M_NON;
 	session->run = TRUE;
 }
 
-void clean_session(t_session *session)
+void		clean_session(t_session *session)
 {
 	if (session->argv)
 	{

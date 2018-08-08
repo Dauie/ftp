@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   socket.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/07 13:44:44 by rlutt             #+#    #+#             */
+/*   Updated: 2018/08/07 13:44:44 by rlutt            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../incl/ftp.h"
 
-int		create_socket(t_session *session, char *address)
+int					create_socket(t_session *session, char *address)
 {
 	struct protoent *proto;
 
@@ -21,9 +33,8 @@ int		create_socket(t_session *session, char *address)
 	return (SUCCESS);
 }
 
-int 	listen_socket(t_session *session)
+int					listen_socket(t_session *session)
 {
-
 	if ((listen(session->sock, 1)) == -1)
 	{
 		close(session->sock);
@@ -32,21 +43,21 @@ int 	listen_socket(t_session *session)
 	return (SUCCESS);
 }
 
-int 	bind_socket(t_session *session)
+int					bind_socket(t_session *session)
 {
 	if (bind(session->sock, (const struct sockaddr *)&session->sin,
 				sizeof(session->sin)) < 0)
 	{
 		printf("[-]Error binding socket on port %d\n", session->port);
-		// set error code
 		return (FAILURE);
 	}
 	return (SUCCESS);
 }
 
-int 	options_socket(t_session *session)
+int					options_socket(t_session *session)
 {
-	int opt;
+	int				opt;
+
 	opt = TRUE;
 	if (setsockopt(session->sock, SOL_SOCKET, SO_REUSEADDR,
 				(char *)&opt, sizeof(opt)) < 0)
@@ -56,6 +67,3 @@ int 	options_socket(t_session *session)
 	}
 	return (SUCCESS);
 }
-
-
-

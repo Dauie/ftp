@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sig.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/07 13:44:35 by rlutt             #+#    #+#             */
+/*   Updated: 2018/08/07 13:44:35 by rlutt            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../incl/ftp.h"
 
-void 	handel_killsvr_sig(int sig)
+void		handel_killsvr_sig(int sig)
 {
 	(void)sig;
 	if (g_session->argv)
@@ -21,7 +33,7 @@ void 	handel_killsvr_sig(int sig)
 	exit(1);
 }
 
-void	handel_killcli_sig(int sig)
+void		handel_killcli_sig(int sig)
 {
 	(void)sig;
 	send_msg(g_session->sock, 1, "QUIT");

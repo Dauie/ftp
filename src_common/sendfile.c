@@ -1,22 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sendfile.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/07 13:44:17 by rlutt             #+#    #+#             */
+/*   Updated: 2018/08/07 13:44:17 by rlutt            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../incl/ftp.h"
 
-off_t       get_file_size(char *file)
+off_t		get_file_size(char *file)
 {
-	off_t   len;
-	int 	fd;
+	off_t	len;
+	int		fd;
 
 	fd = open(file, O_RDONLY);
 	if ((len = lseek(fd, 0, SEEK_END)) == -1)
-	{
-		printf("%s\n", strerror(errno));
-	}
+		return (FAILURE);
 	close(fd);
 	return (len);
 }
 
-void        close_passive(t_session *session, t_type type)
+void		close_passive(t_session *session, t_type type)
 {
-
 	if (type == T_SVR && session->psv->cs > 2)
 		close(session->psv->cs);
 	else if (type == T_CLI && session->psv->port > 2)
@@ -26,8 +35,8 @@ void        close_passive(t_session *session, t_type type)
 
 int			send_file(int sock, int fd, char *buff, off_t len)
 {
-	off_t 	rd;
-	ssize_t ret;
+	off_t	rd;
+	ssize_t	ret;
 
 	rd = 0;
 	while (rd < len)
@@ -49,7 +58,7 @@ int			send_file(int sock, int fd, char *buff, off_t len)
 	return (SUCCESS);
 }
 
-int		send_msg(int sock, int n, ...)
+int			send_msg(int sock, int n, ...)
 {
 	va_list	ap;
 	char	**tmp;
@@ -74,4 +83,3 @@ int		send_msg(int sock, int n, ...)
 	}
 	return (SUCCESS);
 }
-

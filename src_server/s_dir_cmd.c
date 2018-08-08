@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   s_dir_cmd.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/07 13:45:06 by rlutt             #+#    #+#             */
+/*   Updated: 2018/08/07 16:55:33 by rlutt            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../incl/server.h"
 
-
-int		redirect_output_fd(int fd)
+int					redirect_output_fd(int fd)
 {
 	if (dup2(fd, STDERR_FILENO) < 0)
 	{
@@ -17,12 +28,13 @@ int		redirect_output_fd(int fd)
 }
 
 static char			*getenvar(char **env, char *qry, size_t qlen) {
-	char *res;
-	int i;
+	char			*res;
+	int				i;
 
 	i = -1;
 	res = NULL;
-	while (env[++i]) {
+	while (env[++i])
+	{
 		if (ft_strncmp(env[i], qry, qlen) == 0 &&
 				env[i][qlen] == '=')
 			if (!(res = ft_strdup(env[i])))
@@ -31,25 +43,30 @@ static char			*getenvar(char **env, char *qry, size_t qlen) {
 	return (res);
 }
 
-int		s_cwd(t_session *session)
+int					s_cwd(t_session *session)
 {
-	char	dir[256];
-	char 	*start_path;
-	char 	*cd;
+	char			dir[256];
+	char			*start_path;
+	char			*cd;
 
 	start_path = NULL;
 	if (!session->argv[1])
 	{
-		send_msg(session->cs, 1, "451 Requested action aborted. Directory not specified. \r\n");
+		send_msg(session->cs, 1, "451 Requested action aborted."
+				" Directory not specified. \r\n");
 		return (FAILURE);
 	}
-	if (!(cd = getcwd(dir, 255)) || !(start_path = getenvar(session->env, "PWD", 3)))
+	if (!(cd = getcwd(dir, 255)) ||
+			!(start_path = getenvar(session->env, "PWD", 3)))
 	{
-		send_msg(session->cs, 1, "451 Requested action aborted. Local error in processing. \r\n");
+		send_msg(session->cs, 1, "451 Requested action aborted."
+				" Local error in processing. \r\n");
 		return (FAILURE);
 	}
-	if ((ft_strcmp(cd, &start_path[4]) == 0 && ft_strcmp(session->argv[1], "..") == 0) ||
-				ft_strncmp(session->argv[1], "/", 1) == 0 || ft_strncmp(session->argv[1], "~/", 2) == 0)
+	if ((ft_strcmp(cd, &start_path[4]) == 0 &&
+			ft_strcmp(session->argv[1], "..") == 0) ||
+				ft_strncmp(session->argv[1], "/", 1) == 0 ||
+			ft_strncmp(session->argv[1], "~/", 2) == 0)
 	{
 		free(start_path);
 		send_msg(session->cs, 1, "550 Requested action not taken. \r\n");
@@ -60,7 +77,8 @@ int		s_cwd(t_session *session)
 	if (chdir(cd) == -1)
 	{
 		free(start_path);
-		send_msg(session->cs, 1, "550 Requested action not taken. File or directory not found. \r\n");
+		send_msg(session->cs, 1, "550 Requested action not taken."
+				" File or directory not found. \r\n");
 		return (SUCCESS);
 	}
 	free(start_path);
@@ -68,15 +86,17 @@ int		s_cwd(t_session *session)
 	return (SUCCESS);
 }
 
-int		s_pwd(t_session *session)
+int					s_pwd(t_session *session)
 {
-	char	dir[256];
-	char 	*res;
-	char	*hide_pwd;
+	char			dir[256];
+	char			*res;
+	char			*hide_pwd;
 
-	if (!(res = getcwd(dir, 255)) || !(hide_pwd = getenvar(session->env, "PWD", 3)))
+	if (!(res = getcwd(dir, 255)) ||
+			!(hide_pwd = getenvar(session->env, "PWD", 3)))
 	{
-		send_msg(session->cs, 1, "451 Requested action aborted. Local error in processing. \r\n");
+		send_msg(session->cs, 1, "451 Requested action aborted."
+				" Local error in processing. \r\n");
 		return (FAILURE);
 	}
 	ft_strcat(dir, "/");
@@ -85,9 +105,9 @@ int		s_pwd(t_session *session)
 	return (SUCCESS);
 }
 
-int		s_list(t_session *session)
+int					s_list(t_session *session)
 {
-	int             status;
+	int				status;
 	pid_t			pid;
 	struct rusage rusage;
 
@@ -95,14 +115,16 @@ int		s_list(t_session *session)
 	{
 		if ((pid = fork()) == -1)
 		{
-			send_msg(session->cs, 1, "451 Requested action aborted. Local error in processing. \r\n");
+			send_msg(session->cs, 1, "451 Requested action aborted."
+					" Local error in processing. \r\n");
 			return (FAILURE);
 		}
 		else if (pid > 0)
 		{
 			wait4(pid, &status, 0, &rusage);
 			close_passive(session, T_SVR);
-			send_msg(session->cs, 1, "226 Closing data connection. Requested file action successful. \r\n");
+			send_msg(session->cs, 1, "226 Closing data connection."
+					" Requested file action successful. \r\n");
 		}
 		else if (pid == 0)
 		{
@@ -111,6 +133,6 @@ int		s_list(t_session *session)
 		}
 	}
 	else
-		send_msg(session->cs, 1, "451 Requested action aborted. PASV not set. \r\n");
+		send_msg(session->cs, 1, "451 Action aborted. Set PASV. \r\n");
 	return (SUCCESS);
 }

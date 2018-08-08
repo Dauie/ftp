@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   c_client.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/07 13:42:41 by rlutt             #+#    #+#             */
+/*   Updated: 2018/08/07 14:05:09 by rlutt            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../incl/client.h"
 
 char	*g_cmds[][2] = {
@@ -11,31 +23,12 @@ char	*g_cmds[][2] = {
 	{ "STOR", "put" },
 };
 
-int 	(*g_c_funcs[])(t_session *) = { &c_dircmd, &c_help, &c_list, &c_passive,
+int		(*g_c_funcs[])(t_session *) = { &c_dircmd, &c_help, &c_list, &c_passive,
 	&c_dircmd, &c_quit, &c_retrieve, &c_store};
-
-static void usage(char *str)
-{
-	printf("Usage: %s <addr> <port>\n", str);
-	exit(-1);
-}
-
-int		c_quit(t_session *session)
-{
-	session->run = FALSE;
-	return (SUCCESS);
-}
-
-int 	c_help(t_session *session)
-{
-	recv_msg(session->sock, session->buff, &session->run);
-	write(1, session->buff, ft_strlen(session->buff));
-	return (SUCCESS);
-}
 
 ssize_t			read_stdin(char *buff)
 {
-	ssize_t ret;
+	ssize_t		ret;
 
 	ret = 0;
 	if ((ret = read(0, buff, BUFFSZ)) < 0)
@@ -44,10 +37,10 @@ ssize_t			read_stdin(char *buff)
 	return (ret);
 }
 
-static int	dispatch_userin(t_session *session, char *user_input)
+static int		dispatch_userin(t_session *session, char *user_input)
 {
-	int i;
-	int j;
+	int			i;
+	int			j;
 
 	i = -1;
 	while (++i < CMD_CNT)
@@ -55,10 +48,11 @@ static int	dispatch_userin(t_session *session, char *user_input)
 		j = -1;
 		while (++j < 2)
 		{
-			if (ft_strncmp(g_cmds[i][j], session->argv[0], ft_strlen(g_cmds[i][j])) == 0)
+			if (ft_strncmp(g_cmds[i][j], session->argv[0],
+					ft_strlen(g_cmds[i][j])) == 0)
 			{
 				if (send_msg(session->sock, 2, g_cmds[i][0],
-							&user_input[ft_strlen(session->argv[0])]) == FAILURE)
+						&user_input[ft_strlen(session->argv[0])]) == FAILURE)
 					return (FAILURE);
 				g_c_funcs[i](session);
 				return (SUCCESS);
@@ -70,9 +64,9 @@ static int	dispatch_userin(t_session *session, char *user_input)
 	return (SUCCESS);
 }
 
-static void	client_shell(t_session *session)
+static void		client_shell(t_session *session)
 {
-	char	user_input[BUFFSZ];
+	char		user_input[BUFFSZ];
 
 	while (session->run == TRUE)
 	{
@@ -80,26 +74,22 @@ static void	client_shell(t_session *session)
 		ft_bzero(user_input, BUFFSZ);
 		write(1, "(^-^)> ", 7);
 		if (read_stdin(user_input) == FAILURE)
-		{
-			printf("on read_stdin: %s\n", strerror(errno));
 			continue;
-		}
-		if (!(session->argv = ft_strsplit(user_input, ' ')) || !session->argv[0])
-		{
-			printf("on strsplit: %s\n", strerror(errno));
+		if (!(session->argv = ft_strsplit(user_input, ' ')) ||
+				!session->argv[0])
 			continue;
-		}
 		dispatch_userin(session, user_input);
 		clean_session(session);
 	}
 	printf("[-]Disconnected from server\n");
 }
 
-int create_connection(t_session *session, char *addr)
+int				create_connection(t_session *session, char *addr)
 {
 	if (create_socket(session, addr) == FAILURE)
 		return (FAILURE);
-	if (connect(session->sock, (const struct sockaddr *)&session->sin, sizeof(session->sin)) == FAILURE)
+	if (connect(session->sock, (const struct sockaddr *)&session->sin,
+				sizeof(session->sin)) == FAILURE)
 	{
 		printf("[-]Error connecting to %s:%d ...(-.-)\n", addr, session->port);
 		return (FAILURE);
@@ -108,9 +98,9 @@ int create_connection(t_session *session, char *addr)
 	return (SUCCESS);
 }
 
-int	main(int ac, char **av)
+int				main(int ac, char **av)
 {
-	t_session *session;
+	t_session	*session;
 
 	if (ac != 3)
 		usage(av[0]);
@@ -124,7 +114,5 @@ int	main(int ac, char **av)
 		client_shell(session);
 	close(session->sock);
 	free(session);
-	return(0);
+	return (SUCCESS);
 }
-
-

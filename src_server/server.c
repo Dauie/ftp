@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   server.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/07 13:45:45 by rlutt             #+#    #+#             */
+/*   Updated: 2018/08/07 13:45:45 by rlutt            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../incl/server.h"
 
 static void		usage(char *str)
@@ -10,7 +22,7 @@ static void		session_manager(t_session *session)
 {
 	while (session->run)
 	{
-		if (accept_connection(session, NULL) == FAILURE)
+		if (accept_connection(session) == FAILURE)
 			continue;
 		if ((session->pid = fork()) == -1)
 		{
@@ -45,18 +57,14 @@ int				s_help(t_session *session)
 	return (SUCCESS);
 }
 
-int				accept_connection(t_session *session, struct sockaddr_in *check)
+int				accept_connection(t_session *session)
 {
 	if (!(session->cs = accept(session->sock,
 					(struct sockaddr*)&session->sin, &session->cslen)))
 		return (FAILURE);
-	if (check)
-	{
-		if (session->sin.sin_addr.s_addr != check->sin_addr.s_addr)
-			return (FAILURE);
-	}
 	printf("[+]New connection %s:%d on sd %d\n",
-			inet_ntoa(session->sin.sin_addr), ntohs(session->sin.sin_port), session->cs);;
+		inet_ntoa(session->sin.sin_addr),
+		ntohs(session->sin.sin_port), session->cs);;
 	return (SUCCESS);
 }
 
@@ -76,7 +84,7 @@ int				create_endpoint(t_session *session, char *address)
 int 			main(int ac, char **av)
 {
 	t_session	*session;
-	extern char **environ;
+	extern char	**environ;
 
 	if (ac != 2)
 		usage(av[0]);
@@ -93,5 +101,5 @@ int 			main(int ac, char **av)
 	printf("[+]Server started on port %d\n", session->port);
 	session_manager(session);
 	close(session->sock);
-	return(0);
+	return (SUCCESS);
 }

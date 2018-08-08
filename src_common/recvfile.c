@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   recvfile.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/07 13:44:07 by rlutt             #+#    #+#             */
+/*   Updated: 2018/08/07 13:44:07 by rlutt            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../incl/ftp.h"
 
-
-int 		recv_msg(int sock, char *buff, int *run)
+int			recv_msg(int sock, char *buff, int *run)
 {
-	ssize_t ret;
+	ssize_t	ret;
 
 	ft_bzero(buff, BUFFSZ);
 	if ((ret = recv(sock, buff, BUFFSZ, MSG_PEEK)) == -1)
@@ -21,10 +32,10 @@ int 		recv_msg(int sock, char *buff, int *run)
 	return (SUCCESS);
 }
 
-int		recv_file(int sock, int fd, char *buff, off_t len)
+int			recv_file(int sock, int fd, char *buff, off_t len)
 {
-	off_t rd;
-	off_t ret;
+	off_t	rd;
+	off_t	ret;
 
 	rd = 0;
 	while (rd < len)
@@ -43,4 +54,3 @@ int		recv_file(int sock, int fd, char *buff, off_t len)
 	}
 	return (SUCCESS);
 }
-
