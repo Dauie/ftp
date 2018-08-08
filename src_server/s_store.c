@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 13:45:35 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/07 22:32:47 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/07 23:03:33 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,23 @@ static off_t			recieve_file_size(t_session *session)
 	return (len);
 }
 
+static void s_store_transfer(t_session *session, off_t len)
+{
+	if ((recv_file(session->psv->cs, session->fd,
+				   session->psv->buff, len)) == FAILURE)
+	{
+		printf("[-]Error in sending '%s'\n", session->argv[1]);
+		send_msg(session->cs, 1, "550 Closing data connection."
+				"Requested file action unsuccessful. \r\n");
+	}
+	else
+	{
+		printf("[+]'%s' Sent successfully.\n", session->argv[1]);
+		send_msg(session->cs, 1, "226 Closing data connection."
+				" Requested file action successful. \r\n");
+	}
+}
+
 int			s_store(t_session *session)
 {
 	off_t	len;
@@ -64,13 +81,7 @@ int			s_store(t_session *session)
 			return (FAILURE);
 		if (prep_sstore(session) == FAILURE)
 			return (FAILURE);
-		if ((recv_file(session->psv->cs, session->fd,
-				session->psv->buff, len)) == FAILURE)
-			send_msg(session->cs, 1, "550 Closing data connection."
-					"Requested file action unsuccessful. \r\n");
-		else
-			send_msg(session->cs, 1, "226 Closing data connection."
-					" Requested file action successful. \r\n");
+		s_store_transfer(session, len);
 		close_passive(session, T_SVR);
 		close(session->fd);
 		return (SUCCESS);

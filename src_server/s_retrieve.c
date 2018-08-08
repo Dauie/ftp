@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 13:45:25 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/07 22:46:03 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/08 00:21:59 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,26 @@ static off_t		prepare_retrieve(t_session *session)
 	return (get_file_size(session->argv[1]));
 }
 
+static void			s_retrieve_transfer(t_session *session, off_t len)
+{
+	if (send_file(session->psv->cs, session->fd,
+				  session->psv->buff, len) ==  FAILURE)
+	{
+		close_passive(session, T_SVR);
+		close(session->fd);
+		printf("[-]Error retrieving '%s' from %s",
+			session->argv[1], inet_ntoa(session->sin.sin_addr));
+		send_msg(session->cs, 1, "451 Action not taken. Error in transfer.\r\n");
+	}
+	else
+	{
+		printf("[+]'%s' Successfully retrieved from %s.\n",
+			session->argv[1], inet_ntoa(session->sin.sin_addr));
+		send_msg(session->cs, 1, "226 Closing data connection."
+				" Requested file action successful.\r\n");
+	}
+}
+
 int					s_retrieve(t_session *session)
 {
 	off_t			len;
@@ -66,16 +86,7 @@ int					s_retrieve(t_session *session)
 	{
 		if ((len = prepare_retrieve(session)) == FAILURE)
 			return (FAILURE);
-		if (send_file(session->psv->cs, session->fd,
-					session->psv->buff, len) ==  FAILURE)
-		{
-			close_passive(session, T_SVR);
-			close(session->fd);
-			send_msg(session->cs, 1, "451 Action not taken. Err in trans.\r\n");
-			return (FAILURE);
-		}
-		send_msg(session->cs, 1, "226 Closing data connection."
-				" Requested file action successful.\r\n");
+		s_retrieve_transfer(session, len);
 		close_passive(session, T_SVR);
 		close(session->fd);
 		return (SUCCESS);

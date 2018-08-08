@@ -15,7 +15,7 @@
 int		(*g_s_funcs[])(t_session *) = { &s_cwd, &s_help, &s_list, &s_passive,
 									&s_pwd, &s_quit, &s_retrieve, &s_store };
 
-char			*g_sprtd_cmds[] = { "CWD", "HELP", "LIST", "PASV",
+char	*g_sprtd_cmds[] = { "CWD", "HELP", "LIST", "PASV",
 							"PWD", "QUIT" , "RETR", "STOR"};
 
 int				s_quit(t_session *session)
@@ -62,5 +62,5 @@ void			manage_client_session(t_session *session)
 		clean_session(session);
 	}
 	printf("[-]Client disconnected from %s\n",
-		inet_ntoa(session->csin.sin_addr));
+		inet_ntoa(session->sin.sin_addr));
 }
