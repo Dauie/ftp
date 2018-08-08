@@ -35,5 +35,5 @@ int			c_list(t_session *session)
 		return ((int)ret);
 	}
 	recv_msg(session->sock, session->buff, &session->run);
-	return (FAILURE);
+	return (SUCCESS);
 }

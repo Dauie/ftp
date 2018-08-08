@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 13:45:25 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/07 16:42:55 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/07 21:31:54 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,7 @@ static int			check_requested_file(t_session *session)
 	char			dir[256];
 	char			*str;
 
-	if (!session->argv[1])
-	{
-		close_passive(session, T_SVR);
-		send_msg(session->cs, 1, "451 Request aborted. No file specified.\r\n");
-		return (FAILURE);
-	}
+
 	if (!(str = getcwd(dir, 255)))
 	{
 		close_passive(session, T_SVR);
@@ -47,27 +42,30 @@ static int			check_requested_file(t_session *session)
 	}
 	if (is_file(str, session->argv[1]) == FAILURE)
 	{
-		free(str);
 		close_passive(session, T_SVR);
 		send_msg(session->cs, 1, "550 Action not taken. No directories.\r\n");
 		return (FAILURE);
 	}
-	free(str);
 	return (SUCCESS);
 }
 
 static off_t		prepare_retrieve(t_session *session)
 {
 	char			*lstr;
-
-	if (check_requested_file(session) == FAILURE)
+	if (!session->argv[1])
+	{
+		close_passive(session, T_SVR);
+		send_msg(session->cs, 1, "451 Request aborted. No file specified.\r\n");
 		return (FAILURE);
+	}
 	if ((session->fd = open(session->argv[1], O_RDONLY)) < 0)
 	{
 		close_passive(session, T_SVR);
 		send_msg(session->cs, 1, "550 Action not taken. File unavailable.\r\n");
 		return (FAILURE);
 	}
+	if (check_requested_file(session) == FAILURE)
+		return (FAILURE);
 	send_msg(session->psv->cs, 1,
 			(lstr = ft_itoa(get_file_size(session->argv[1]))));
 	if (lstr)

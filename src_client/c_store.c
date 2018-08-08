@@ -18,14 +18,12 @@ static int	prep_cstore(t_session *session, off_t *len)
 	{
 		close_passive(session, T_CLI);
 		dprintf(STDERR_FILENO, "[-]Error file not specified.\n");
-		return (FAILURE);
 	}
 	*len = get_file_size(session->argv[1]);
 	if ((session->fd = open(session->argv[1], O_RDONLY)) < 0)
 	{
 		close_passive(session, T_CLI);
 		dprintf(STDERR_FILENO, "[-]Error opening %s.\n", session->argv[1]);
-		return (FAILURE);
 	}
 	return (SUCCESS);
 }
@@ -37,8 +35,7 @@ int			c_store(t_session *session)
 
 	if (session->mode == M_PSV)
 	{
-		if (prep_cstore(session, &len) == FAILURE)
-			return (FAILURE);
+		prep_cstore(session, &len);
 		send_msg(session->psv->sock, 2, (lstr = ft_itoa(len)), " \r\n");
 		free(lstr);
 		if (send_file(session->psv->sock, session->fd,

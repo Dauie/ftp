@@ -109,7 +109,7 @@ int					s_list(t_session *session)
 {
 	int				status;
 	pid_t			pid;
-	struct rusage rusage;
+	struct rusage	rusage;
 
 	if (session->mode == M_PSV)
 	{
@@ -133,6 +133,6 @@ int					s_list(t_session *session)
 		}
 	}
 	else
-		send_msg(session->cs, 1, "451 Action aborted. Set PASV. \r\n");
+		send_msg(session->cs, 1, "425 Can't open data connection. Use PASV.\r\n");
 	return (SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 13:42:41 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/07 14:05:09 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/07 21:56:48 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ ssize_t			read_stdin(char *buff)
 {
 	ssize_t		ret;
 
-	ret = 0;
 	if ((ret = read(0, buff, BUFFSZ)) < 0)
 		return (FAILURE);
 	buff[ret - 1] = '\0';
@@ -60,7 +59,7 @@ static int		dispatch_userin(t_session *session, char *user_input)
 		}
 	}
 	if (i == CMD_CNT)
-		printf("[-]Command not implemented\n");
+		dprintf(STDERR_FILENO, "[-]Command not implemented\n");
 	return (SUCCESS);
 }
 
@@ -91,7 +90,8 @@ int				create_connection(t_session *session, char *addr)
 	if (connect(session->sock, (const struct sockaddr *)&session->sin,
 				sizeof(session->sin)) == FAILURE)
 	{
-		printf("[-]Error connecting to %s:%d ...(-.-)\n", addr, session->port);
+		dprintf(STDERR_FILENO, "[-]Error connecting to %s:%d ...(-.-)\n",
+				addr, session->port);
 		return (FAILURE);
 	}
 	printf("[+]Successfully connected to %s:%d\n", addr, session->port);
