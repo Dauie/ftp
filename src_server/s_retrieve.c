@@ -6,31 +6,15 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 13:45:25 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/07 21:31:54 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/07 22:46:03 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/server.h"
 
-static int			is_file(char *pwd, char *file)
-{
-	struct stat		sd;
-	char			*buff;
-
-	if (!(buff = ft_strjoinn(3, pwd, "/", file)))
-		return (FAILURE);
-	if (stat(buff, &sd) == -1 || (S_ISREG(sd.st_mode) == 0))
-	{
-		free(buff);
-		return (FAILURE);
-	}
-	free(buff);
-	return (SUCCESS);
-}
-
 static int			check_requested_file(t_session *session)
 {
-	char			dir[256];
+	char			dir[PATH_MAX];
 	char			*str;
 
 
@@ -52,6 +36,7 @@ static int			check_requested_file(t_session *session)
 static off_t		prepare_retrieve(t_session *session)
 {
 	char			*lstr;
+
 	if (!session->argv[1])
 	{
 		close_passive(session, T_SVR);

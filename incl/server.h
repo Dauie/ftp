@@ -2,7 +2,7 @@
 #define SERVER_H
 
 #include "ftp.h"
-#include <sys/stat.h>
+
 
 t_session *g_session;
 

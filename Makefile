@@ -9,7 +9,7 @@ CLI_SRC =	src_client/c_client.c src_client/c_dir_cmd.c src_client/c_passive.c
 CLI_SRC +=	src_client/c_retrieve.c src_client/c_store.c src_client/c_help_useage_quit.c
 
 CMN_SRC =	src_common/session.c src_common/recvfile.c src_common/sendfile.c
-CMN_SRC +=	src_common/socket.c src_common/sig.c
+CMN_SRC +=	src_common/socket.c src_common/sig.c src_common/is_file.c
 
 OBJ = *.o
 

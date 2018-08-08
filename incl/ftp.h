@@ -1,6 +1,7 @@
 #ifndef FTP_H
 #define FTP_H
 
+#include <limits.h>
 #include <errno.h>
 #include <fcntl.h>
 #include <signal.h>
@@ -10,6 +11,7 @@
 #include <sys/resource.h>
 #include <time.h>
 #include <sys/wait.h>
+#include <sys/stat.h>
 
 #include "../libft/incl/net.h"
 #include "../libft/incl/str.h"
@@ -59,6 +61,7 @@ int			create_socket(t_session *session, char *address);
 void		handel_killsvr_sig(int sig);
 void		handel_killcli_sig(int sig);
 void		init_session(t_session * session);
+int			is_file(char *pwd, char *file);
 int			listen_socket(t_session *session);
 int			options_socket(t_session *session);
 int			recv_file(int sock, int fd, char *buff, off_t len);

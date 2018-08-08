@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 13:43:58 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/07 13:57:31 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/07 22:49:30 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,16 @@
 
 static int	prep_cstore(t_session *session, off_t *len)
 {
+	char	dir[PATH_MAX];
 	if (!session->argv[1])
 	{
 		close_passive(session, T_CLI);
 		dprintf(STDERR_FILENO, "[-]Error file not specified.\n");
 	}
-	*len = get_file_size(session->argv[1]);
+	if (is_file(getcwd(dir, PATH_MAX), session->argv[1]))
+		*len = -1;
+	else
+		*len = get_file_size(session->argv[1]);
 	if ((session->fd = open(session->argv[1], O_RDONLY)) < 0)
 	{
 		close_passive(session, T_CLI);
