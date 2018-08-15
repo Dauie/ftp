@@ -26,6 +26,7 @@ static int		c_parse_port(char *response)
 	ft_tbldel(&resp);
 	port = (ip_port[4] ? ft_atoi(ip_port[4]) : 0) * 256 +
 		(ip_port[5] ? ft_atoi(ip_port[5]) : 0);
+	ft_tbldel(&ip_port);
 	return (port ? port : (int)FAILURE);
 }
 

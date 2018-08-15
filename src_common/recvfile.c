@@ -49,7 +49,7 @@ int			recv_msg_svr(int sock, char *buff, int *run, t_session *session)
 	{
 		if ((nl = ft_strchr(buff, '\n')) != NULL)
 			*nl = '\0';
-		printf("[*]%s from %s\n", buff, inet_ntoa(session->sin.sin_addr));
+		printf("[*]'%s' from %s\n", buff, inet_ntoa(session->sin.sin_addr));
 	}
 	return (SUCCESS);
 }
