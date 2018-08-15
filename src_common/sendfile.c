@@ -42,7 +42,8 @@ int			send_file(int sock, int fd, char *buff, off_t len)
 	while (rd < len)
 	{
 		ft_bzero(buff, BUFFSZ);
-		if ((ret = read(fd, buff, BUFFSZ)) == -1){
+		if ((ret = read(fd, buff, BUFFSZ)) == -1)
+		{
 			printf("[-]Issue reading file\n");
 			return (FAILURE);
 		}

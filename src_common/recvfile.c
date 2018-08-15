@@ -15,6 +15,7 @@
 int			recv_msg(int sock, char *buff, int *run)
 {
 	ssize_t	ret;
+	char	*nl;
 
 	ft_bzero(buff, BUFFSZ);
 	if ((ret = recv(sock, buff, BUFFSZ, MSG_PEEK)) == -1)
@@ -25,9 +26,30 @@ int			recv_msg(int sock, char *buff, int *run)
 		*run = FALSE;
 	if (buff[0])
 	{
-		ft_printf("[*]%s", buff);
-		if (ft_strchr(buff, '\n') == NULL)
-			write(1, "\n", 1);
+		if ((nl = ft_strchr(buff, '\n')) != NULL)
+			*nl = '\0';
+		printf("[*]%s\n", buff);
+	}
+	return (SUCCESS);
+}
+
+int			recv_msg_svr(int sock, char *buff, int *run, t_session *session)
+{
+	ssize_t	ret;
+	char	*nl;
+
+	ft_bzero(buff, BUFFSZ);
+	if ((ret = recv(sock, buff, BUFFSZ, MSG_PEEK)) == -1)
+		return (FAILURE);
+	if ((ret = recv(sock, buff, (size_t)ret, MSG_WAITALL)) == -1)
+		return (FAILURE);
+	else if (ret == 0)
+		*run = FALSE;
+	if (buff[0])
+	{
+		if ((nl = ft_strchr(buff, '\n')) != NULL)
+			*nl = '\0';
+		printf("[*]%s from %s\n", buff, inet_ntoa(session->sin.sin_addr));
 	}
 	return (SUCCESS);
 }

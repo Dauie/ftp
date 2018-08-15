@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 13:45:25 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/08 00:21:59 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/14 15:45:54 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ static int			check_requested_file(t_session *session)
 {
 	char			dir[PATH_MAX];
 	char			*str;
-
 
 	if (!(str = getcwd(dir, 255)))
 	{
@@ -61,13 +60,14 @@ static off_t		prepare_retrieve(t_session *session)
 static void			s_retrieve_transfer(t_session *session, off_t len)
 {
 	if (send_file(session->psv->cs, session->fd,
-				  session->psv->buff, len) ==  FAILURE)
+				session->psv->buff, len) == FAILURE)
 	{
 		close_passive(session, T_SVR);
 		close(session->fd);
 		printf("[-]Error retrieving '%s' from %s",
 			session->argv[1], inet_ntoa(session->sin.sin_addr));
-		send_msg(session->cs, 1, "451 Action not taken. Error in transfer.\r\n");
+		send_msg(session->cs, 1, "451 Action not taken."
+				" Error in transfer.\r\n");
 	}
 	else
 	{

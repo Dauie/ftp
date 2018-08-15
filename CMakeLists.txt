@@ -145,15 +145,18 @@ set(SOURCE_FILES
 		libft/src/tbl/ft_tblrmline.c
 		src_client/c_client.c
 		src_client/c_dir_cmd.c
+		src_client/c_help_useage_quit.c
 		src_client/c_passive.c
 		src_client/c_retrieve.c
 		src_client/c_store.c
+		src_common/is_file.c
 		src_common/recvfile.c
 		src_common/sendfile.c
 		src_common/session.c
 		src_common/sig.c
 		src_common/socket.c
 		src_server/s_client.c
+		src_server/s_cwd.c
 		src_server/s_dir_cmd.c
 		src_server/s_passive.c
 		src_server/s_retrieve.c

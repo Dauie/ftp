@@ -15,6 +15,7 @@
 static int	prep_cstore(t_session *session, off_t *len)
 {
 	char	dir[PATH_MAX];
+
 	if (!session->argv[1])
 	{
 		close_passive(session, T_CLI);

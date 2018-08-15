@@ -4,6 +4,7 @@ CCFLAGS = -Wall -Werror -Wextra -g -fsanitize=address -O0
 
 SVR_SRC =	src_server/server.c src_server/s_retrieve.c src_server/s_dir_cmd.c
 SVR_SRC +=	src_server/s_client.c src_server/s_passive.c src_server/s_store.c
+SVR_SRC +=  src_server/s_cwd.c src_server/s_help.c
 
 CLI_SRC =	src_client/c_client.c src_client/c_dir_cmd.c src_client/c_passive.c
 CLI_SRC +=	src_client/c_retrieve.c src_client/c_store.c src_client/c_help_useage_quit.c

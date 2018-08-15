@@ -29,7 +29,7 @@ void		handel_killsvr_sig(int sig)
 	}
 	close(g_session->sock);
 	free(g_session);
-	printf("\n[+]FTP Server Terminated - (^-^)^ bye.\n");
+	ft_putstr("\n[+]FTP Server Terminated - (^-^)^ bye.\n");
 	exit(1);
 }
 

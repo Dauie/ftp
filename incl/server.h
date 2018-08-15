@@ -1,12 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   server.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/14 18:16:01 by rlutt             #+#    #+#             */
+/*   Updated: 2018/08/14 18:16:01 by rlutt            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SERVER_H
-#define SERVER_H
+# define SERVER_H
 
-#include "ftp.h"
-
+# include "ftp.h"
 
 t_session *g_session;
 
-typedef enum 			e_ephem
+typedef enum			e_ephem
 {
 	EPHEM_MIN = 49152,
 	EPHEM_MAX = 64738
@@ -17,6 +28,7 @@ int			create_endpoint(t_session *session, char *address);
 void		manage_client_session(t_session *session);
 int			prep_send(t_session *session);
 int			redirect_output_fd(int fd);
+int			recv_msg_svr(int sock, char *buff, int *run, t_session *session);
 int			s_cwd(t_session *session);
 int			s_help(t_session *session);
 int			s_list(t_session *session);

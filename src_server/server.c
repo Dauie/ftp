@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 13:45:45 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/07 13:45:45 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/14 16:45:37 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,29 +42,14 @@ static void		session_manager(t_session *session)
 	}
 }
 
-int				s_help(t_session *session)
-{
-	if (send_msg(session->cs, 9, "FTP Server Usage:\n",
-				"CWD <dir> - change working directory.\n",
-				"HELP - Lists all supported commands\n",
-				"LIST <path> - List files/directories in path\n",
-				"PASV - Enter passive mode\n",
-				"PWD - Prints working directory\n",
-				"QUIT - Closes connection and quits program.\n",
-				"RETR <path> - Retrieve file at path.\n",
-				"STOR <path> - Store file at path.\n") == FAILURE)
-		return (FAILURE);
-	return (SUCCESS);
-}
-
 int				accept_connection(t_session *session)
 {
 	if (!(session->cs = accept(session->sock,
 					(struct sockaddr*)&session->sin, &session->cslen)))
 		return (FAILURE);
-	printf("[+]New connection %s:%d on sd %d\n",
+	printf("[+]New connection %s:%d\n",
 		inet_ntoa(session->sin.sin_addr),
-		ntohs(session->sin.sin_port), session->cs);;
+		ntohs(session->sin.sin_port));
 	return (SUCCESS);
 }
 
@@ -81,7 +66,7 @@ int				create_endpoint(t_session *session, char *address)
 	return (SUCCESS);
 }
 
-int 			main(int ac, char **av)
+int				main(int ac, char **av)
 {
 	t_session	*session;
 	extern char	**environ;

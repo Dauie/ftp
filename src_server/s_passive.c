@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/07 13:45:17 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/07 17:08:24 by rlutt            ###   ########.fr       */
+/*   Created: 2018/08/14 17:16:26 by rlutt             #+#    #+#             */
+/*   Updated: 2018/08/14 17:48:34 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static int		make_passive_connection(t_session *session)
 	ft_gethstaddr(session->buff);
 	inet_pton(AF_INET, session->buff, &session->psv->sin.sin_addr.s_addr);
 	if (!(psv_addr = make_passive_addr(session->psv->sin.sin_addr.s_addr,
-									   session->psv->sin.sin_port)))
+									session->psv->sin.sin_port)))
 	{
 		send_msg(session->cs, 1, "451 Requested action aborted."
 				" Local error in processing. \r\n");
@@ -69,10 +69,8 @@ static int		make_passive_connection(t_session *session)
 	return (SUCCESS);
 }
 
-int				s_passive(t_session *session) {
-
-	struct		addrinfo;
-
+int				s_passive(t_session *session)
+{
 	if (!(session->psv = ft_memalloc(sizeof(t_session))))
 		return (FAILURE);
 	init_session(session->psv);

@@ -59,7 +59,7 @@ static int		dispatch_userin(t_session *session, char *user_input)
 		}
 	}
 	if (i == CMD_CNT)
-		dprintf(STDERR_FILENO, "[-]Command not implemented\n");
+		dprintf(STDERR_FILENO, "[-]Invalid command %s\n", user_input);
 	return (SUCCESS);
 }
 
