@@ -71,7 +71,7 @@ static void			s_retrieve_transfer(t_session *session, off_t len)
 	}
 	else
 	{
-		printf("[+]'%s' Successfully retrieved from %s.\n",
+		printf("[+]'%s' Successfully sent to %s.\n",
 			session->argv[1], inet_ntoa(session->sin.sin_addr));
 		send_msg(session->cs, 1, "226 Closing data connection."
 				" Requested file action successful.\r\n");

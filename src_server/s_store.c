@@ -68,7 +68,7 @@ static void		s_store_transfer(t_session *session, off_t len)
 	}
 	else
 	{
-		printf("[+]'%s' Sent successfully.\n", session->argv[1]);
+		printf("[+]'%s' Successfully received.\n", session->argv[1]);
 		send_msg(session->cs, 1, "226 Closing data connection."
 				" Requested file action successful. \r\n");
 	}
