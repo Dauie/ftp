@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 13:44:07 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/07 13:44:07 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/14 18:24:27 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int			recv_msg(int sock, char *buff, int *run)
 		*run = FALSE;
 	if (buff[0])
 	{
-		if ((nl = ft_strchr(buff, '\n')) != NULL)
+		if ((nl = ft_strrchr(buff, '\n')) != NULL)
 			*nl = '\0';
 		printf("[*]%s\n", buff);
 	}
