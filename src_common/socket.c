@@ -44,7 +44,7 @@ static char			*check_hostfile_entires(char *address)
 int					create_socket(t_session *session, char *address)
 {
 	struct protoent *proto;
-	char 			*entry;
+	char			*entry;
 
 	entry = NULL;
 	if ((proto = getprotobyname("tcp")) == 0)

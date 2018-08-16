@@ -136,6 +136,7 @@ set(SOURCE_FILES
 		libft/src/str/ft_tolower.c
 		libft/src/str/ft_toupper.c
 		libft/src/tbl/ft_crafttbl.c
+		libft/src/tbl/ft_getenvar.c
 		libft/src/tbl/ft_itbllen.c
 		libft/src/tbl/ft_tbladdl.c
 		libft/src/tbl/ft_tbldel.c
@@ -158,6 +159,7 @@ set(SOURCE_FILES
 		src_server/s_client.c
 		src_server/s_cwd.c
 		src_server/s_dir_cmd.c
+		src_server/s_help.c
 		src_server/s_passive.c
 		src_server/s_retrieve.c
 		src_server/s_store.c

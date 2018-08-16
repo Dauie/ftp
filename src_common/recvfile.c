@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 13:44:07 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/15 11:28:10 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/16 12:57:46 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ int			recv_msg(int sock, char *buff, int *run)
 	char	*nl;
 
 	ft_bzero(buff, BUFFSZ);
-	if ((ret = recv(sock, buff, BUFFSZ, MSG_PEEK)) == -1)
-		return (FAILURE);
-	if ((ret = recv(sock, buff, (size_t)ret, MSG_WAITALL)) == -1)
+	if ((ret = recv(sock, buff, BUFFSZ, MSG_WAITALL)) == -1)
 		return (FAILURE);
 	else if (ret == 0)
 		*run = FALSE;
@@ -39,9 +37,7 @@ int			recv_msg_svr(int sock, char *buff, int *run, t_session *session)
 	char	*nl;
 
 	ft_bzero(buff, BUFFSZ);
-	if ((ret = recv(sock, buff, BUFFSZ, MSG_PEEK)) == -1)
-		return (FAILURE);
-	if ((ret = recv(sock, buff, (size_t)ret, MSG_WAITALL)) == -1)
+	if ((ret = recv(sock, buff, BUFFSZ, MSG_WAITALL)) == -1)
 		return (FAILURE);
 	else if (ret == 0)
 		*run = FALSE;
@@ -56,18 +52,18 @@ int			recv_msg_svr(int sock, char *buff, int *run, t_session *session)
 
 int			recv_file(int sock, int fd, char *buff, off_t len)
 {
-	off_t	rd;
+	off_t	read;
 	off_t	ret;
+	off_t	curread;
 
-	rd = 0;
-	while (rd < len)
+	read = 0;
+	while (read < len)
 	{
 		ft_bzero(buff, BUFFSZ);
-		if ((ret = recv(sock, buff, BUFFSZ, MSG_PEEK)) == -1)
+		curread = len - read < BUFFSZ ? len - read : BUFFSZ;
+		if ((ret = recv(sock, buff, (size_t)curread, MSG_WAITALL)) == -1)
 			return (FAILURE);
-		if ((ret = recv(sock, buff, (size_t)ret, MSG_WAITALL)) == -1)
-			return (FAILURE);
-		rd += ret;
+		read += ret;
 		if ((write(fd, buff, (size_t)ret)) == -1)
 		{
 			printf("Error writing to new file\n");
