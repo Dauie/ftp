@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 13:42:41 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/15 11:28:07 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/16 15:24:39 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,18 +101,19 @@ int				create_connection(t_session *session, char *addr)
 int				main(int ac, char **av)
 {
 	t_session	*session;
+	extern char **environ;
 
 	if (ac != 3)
 		usage(av[0]);
 	if (!(session = ft_memalloc(sizeof(t_session))))
 		return (FAILURE);
 	g_session = session;
-	init_session(session);
+	init_session(session, av, environ);
 	session->port = ft_atoi(av[2]);
 	signal(SIGINT, handel_killcli_sig);
 	if (create_connection(session, av[1]) == SUCCESS)
 		client_shell(session);
-	close(session->sock);
+	destroy_session(session);
 	free(session);
 	return (SUCCESS);
 }

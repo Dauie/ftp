@@ -1,6 +1,6 @@
 CC = gcc
 
-CCFLAGS = -Wall -Werror -Wextra -g -fsanitize=address -O0
+CCFLAGS = -Wall -Werror -Wextra -fsanitize=address
 
 SVR_SRC =	src_server/server.c src_server/s_retrieve.c src_server/s_dir_cmd.c
 SVR_SRC +=	src_server/s_client.c src_server/s_passive.c src_server/s_store.c

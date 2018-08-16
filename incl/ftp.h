@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/14 18:17:54 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/15 11:28:07 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/16 15:22:32 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # include "../libft/incl/return_types.h"
 
 # define BUFFSZ (512)
+# define MAXDIRLEN (4096)
 
 typedef enum			e_mode
 {
@@ -59,6 +60,7 @@ typedef struct			s_session
 	struct sockaddr_in	csin;
 	struct sockaddr_in	sin;
 	char				buff[BUFFSZ];
+	char				run_dir[MAXDIRLEN];
 	char				**env;
 	char				**argv;
 	struct s_session	*psv;
@@ -70,9 +72,12 @@ int						bind_socket(t_session *session);
 void					clean_session(t_session *session);
 void					close_passive(t_session *session, t_type type);
 int						create_socket(t_session *session, char *address);
+void					destroy_session(t_session *session);
+off_t					get_file_size(char *file);
+void					grim_reaper(int sig);
 void					handel_killsvr_sig(int sig);
 void					handel_killcli_sig(int sig);
-void					init_session(t_session *session);
+int						init_session(t_session *session, char **av, char **env);
 int						is_file(char *pwd, char *file);
 int						listen_socket(t_session *session);
 int						options_socket(t_session *session);
@@ -80,6 +85,5 @@ int						recv_file(int sock, int fd, char *buff, off_t len);
 int						recv_msg(int sock, char *buff, int *run_status);
 int						send_file(int sock, int fd, char *buff, off_t len);
 int						send_msg(int sock, int n, ...);
-off_t					get_file_size(char *file);
 
 #endif

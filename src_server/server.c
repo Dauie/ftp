@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 13:45:45 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/15 11:28:07 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/16 15:32:06 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,9 @@ static void		session_manager(t_session *session)
 		if (accept_connection(session) == FAILURE)
 			continue;
 		if ((session->pid = fork()) == -1)
-		{
 			close(session->cs);
-			continue;
-		}
 		else if (session->pid > 0)
-		{
 			close(session->cs);
-			signal(SIGCHLD, SIG_IGN);
-		}
 		else if (session->pid == 0)
 		{
 			close(session->sock);
@@ -74,17 +68,16 @@ int				main(int ac, char **av)
 	if (ac != 2)
 		usage(av[0]);
 	signal(SIGINT, handel_killsvr_sig);
+	signal(SIGCHLD, grim_reaper);
 	if (!(session = ft_memalloc(sizeof(t_session))))
 		return (FAILURE);
-	init_session(session);
 	g_session = session;
-	if (!(session->env = ft_tbldup(environ, ft_tbllen(environ))))
+	if (init_session(session, av, environ) == FAILURE)
 		return (FAILURE);
-	session->port = ft_atoi(av[1]);
 	if (create_endpoint(session, NULL) == FAILURE)
 		return (FAILURE);
 	printf("[+]Server started on port %d\n", session->port);
 	session_manager(session);
-	close(session->sock);
+	destroy_session(session);
 	return (SUCCESS);
 }

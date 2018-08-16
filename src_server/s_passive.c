@@ -73,7 +73,7 @@ int				s_passive(t_session *session)
 {
 	if (!(session->psv = ft_memalloc(sizeof(t_session))))
 		return (FAILURE);
-	init_session(session->psv);
+	init_session(session->psv, NULL, NULL);
 	session->psv->port = rand_ephem_port();
 	if (make_passive_connection(session) == FAILURE)
 		return (FAILURE);

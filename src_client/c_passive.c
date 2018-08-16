@@ -36,7 +36,7 @@ int				c_passive(t_session *session)
 
 	if (!(session->psv = ft_memalloc(sizeof(t_session))))
 		return (FAILURE);
-	init_session(session->psv);
+	init_session(session->psv, NULL, NULL);
 	recv_msg(session->sock, addr, &session->run);
 	session->psv->port = c_parse_port(addr);
 	if (create_connection(session->psv,
