@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/14 18:16:01 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/14 18:16:01 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/15 11:28:10 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef enum			e_ephem
 int			accept_connection(t_session *session);
 int			create_endpoint(t_session *session, char *address);
 void		manage_client_session(t_session *session);
-int			prep_send(t_session *session);
 int			redirect_output_fd(int fd);
 int			recv_msg_svr(int sock, char *buff, int *run, t_session *session);
 int			s_cwd(t_session *session);

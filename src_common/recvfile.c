@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 13:44:07 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/14 18:24:27 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/15 11:28:10 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int			recv_msg_svr(int sock, char *buff, int *run, t_session *session)
 		*run = FALSE;
 	if (buff[0])
 	{
-		if ((nl = ft_strchr(buff, '\n')) != NULL)
+		if ((nl = ft_strrchr(buff, '\n')) != NULL)
 			*nl = '\0';
 		printf("[*]'%s' from %s\n", buff, inet_ntoa(session->sin.sin_addr));
 	}
