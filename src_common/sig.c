@@ -6,15 +6,12 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 13:44:35 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/16 14:50:44 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/16 18:20:49 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/ftp.h"
 
-/**
-* As seen in Linux the Programming Interface.
-**/
 void		grim_reaper(int sig)
 {
 	int		saverno;
@@ -26,7 +23,7 @@ void		grim_reaper(int sig)
 	errno = saverno;
 }
 
-void		handel_killsvr_sig(int sig)
+void		handle_killsvr_sig(int sig)
 {
 	(void)sig;
 	if (g_session->argv)
@@ -47,7 +44,7 @@ void		handel_killsvr_sig(int sig)
 	exit(1);
 }
 
-void		handel_killcli_sig(int sig)
+void		handle_killcli_sig(int sig)
 {
 	(void)sig;
 	send_msg(g_session->sock, 1, "QUIT");

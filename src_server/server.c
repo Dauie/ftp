@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 13:45:45 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/16 15:32:06 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/16 15:33:30 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,11 @@ static void		session_manager(t_session *session)
 
 int				accept_connection(t_session *session)
 {
+	uint		cslen;
+
+	cslen = sizeof(struct sockaddr_in);
 	if (!(session->cs = accept(session->sock,
-					(struct sockaddr*)&session->sin, &session->cslen)))
+					(struct sockaddr*)&session->sin, &cslen)))
 		return (FAILURE);
 	printf("[+]New connection %s:%d\n",
 		inet_ntoa(session->sin.sin_addr),
@@ -67,7 +70,7 @@ int				main(int ac, char **av)
 
 	if (ac != 2)
 		usage(av[0]);
-	signal(SIGINT, handel_killsvr_sig);
+	signal(SIGINT, handle_killsvr_sig);
 	signal(SIGCHLD, grim_reaper);
 	if (!(session = ft_memalloc(sizeof(t_session))))
 		return (FAILURE);

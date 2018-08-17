@@ -62,7 +62,6 @@ int					create_socket(t_session *session, char *address)
 		session->sin.sin_addr.s_addr = inet_addr(address);
 	else
 		session->sin.sin_addr.s_addr = htonl(INADDR_ANY);
-	session->cslen = sizeof(session->csin);
 	if (entry)
 		free(entry);
 	return (SUCCESS);

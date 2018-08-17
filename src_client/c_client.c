@@ -110,7 +110,7 @@ int				main(int ac, char **av)
 	g_session = session;
 	init_session(session, av, environ);
 	session->port = ft_atoi(av[2]);
-	signal(SIGINT, handel_killcli_sig);
+	signal(SIGINT, handle_killcli_sig);
 	if (create_connection(session, av[1]) == SUCCESS)
 		client_shell(session);
 	destroy_session(session);

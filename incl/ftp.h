@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/14 18:17:54 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/16 15:22:32 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/16 15:32:06 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,6 @@ typedef struct			s_session
 	int					cs;
 	int					fd;
 	pid_t				pid;
-	unsigned int		cslen;
-	struct sockaddr_in	csin;
 	struct sockaddr_in	sin;
 	char				buff[BUFFSZ];
 	char				run_dir[MAXDIRLEN];
@@ -75,8 +73,8 @@ int						create_socket(t_session *session, char *address);
 void					destroy_session(t_session *session);
 off_t					get_file_size(char *file);
 void					grim_reaper(int sig);
-void					handel_killsvr_sig(int sig);
-void					handel_killcli_sig(int sig);
+void					handle_killsvr_sig(int sig);
+void					handle_killcli_sig(int sig);
 int						init_session(t_session *session, char **av, char **env);
 int						is_file(char *pwd, char *file);
 int						listen_socket(t_session *session);
